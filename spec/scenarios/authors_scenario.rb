@@ -14,4 +14,22 @@ class AuthorsScenario < Scenario::Base
               :password_confirmation => "test"
   end
 
+  helpers do
+    def login_as(author = nil)
+      session[:author_id] = case author
+      when Symbol
+        author_id(author)
+      when Fixnum, String
+        author
+      when Author
+        author.id
+      else
+        raise ArgumentError, "login_as requires a symbol, id, or author object"
+      end
+    end
+    
+    def logout
+      session[:author_id] = nil
+    end
+  end
 end

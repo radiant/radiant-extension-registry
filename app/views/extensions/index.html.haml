@@ -1,0 +1,14 @@
+#extensions
+  %h2 Available Extensions
+  - @extensions.each do |extension|
+    %div[extension]
+      %h3.name= extension.name
+      .description= textilize(extension.description)
+      .author
+        by
+        = link_to extension.author.name, author_path(extension.author)
+      .repository
+        = link_to extension.repository_url, extension.repository_url
+      .updated
+        Last updated on
+        = extension.updated_at.blank? ? extension.created_at.strftime("%B %d, %Y") : extension.updated_at.strftime("%B %d, %Y")

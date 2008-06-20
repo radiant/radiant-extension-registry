@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -25,6 +25,23 @@ ActiveRecord::Schema.define(:version => 2) do
     t.string   "website"
     t.string   "identity_url"
     t.text     "notes"
+  end
+
+  create_table "dependencies", :force => true do |t|
+    t.integer  "extension_id"
+    t.integer  "satisfier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "extensions", :force => true do |t|
+    t.string   "name"
+    t.string   "repository_url"
+    t.string   "download_url"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description",    :limit => 1000
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|

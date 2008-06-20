@@ -1,0 +1,46 @@
+%h2 Edit your profile
+= error_messages_for :author
+- form_for @author, :html => {:method => :put} do |f|
+  %fieldset
+    %legend 
+      %span Personal info
+    %p
+      %label{"for"=>"author_first_name"}
+        First name
+      = f.text_field :first_name
+    %p
+      %label{"for"=>"author_last_name"}
+        Last name
+      = f.text_field :last_name
+    %p
+      %label{"for"=>"author_website"}
+        Website URL
+      = f.text_field :website
+    %p
+      %label{"for"=>"author_email"}
+        Email
+      = f.text_field :email
+    %p
+      %label{"for"=>"author_notes"}
+        Personal notes
+        %span.hint
+          textile allowed
+      ~ f.text_area :notes, :size => "38x4"
+  %fieldset
+    %legend
+      %span Account info
+    %p
+      %label{"for"=>"author_login"}
+        Login
+      = f.text_field :login
+    %p
+      %label{"for"=>"author_password"}
+        Password
+      = f.password_field :password
+    %p
+      %label{"for"=>"author_password_confirmation"}
+        Confirm Password
+      = f.password_field :password_confirmation
+  %p#buttons
+    %button{:type => "submit"}
+      Save profile

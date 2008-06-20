@@ -1,0 +1,25 @@
+= error_messages_for :extension
+%p
+  %label
+    Name
+    %span.hint
+      the directory name
+  = f.text_field :name
+%p
+  %label
+    Repository URL
+    %span.hint
+      where to download the latest code (svn, git)
+  = f.text_field :repository_url, :size => "50"
+%p
+  %label
+    Download URL
+    %span.hint
+      where to download a bundled package (tgz, gem)
+  = f.text_field :download_url, :size => "50"
+%p
+  %label
+    Description
+    %span.hint
+      what does it do? (textile allowed)
+  ~ f.text_area :description, :size => "50x5"

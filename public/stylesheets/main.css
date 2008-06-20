@@ -1,0 +1,110 @@
+html {
+  background-color: #080808; }
+
+body {
+  padding: 0;
+  width: 960px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #FFF;
+  font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 21px; }
+
+#header {
+  background: url(/images/logo.gif) 17px center no-repeat transparent;
+  height: 114px;
+  position: relative; }
+  #header h1 {
+    position: absolute;
+    bottom: 0;
+    right: 17px;
+    font-size: 32px;
+    font-weight: bold; }
+  #header ul#account {
+    position: absolute;
+    top: 0;
+    right: 17px;
+    font-size: 12px;
+    list-style: none; }
+    #header ul#account a, #header ul#account a:visited {
+      color: white;
+      text-decoration: none; }
+    #header ul#account a:hover {
+      text-decoration: underline; }
+    #header ul#account li {
+      text-transform: lowercase;
+      display: inline;
+      padding-left: 7px; }
+
+ul#navigation {
+  text-align: right;
+  padding: 7px 17px 7px 0;
+  list-style: none;
+  background-color: #111; }
+  ul#navigation a, ul#navigation a:visited {
+    color: white;
+    text-decoration: none; }
+  ul#navigation a:hover {
+    text-decoration: underline; }
+  ul#navigation li {
+    text-transform: lowercase;
+    display: inline;
+    padding-left: 7px; }
+
+#content {
+  padding: 17px; }
+  #content a, #content a:visited {
+    color: #f81; }
+  #content a.add-link {
+    padding-left: 20px;
+    line-height: 20px;
+    background: url(/images/plus.png) left center no-repeat; }
+
+#footer {
+  padding: 7px 0;
+  text-align: center;
+  background-color: #111;
+  color: #ccc; }
+
+table.attributes {
+  border-collapse: collapse;
+  width: 500px; }
+  table.attributes tr {
+    border-top: 1px dotted #222;
+    border-bottom: 1px dotted #222;
+    padding: 2px; }
+  table.attributes th.label {
+    text-align: left;
+    background-color: #111;
+    padding: 7px; }
+  table.attributes td {
+    padding: 7px; }
+    table.attributes td ul {
+      list-style: none;
+      padding: 0; }
+      table.attributes td ul li.extension {
+        padding: 0;
+        margin: 0; }
+
+fieldset {
+  background-color: #111;
+  border: none;
+  padding-top: 2em; }
+  fieldset legend {
+    margin-top: 2em;
+    margin-left: -0.6em; }
+    fieldset legend span {
+      background-color: #333;
+      padding: 5px;
+      font-weight: bold; }
+
+label {
+  float: left;
+  clear: left;
+  font-weight: bold;
+  width: 25%; }
+  label span.hint {
+    font-size: 80%;
+    color: #666;
+    padding: 5px; }

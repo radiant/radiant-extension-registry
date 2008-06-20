@@ -100,6 +100,13 @@ describe Author do
     authors(:quentin).remember_token_expires_at.should be_close(two_weeks, 1)
   end
 
+  it "should render XML without the crypted password, salt, identity_url, or remember_token fields" do
+    authors(:quentin).to_xml.should_not match(/crypted-password/)
+    authors(:quentin).to_xml.should_not match(/salt/)
+    authors(:quentin).to_xml.should_not match(/identity-url/)
+    authors(:quentin).to_xml.should_not match(/remember-token/)
+  end
+  
 protected
   def create_author(options = {})
     record = Author.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))

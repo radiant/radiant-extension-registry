@@ -1,0 +1,11 @@
+%h2 Extension Authors
+#authors
+  - @authors.each do |author|
+    %div[author]
+      .name= link_to author.name, author_path(author)
+      - unless author.notes.blank?
+        .notes= textilize(author.notes)
+      - unless author.website.blank?
+        .website
+          Website:
+          = link_to author.website, author.website

@@ -15,7 +15,10 @@ class Author < ActiveRecord::Base
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation, :first_name,
+                  :last_name, :website, :notes, :identity_url
+
+  has_many :extensions, :dependent => :destroy
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
@@ -67,6 +70,15 @@ class Author < ActiveRecord::Base
     @activated
   end
 
+  def to_xml(options={}, &block)
+    super(options.reverse_merge(:except => [:crypted_password, :salt, :identity_url, :remember_token, :remember_token_expires_at]), &block)
+  end
+
+  def full_name
+    [first_name, last_name].compact.join ' '
+  end
+  alias :name :full_name
+  
   protected
     # before filter 
     def encrypt_password
