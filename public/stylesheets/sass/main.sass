@@ -1,17 +1,15 @@
 html
-  :background-color #080808
-
+  :background-color white
 body
   :padding 0
   :width 960px
   :margin 0 auto
-  :background-color #000
-  :color #FFF
+  :color black
   :font-family "Trebuchet MS", "Bitstream Vera Sans", Verdana, sans-serif
   :font-size 14px
   :line-height 21px
 #header
-  :background url(/images/logo.gif) 17px center no-repeat transparent
+  :background url(/images/radiant.png) 17px -34px no-repeat #eee
   :height 114px
   :position relative
   h1
@@ -26,8 +24,9 @@ body
     :right 17px
     :font-size 12px
     :list-style none
+    :margin 5px 0
     a, a:visited
-      :color white
+      :color #666
       :text-decoration none
     a:hover
       :text-decoration underline
@@ -39,9 +38,10 @@ ul#navigation
   :text-align right
   :padding 7px 17px 7px 0
   :list-style none
-  :background-color #111
+  :background-color #ccc
+  :margin 0
   a, a:visited
-    :color white
+    :color #333
     :text-decoration none
   a:hover
     :text-decoration underline
@@ -50,29 +50,48 @@ ul#navigation
     :display inline
     :padding-left 7px
 #content
-  :padding 17px
+  :padding 17px 15px
+  :border-left 2px solid #ccc
+  :border-right 2px solid #ccc
+  h2
+    :line-height 21px
+    :font-size 21px
+    :margin-bottom 0
   a, a:visited
-    :color #f81
+    :color #c00
   a.add-link
     :padding-left 20px
     :line-height 20px
     :background url(/images/plus.png) left center no-repeat
+    :color #333
+    :text-decoration none
+  .author
+    :float left
+    :width 46%
+    :margin 1%
+    :border 1px solid #ecc
+    :padding 1%
+    img
+      :float left
+      :padding 1px
+      :border 1px solid silver
+      :margin 0 5px 0 0
 #footer
   :padding 7px 0
   :text-align center
-  :background-color #111
-  :color #ccc
+  :background-color #ccc
+  :color gray
 table.attributes
   :border-collapse collapse
   :width 500px
+  :margin-top 14px
   tr
     :border
-      :top 1px dotted #222
-      :bottom 1px dotted #222
+      :top 1px solid #ecc
+      :bottom 1px solid #ecc
     :padding 2px
   th.label
     :text-align left
-    :background-color #111
     :padding 7px
   td
     :padding 7px
@@ -82,23 +101,46 @@ table.attributes
       li.extension
         :padding 0
         :margin 0
+        :border none
 fieldset
-  :background-color #111
+  :background-color #eee
   :border none
-  :padding-top 2em
   legend
     :margin-top 2em
     :margin-left -0.6em
     span
-      :background-color #333
+      :background-color #ddd
       :padding 5px
       :font-weight bold
-label
+fieldset.half
   :float left
-  :clear left
+  :width 46%
+  :margin 0 1% 1%
+label
   :font-weight bold
-  :width 25%
+  :display block
   span.hint
     :font-size 80%
     :color #666
     :padding 5px
+.extension
+  :border-top 1px solid #ecc
+  :padding 10px 0
+  .name
+    :margin 0 0 7px
+  .description
+    :width 49%
+    :float left
+    p
+      :margin-top 0
+      :margin-bottom 21px
+  .authored, .repository, .updated
+    :width 49%
+    :float right
+  .updated
+    :font-style italic
+    :color gray
+.clearfix
+  :clear both
+p#buttons
+  :clear both

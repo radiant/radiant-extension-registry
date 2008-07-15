@@ -1,7 +1,7 @@
 %h2 Edit your profile
 = error_messages_for :author
 - form_for @author, :html => {:method => :put} do |f|
-  %fieldset
+  %fieldset.half
     %legend 
       %span Personal info
     %p
@@ -26,7 +26,7 @@
         %span.hint
           textile allowed
       ~ f.text_area :notes, :size => "38x4"
-  %fieldset
+  %fieldset.half
     %legend
       %span Account info
     %p

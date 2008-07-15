@@ -1,14 +1,18 @@
 #extensions
-  %h2 Available Extensions
+  - if logged_in?
+    %p{:style => "float:right;"}= link_to "Add", new_extension_path, :class => "add-link"
+  %h2{:style => "margin-bottom:21px"} Available Extensions
   - @extensions.each do |extension|
     %div[extension]
-      %h3.name= extension.name
+      %h3.name= link_to extension.name, extension
       .description= textilize(extension.description)
-      .author
+      .authored
         by
         = link_to extension.author.name, author_path(extension.author)
       .repository
+        URL:
         = link_to extension.repository_url, extension.repository_url
       .updated
         Last updated on
         = extension.updated_at.blank? ? extension.created_at.strftime("%B %d, %Y") : extension.updated_at.strftime("%B %d, %Y")
+      .clearfix
