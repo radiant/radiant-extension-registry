@@ -19,6 +19,10 @@
   = f.text_field :download_url, :size => "50"
 %p
   %label
+    Installation type
+  = f.select :install_type, %w{Git Subversion Gem Tarball Zip}
+%p
+  %label
     Description
     %span.hint
       what does it do? (textile allowed)
