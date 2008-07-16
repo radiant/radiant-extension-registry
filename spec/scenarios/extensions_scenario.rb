@@ -9,7 +9,8 @@ class ExtensionsScenario < Scenario::Base
     create_model Extension, :reorder,
       extension_params(:name => "reorder", 
         :repository_url => "git://github.com/seancribbs/radiant-reorder.git",
-        :download_url => "http://seancribbs.com/download/reorder.tar.gz")
+        :download_url => "http://seancribbs.com/download/reorder.tar.gz",
+        :install_type => "Tarball")
   end
   
   helpers do
@@ -18,7 +19,8 @@ class ExtensionsScenario < Scenario::Base
         :name => "test_extension",
         :repository_url => "git://github.com/seancribbs/radiant-test-extension.git",
         :download_url => nil,
-        :author_id => author_id(:quentin)
+        :author_id => author_id(:quentin),
+        :install_type => "Git"
       }.merge(attributes.symbolize_keys)
     end
   end

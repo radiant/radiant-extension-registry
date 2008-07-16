@@ -3,7 +3,7 @@ class ExtensionsController < ApplicationController
   before_filter :can_only_edit_own_extensions, :only => [:edit, :update, :destroy]
   make_resourceful do
     actions :all
-    publish :xml, :attributes => [:name, :repository_url, :download_url]
+    publish :xml, :attributes => [:name, :repository_url, :download_url, :install_type]
     
     before :create do 
       current_object.author = current_author 

@@ -62,4 +62,10 @@ describe Extension do
     @extension.should_not be_valid
     @extension.should have(1).error_on(:author_id)
   end
+  
+  it "should require the installation type" do
+    @extension.install_type = nil
+    @extension.should_not be_valid
+    @extension.should have(1).error_on(:install_type)
+  end
 end

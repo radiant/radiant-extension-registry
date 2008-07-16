@@ -8,6 +8,7 @@ class Extension < ActiveRecord::Base
   validates_uniqueness_of :repository_url, :allow_nil => true
   validates_uniqueness_of :download_url, :allow_nil => true
   validates_presence_of :author_id
+  validates_presence_of :install_type
   
   def to_param
     [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
