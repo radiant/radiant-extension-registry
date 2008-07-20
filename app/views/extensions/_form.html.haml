@@ -20,7 +20,7 @@
 %p
   %label
     Installation type
-  = f.select :install_type, %w{Git Subversion Gem Tarball Zip}
+  = f.select :install_type, installation_types_for_select
 %p
   %label
     Description
