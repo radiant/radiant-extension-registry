@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
   before_filter :can_only_edit_self, :only => [:edit, :update]
 
   def index
-    @authors = Author.find(:all)
+    @authors = Author.find(:all).select{|a| a.extensions.size != 0}
     respond_to do |format|
       format.html
       format.xml { render :xml => @authors.to_xml }
