@@ -1,14 +1,16 @@
 class ExtensionsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   before_filter :can_only_edit_own_extensions, :only => [:edit, :update, :destroy]
+
   make_resourceful do
     actions :all
-    publish :xml, :attributes => [:name, :repository_url, :download_url, :install_type]
-    
-    before :create do 
-      current_object.author = current_author 
+    publish :xml, :attributes => [:name, :repository_url, :download_url, :install_type, :description,
+      {:author => [:first_name, :last_name, :email]}]
+
+    before :create do
+      current_object.author = current_author
     end
-    
+
     response_for(:create) do |format|
       format.html do
         set_default_flash(:notice, "Create successful!")
@@ -17,7 +19,7 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { head :created, :location => object_url(current_object)}
     end
-    
+
     response_for(:create_fails) do |format|
       format.html do
         set_default_flash :error, "There was a problem!"
@@ -26,7 +28,7 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { render :xml => current_object.errors.to_xml, :status => :unprocessible_entity }
     end
-  
+
     response_for(:update) do |format|
       format.html do
         set_default_flash :notice, "Save successful!"
@@ -35,7 +37,7 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { head :accepted }
     end
-    
+
     response_for(:update_fails) do |format|
       format.html do
         set_default_flash :error, "There was a problem saving!"
@@ -44,7 +46,7 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { render :xml => current_object.errors.to_xml, :status => :unprocessible_entity }
     end
-    
+
     response_for(:destroy) do |format|
       format.html do
         set_default_flash :notice, "Record deleted!"
@@ -53,7 +55,7 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { head :ok }
     end
-    
+
     response_for(:destroy_fails) do |format|
       format.html do
         set_default_flash :error, "There was a problem deleting!"
@@ -62,11 +64,11 @@ class ExtensionsController < ApplicationController
       format.js
       format.xml { head :failure }
     end
-    
+
   end
-  
+
   protected
-  
+
   def can_only_edit_own_extensions
     unless current_author.extension_ids.map(&:to_i).include?(params[:id].to_i)
       respond_to do |format|
