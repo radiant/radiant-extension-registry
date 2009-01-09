@@ -9,6 +9,9 @@ class Extension < ActiveRecord::Base
   validates_uniqueness_of :download_url, :if => :download_url?
   validates_presence_of :author_id
   validates_presence_of :install_type
+  validates_presence_of :homepage
+  validates_presence_of :current_version
+  validates_presence_of :supports_radiant_version
   
   def to_param
     [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')

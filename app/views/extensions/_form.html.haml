@@ -7,6 +7,18 @@
   = f.text_field :name
 %p
   %label
+    Current Version
+    %span.hint
+      the most recent version number of the extension
+  = f.text_field :current_version
+%p
+  %label
+    Homepage
+    %span.hint
+      where to find out more information, readme (http, (github))
+  = f.text_field :homepage
+%p
+  %label
     Repository URL
     %span.hint
       where to download the latest code (svn, git)
@@ -21,6 +33,12 @@
   %label
     Installation type
   = f.select :install_type, installation_types_for_select
+%p
+  %label
+    Supports Radiant Version
+    %span.hint
+      the highest version of radiant with full support
+  = f.text_field :supports_radiant_version
 %p
   %label
     Description
