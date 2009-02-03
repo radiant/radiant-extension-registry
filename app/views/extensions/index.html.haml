@@ -4,14 +4,14 @@
   %h2{:style => "margin-bottom:21px"} Available Extensions
   - @extensions.each do |extension|
     %div[extension]
-      %h3.name= link_to extension.name, extension
-      .description= textilize(extension.description)
+      %h3.name= link_to extension.name.gsub(/<\/?[^>]*>/, ""), extension
+      .description= textilize(extension.description.gsub(/<\/?[^>]*>/, ""))
       .authored
         by
-        = link_to extension.author.name, author_path(extension.author)
+        = link_to extension.author.name.gsub(/<\/?[^>]*>/, ""), author_path(extension.author)
       .repository
         URL:
-        = link_to extension.repository_url, extension.repository_url
+        = link_to extension.repository_url.gsub(/<\/?[^>]*>/, ""), extension.repository_url
       .updated
         Last updated on
         = extension.updated_at.blank? ? extension.created_at.strftime("%B %d, %Y") : extension.updated_at.strftime("%B %d, %Y")
