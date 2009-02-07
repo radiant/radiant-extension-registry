@@ -7,6 +7,11 @@ class ExtensionsController < ApplicationController
     publish :xml, :attributes => [:name, :repository_url, :download_url, :install_type, :description,
       {:author => [:first_name, :last_name, :email]}]
 
+    response_for(:index) do |format|
+      format.html
+      format.atom
+    end
+
     before :create do
       current_object.author = current_author
     end
