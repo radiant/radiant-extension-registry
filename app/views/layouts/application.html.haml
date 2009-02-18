@@ -6,6 +6,7 @@
       = !@extension.blank? && !@extension.new_record? ? "&mdash; #{h(@extension.name)}" : ""
     = stylesheet_link_tag "main"
     = javascript_include_tag :defaults
+    %link{ :href => "/extensions.atom", :rel => "alternate", :type => "application/atom+xml", :title => "Radiant Extension Registry" }
   %body{:id => "#{@controller.controller_name}_#{@controller.action_name}"}
     #header
       %h1#logo Radiant CMS Extension Registry
