@@ -9,6 +9,9 @@
       .authored
         by
         = link_to extension.author.name.gsub(/<\/?[^>]*>/, ""), author_path(extension.author)
+      .homepage
+        Home:
+        = link_to extension.homepage.gsub(/<\/?[^>]*>/, ""), extension.homepage
       .repository
         URL:
         = link_to extension.repository_url.gsub(/<\/?[^>]*>/, ""), extension.repository_url

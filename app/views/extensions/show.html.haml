@@ -9,6 +9,11 @@
       %td
         = @extension.author.name.gsub(/<\/?[^>]*>/, "")
         = mail_to @extension.author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :hex
+    - unless @extension.homepage.blank?
+      %tr
+        %th.label Homepage
+        %td
+          = link_to @extension.homepage.gsub(/<\/?[^>]*>/, ""), @extension.homepage
     - unless @extension.repository_url.blank?
       %tr
         %th.label Repository
