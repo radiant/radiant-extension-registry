@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Extension do
-  scenario :extensions
+  dataset :extensions
   
   before(:each) do
     @extension = Extension.new(extension_params)

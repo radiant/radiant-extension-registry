@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ExtensionsController do
-  scenario :extensions
+  dataset :extensions
   
   describe "index action" do
     it "should not require login" do

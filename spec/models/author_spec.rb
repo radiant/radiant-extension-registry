@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 include AuthenticatedTestHelper
 
 describe Author do
-  scenario :authors
+  dataset :authors
 
   describe 'being created' do
     before do

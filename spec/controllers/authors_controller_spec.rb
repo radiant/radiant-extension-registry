@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 include AuthenticatedTestHelper
 
 describe AuthorsController do
-  scenario :authors
+  dataset :authors, :extensions
   
   it 'allows signup' do
     lambda do

@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 include AuthenticatedTestHelper
 
 describe SessionsController do
-  scenario :authors
+  dataset :authors
 
   it 'logins and redirects' do
     post :create, :login => 'quentin', :password => 'test'

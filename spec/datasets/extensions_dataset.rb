@@ -1,4 +1,4 @@
-class ExtensionsScenario < Scenario::Base
+class ExtensionsDataset < Dataset::Base
   uses :authors
   
   def load
@@ -20,7 +20,10 @@ class ExtensionsScenario < Scenario::Base
         :repository_url => "git://github.com/seancribbs/radiant-test-extension.git",
         :download_url => nil,
         :author_id => author_id(:quentin),
-        :install_type => "Git"
+        :install_type => "Git",
+        :homepage => "http://github.com/seancribbs/radiant-test-extension",
+        :current_version => "1.0.0",
+        :supports_radiant_version => "0.7.1"
       }.merge(attributes.symbolize_keys)
     end
   end

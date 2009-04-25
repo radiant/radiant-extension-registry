@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Dependency do
-  scenario :extensions
+  dataset :extensions
   
   before(:each) do
     @dependency = Dependency.new(:extension_id => extension_id(:page_attachments), :satisfier_id => extension_id(:reorder))

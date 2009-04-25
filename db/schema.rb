@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -41,8 +41,11 @@ ActiveRecord::Schema.define(:version => 6) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description",    :limit => 1000
+    t.string   "description",              :limit => 1000
     t.string   "install_type"
+    t.string   "homepage"
+    t.string   "current_version"
+    t.string   "supports_radiant_version"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|

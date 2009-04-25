@@ -1,4 +1,4 @@
-class AuthorsScenario < Scenario::Base
+class AuthorsDataset < Dataset::Base
 
   def load
     create_model Author, :quentin,
