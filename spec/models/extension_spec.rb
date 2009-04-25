@@ -35,6 +35,7 @@ describe Extension do
   it "should not require a repository url if a download url is present" do
     @extension.repository_url = nil
     @extension.download_url = "http://seancribbs.com/download/test_extension.tar.gz"
+    @extension.download_type = "Tarball"
     @extension.should be_valid
   end
   
@@ -63,9 +64,30 @@ describe Extension do
     @extension.should have(1).error_on(:author_id)
   end
   
-  it "should require the installation type" do
-    @extension.install_type = nil
+  it "should require the download type when a download url is provided" do
+    @extension = extensions(:taronly)
+    @extension.download_type = nil
+    @extension.download_url.should_not be_nil
     @extension.should_not be_valid
-    @extension.should have(1).error_on(:install_type)
+    @extension.should have(1).error_on(:download_type)
+  end
+  
+  it "should require the repository type when a repository url is provided" do
+    @extension = extensions(:gitonly)
+    @extension.repository_type = nil
+    @extension.repository_url.should_not be_nil
+    @extension.should_not be_valid
+    @extension.should have(1).error_on(:repository_type)
+  end
+  
+  it "should provide install type for backward-compatibility" do
+    @extension = extensions(:page_attachments)
+    @extension.install_type.should == @extension.repository_type
+    
+    @extension = extensions(:taronly)
+    @extension.install_type.should == @extension.download_type
+    
+    @extension = extensions(:gitonly)
+    @extension.install_type.should == @extension.repository_type
   end
 end

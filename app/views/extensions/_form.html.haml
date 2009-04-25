@@ -25,14 +25,18 @@
   = f.text_field :repository_url, :size => "50"
 %p
   %label
+    Repository type
+  = f.select :repository_type, repository_types_for_select, { :include_blank => true }
+%p
+  %label
     Download URL
     %span.hint
       where to download a bundled package (tgz, gem)
   = f.text_field :download_url, :size => "50"
 %p
   %label
-    Installation type
-  = f.select :install_type, installation_types_for_select
+    Download type
+  = f.select :download_type, download_types_for_select, { :include_blank => true }
 %p
   %label
     Supports Radiant Version

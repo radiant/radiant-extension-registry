@@ -1,8 +1,12 @@
 module ExtensionsHelper
-  def installation_types_for_select
+  def repository_types_for_select
     [
       'Git',
-      'Subversion',
+      'Subversion'
+    ]
+  end
+  def download_types_for_select
+    [
       'Gem',
       ['Tar (.tar)', 'Tarball'],
       ['GZip (.tar.gz, .tgz)', 'Gzip'],
