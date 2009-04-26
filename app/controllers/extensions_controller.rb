@@ -4,7 +4,7 @@ class ExtensionsController < ApplicationController
 
   make_resourceful do
     actions :all
-    publish :xml, :attributes => [:name, :repository_url, :download_url, :repository_type, :download_type, :description,
+    publish :xml, :attributes => [:name, :repository_url, :download_url, :repository_type, :download_type, :install_type, :description,
       {:author => [:first_name, :last_name, :email]}]
 
     response_for(:index) do |format|
