@@ -1,6 +1,7 @@
 = Radiant Extension Registry
 
-This is the source code of the Radiant Extension Registry. The registry is used by Radiant to power the `script/extension install` command.
+This is the source code of the Radiant Extension Registry. The registry is
+used by Radiant to power the `script/extension install` command.
 
 Extension authors can upload information about their extensions and then use 
 `script/extension install` to install the the extension in a fresh Radiant 
