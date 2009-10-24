@@ -1,0 +1,25 @@
+=default-link-hover
+  &:hover
+    color: #06c
+    text-decoration: none
+
+=default-link
+  color: #0066cc
+  text-decoration: underline
+  +default-link-hover
+
+=alt-link
+  color: red
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+=plain-link
+  color: #333
+  text-decoration: none
+
+=basic-links
+  a
+    +default-link
+  a.alt, a.cancel, a.more
+    +alt-link

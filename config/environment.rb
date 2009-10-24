@@ -56,4 +56,13 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc
+  
+  # Set the default field error proc
+  config.action_view.field_error_proc = Proc.new do |html, instance|
+    if html !~ /label/
+      %{<span class="error_with_field">#{html} <span class="error">&bull; #{[instance.error_message].flatten.first}</span></span>}
+    else
+      html
+    end
+  end
 end

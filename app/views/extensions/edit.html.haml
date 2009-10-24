@@ -1,6 +1,6 @@
-%h2 Edit extension
+- @title = "Edit Extension"
+
 - form_for @extension do |f|
   = render :partial => "form", :locals => {:f => f}
-  %p
-    %button{:type => "submit"}
-      Update
+  .buttons
+    = submit_tag "Update Extension", :class => "button"

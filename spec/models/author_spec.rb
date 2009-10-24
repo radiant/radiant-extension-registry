@@ -11,7 +11,7 @@ describe Author do
     before do
       @author = nil
       @creating_author = lambda do
-        @author = create_author
+        @author = create_author_via_model
         violated "#{@author.errors.full_messages.to_sentence}" if @author.new_record?
       end
     end
@@ -23,28 +23,28 @@ describe Author do
 
   it 'requires login' do
     lambda do
-      u = create_author(:login => nil)
+      u = create_author_via_model(:login => nil)
       u.errors.on(:login).should_not be_nil
     end.should_not change(Author, :count)
   end
 
   it 'requires password' do
     lambda do
-      u = create_author(:password => nil)
+      u = create_author_via_model(:password => nil)
       u.errors.on(:password).should_not be_nil
     end.should_not change(Author, :count)
   end
 
   it 'requires password confirmation' do
     lambda do
-      u = create_author(:password_confirmation => nil)
+      u = create_author_via_model(:password_confirmation => nil)
       u.errors.on(:password_confirmation).should_not be_nil
     end.should_not change(Author, :count)
   end
 
   it 'requires email' do
     lambda do
-      u = create_author(:email => nil)
+      u = create_author_via_model(:email => nil)
       u.errors.on(:email).should_not be_nil
     end.should_not change(Author, :count)
   end
@@ -108,7 +108,7 @@ describe Author do
   end
   
 protected
-  def create_author(options = {})
+  def create_author_via_model(options = {})
     record = Author.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
     record.save
     record

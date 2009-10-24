@@ -1,7 +1,6 @@
+- @title = "Extension: #{h(@extension.name.gsub(/<\/?[^>]*>/, ""))}"
+
 %div[@extension]
-  %h2
-    Extension:
-    = @extension.name.gsub(/<\/?[^>]*>/, "")
   %table.attributes
     %tr
       %th.label#author

@@ -1,20 +1,24 @@
 class AuthorsDataset < Dataset::Base
 
   def load
-    create_model Author, :quentin,
-              :login => "quentin",
-              :email => "quentin@example.com",
-              :password => "test",
-              :password_confirmation => "test"
-
-    create_model Author, :aaron,
-              :login => "aaron",
-              :email => "aaron@example.com",
-              :password => "test",
-              :password_confirmation => "test"
+    create_author "Quentin"
+    create_author "Aaron"
   end
 
   helpers do
+    def create_author(first_name, attributes = {})
+      symbol = first_name.downcase.intern
+      create_model(Author, symbol,
+        {
+          :first_name => first_name,
+          :login => symbol.to_s,
+          :email => "#{symbol.to_s}@example.com",
+          :password => "test",
+          :password_confirmation => "test"
+        }.merge(attributes)
+      )
+    end
+    
     def login_as(author = nil)
       session[:author_id] = case author
       when Symbol

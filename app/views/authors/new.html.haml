@@ -1,0 +1,17 @@
+- @title = "Sign Up"
+
+- form_for :author, :url => authors_path do |f|
+  %p
+    %label{:for=>"login"} Username
+    = f.text_field :login, :class => 'textbox'
+  %p
+    %label{:for=>"email"} Email
+    = f.text_field :email, :class => 'textbox'
+  %p
+    %label{:for=>"password"} Password
+    = f.password_field :password, :class => 'textbox'
+  %p
+    %label{:for=>"password_confirmation"} Confirm Password
+    = f.password_field :password_confirmation, :class => 'textbox'
+  %p.buttons
+    = submit_tag 'Sign Up'

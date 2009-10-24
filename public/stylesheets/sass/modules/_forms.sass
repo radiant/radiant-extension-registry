@@ -1,0 +1,45 @@
+=basic-form
+  fieldset
+    border: 1px solid #ddd
+    padding: 5px 20px
+    margin: 1em 0
+    +round-corners(5px)
+    +clearfix
+    legend
+      color: #333
+      font-size: 120%
+      margin-left: -5px
+      margin-top: 2em
+      span
+        background-color: white
+        padding: 5px
+        font-weight: bold
+    &.half
+      float: left
+      width: 385px
+      margin: 1em 30px 1em 0
+  
+  p
+    label
+      color: #333
+      display: block
+      span.hint
+        font-size: 80%
+        color: #666
+        padding: 5px
+  
+  input
+    &.textbox
+      font-size: 130%
+  
+  textarea
+    width: 98%
+    font-size: 120%
+    font-family= !fixed_font_family
+  
+  .buttons
+    clear: both
+    padding: 1em 0
+    +clearfix
+    input.button
+      font-size: 120%

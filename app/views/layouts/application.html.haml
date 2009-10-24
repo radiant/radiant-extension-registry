@@ -4,27 +4,39 @@
     %title 
       Radiant CMS - Extension Registry
       = !@extension.blank? && !@extension.new_record? ? "&mdash; #{h(@extension.name)}" : ""
-    = stylesheet_link_tag "main"
+    = stylesheet_link_tag "screen"
     = javascript_include_tag :defaults
     %link{ :href => "/extensions.atom", :rel => "alternate", :type => "application/atom+xml", :title => "Radiant Extension Registry" }
   %body{:id => "#{@controller.controller_name}_#{@controller.action_name}"}
-    #header
-      %h1#logo Radiant CMS Extension Registry
-      %ul#account{:class => logged_in? ? "in" : "out"}
-        - if logged_in?
-          %li#account_link= link_to "My Profile", edit_author_url(current_author)
-          %li#logout_link.last= link_to "Logout", logout_url
-        - else
-          %li#signup_link= link_to "Signup", signup_url
-          %li#login_link.last= link_to "Login", login_url
-    %ul#navigation
-      %li#index_link= link_to "Extensions", extensions_path
-      %li#authors_link= link_to "Authors", authors_path
-    #content
-      - flash.keys.each do |key|
-        %p{:id => key}= flash[key]
-      = yield
+    #page
+      #header
+        #logo Radiant CMS Extension Registry
+        %ul#account{:class => logged_in? ? "in" : "out"}
+          - if logged_in?
+            %li#account_link= link_to "My Profile", edit_author_url(current_author)
+            %li#logout_link.last= link_to "Logout", logout_url
+          - else
+            %li#signup_link= link_to "Signup", signup_url
+            %li#login_link.last= link_to "Login", login_url
+        %ul#navigation
+          %li#index_link= link_to "Extensions", extensions_path
+          %li#authors_link= link_to "Authors", authors_path
+      #main
+        #content
+          - if content_for? :actions
+            #actions
+              = yield :actions
+          - if @title
+            %h1= @title
+          - flash.keys.each do |key|
+            %p{:id=>key}= flash[key]
+          = yield
     #footer
-      &copy; 2008 Radiant CMS Dev Team. Radiant CMS is &copy; 2006-2008 John W. Long and Sean Cribbs.
-      %br/
-      Extensions only work in Radiant CMS 0.6.x and above.
+      %p
+        Copyright &copy;
+        = "2008&#8211;#{Date.today.year}"
+        the Radiant CMS development team.<br />
+        = link_to "Radiant CMS", "http://radiantcms.org"
+        is copyright &copy;
+        = "2006&#8211;#{Date.today.year}"
+        John W. Long and Sean Cribbs.

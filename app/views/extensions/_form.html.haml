@@ -1,28 +1,27 @@
-= error_messages_for :extension
 %p
   %label
     Name
     %span.hint
       the directory name
-  = f.text_field :name
+  = f.text_field :name, :class => "textbox"
 %p
   %label
     Current Version
     %span.hint
       the most recent version number of the extension
-  = f.text_field :current_version
+  = f.text_field :current_version, :class => "textbox"
 %p
   %label
     Homepage
     %span.hint
       where to find out more information, readme (http, (github))
-  = f.text_field :homepage
+  = f.text_field :homepage, :class => "textbox"
 %p
   %label
     Repository URL
     %span.hint
       where to download the latest code (svn, git)
-  = f.text_field :repository_url, :size => "50"
+  = f.text_field :repository_url, :size => "50", :class => "textbox"
 %p
   %label
     Repository type
@@ -32,7 +31,7 @@
     Download URL
     %span.hint
       where to download a bundled package (tgz, gem)
-  = f.text_field :download_url, :size => "50"
+  = f.text_field :download_url, :size => "50", :class => "textbox"
 %p
   %label
     Download type
@@ -42,7 +41,7 @@
     Supports Radiant Version
     %span.hint
       the highest version of radiant with full support
-  = f.text_field :supports_radiant_version
+  = f.text_field :supports_radiant_version, :class => "textbox"
 %p
   %label
     Description

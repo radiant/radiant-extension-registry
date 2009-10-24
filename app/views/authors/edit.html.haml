@@ -1,5 +1,5 @@
-%h2 Edit your profile
-= error_messages_for :author
+- @title = "Edit Your Profile"
+
 - form_for @author, :html => {:method => :put} do |f|
   %fieldset.half
     %legend 
@@ -7,19 +7,19 @@
     %p
       %label{"for"=>"author_first_name"}
         First name
-      = f.text_field :first_name
+      = f.text_field :first_name, :class => "textbox"
     %p
       %label{"for"=>"author_last_name"}
         Last name
-      = f.text_field :last_name
+      = f.text_field :last_name, :class => "textbox"
     %p
       %label{"for"=>"author_website"}
         Website URL
-      = f.text_field :website
+      = f.text_field :website, :class => "textbox"
     %p
       %label{"for"=>"author_email"}
         Email
-      = f.text_field :email
+      = f.text_field :email, :class => "textbox"
     %p
       %label{"for"=>"author_notes"}
         Personal notes
@@ -32,15 +32,14 @@
     %p
       %label{"for"=>"author_login"}
         Login
-      = f.text_field :login
+      = f.text_field :login, :class => "textbox"
     %p
       %label{"for"=>"author_password"}
         Password
-      = f.password_field :password
+      = f.password_field :password, :class => "textbox"
     %p
       %label{"for"=>"author_password_confirmation"}
         Confirm Password
-      = f.password_field :password_confirmation
-  %p#buttons
-    %button{:type => "submit"}
-      Save profile
+      = f.password_field :password_confirmation, :class => "textbox"
+  .buttons
+    = submit_tag "Save Profile", :class => "button"

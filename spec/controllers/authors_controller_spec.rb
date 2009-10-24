@@ -9,14 +9,14 @@ describe AuthorsController do
   
   it 'allows signup' do
     lambda do
-      create_author
+      create_author_via_post
       response.should be_redirect
     end.should change(Author, :count).by(1)
   end
 
   it 'requires login on signup' do
     lambda do
-      create_author(:login => nil)
+      create_author_via_post(:login => nil)
       assigns[:author].errors.on(:login).should_not be_nil
       response.should be_success
     end.should_not change(Author, :count)
@@ -24,7 +24,7 @@ describe AuthorsController do
 
   it 'requires password on signup' do
     lambda do
-      create_author(:password => nil)
+      create_author_via_post(:password => nil)
       assigns[:author].errors.on(:password).should_not be_nil
       response.should be_success
     end.should_not change(Author, :count)
@@ -32,7 +32,7 @@ describe AuthorsController do
 
   it 'requires password confirmation on signup' do
     lambda do
-      create_author(:password_confirmation => nil)
+      create_author_via_post(:password_confirmation => nil)
       assigns[:author].errors.on(:password_confirmation).should_not be_nil
       response.should be_success
     end.should_not change(Author, :count)
@@ -40,7 +40,7 @@ describe AuthorsController do
 
   it 'requires email on signup' do
     lambda do
-      create_author(:email => nil)
+      create_author_via_post(:email => nil)
       assigns[:author].errors.on(:email).should_not be_nil
       response.should be_success
     end.should_not change(Author, :count)
@@ -96,7 +96,7 @@ describe AuthorsController do
     end
   end
 
-  def create_author(options = {})
+  def create_author_via_post(options = {})
     post :create, :author => { :login => 'quire', :email => 'quire@example.com',
       :password => 'quire', :password_confirmation => 'quire' }.merge(options)
   end

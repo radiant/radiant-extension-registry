@@ -75,7 +75,8 @@ class Author < ActiveRecord::Base
   end
 
   def full_name
-    [first_name, last_name].compact.join ' '
+    fn = [first_name, last_name].compact.join ' '
+    fn.empty? ? login : fn
   end
   alias :name :full_name
   

@@ -1,7 +1,9 @@
+- @title = "All Extensions"
+
+- content_for :actions do
+  = link_to "Add Extension", new_extension_path, :class => "add_link"
+
 #extensions
-  - if logged_in?
-    %p{:style => "float:right;"}= link_to "Add", new_extension_path, :class => "add-link"
-  %h2{:style => "margin-bottom:21px"} Available Extensions
   - @extensions.each do |extension|
     %div[extension]
       %h3.name= link_to extension.name.gsub(/<\/?[^>]*>/, ""), extension

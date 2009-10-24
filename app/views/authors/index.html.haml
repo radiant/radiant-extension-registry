@@ -1,4 +1,5 @@
-%h2 Extension Authors
+- @title = "All Extension Authors"
+
 #authors
   -unless @authors.blank?
     - @authors.each do |author|
@@ -12,4 +13,3 @@
           .website
             Website:
             = link_to author.website.gsub(/<\/?[^>]*>/, ""), author.website
-.clearfix

@@ -1,20 +1,18 @@
-%h2
-  Author:
-  = h(@author.full_name.gsub(/<\/?[^>]*>/, ""))
-  
+-@title = "Author: #{h(@author.full_name.gsub(/<\/?[^>]*>/, ""))}"
+
 %table.attributes
   %tr
     %th.label Email
-    %td.value=mail_to(@author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :javascript)
+    %td.value= mail_to(@author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :javascript)
   %tr
     %th.label Website
     %td.value= link_to(@author.website.gsub(/<\/?[^>]*>/, ""), @author.website) if @author.website
   %tr
     %th.label Notes
-    %td.value= textilize(@author.notes.gsub(/<\/?[^>]*>/, ""))
+    %td.value= textilize(@author.notes.to_s.gsub(/<\/?[^>]*>/, ""))
   %tr
     %th.label Extensions
     %td.value
       %ul
-        - @author.extensions.each do |ext|
-          %li[ext]= link_to ext.name.gsub(/<\/?[^>]*>/, ""), ext
+        - for extension in @author.extensions
+          %li[extension]= link_to extension.name.to_s.gsub(/<\/?[^>]*>/, ""), extension

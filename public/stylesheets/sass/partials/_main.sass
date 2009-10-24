@@ -1,0 +1,82 @@
+#content
+  padding: 5px 20px 20px
+  
+  +basic-links
+  +basic-typography
+  +flash-messages
+  +error-messages
+  
+  form
+    +basic-form
+  
+  #authors
+    +clearfix
+  
+  .author
+    border: 1px solid #ddd
+    float: left
+    margin: 1%
+    padding: 1%
+    width: 45%
+    +round-corners(8px)
+    img
+      border: 1px solid silver
+      float: left
+      margin: 0 5px 0 0
+      padding: 1px
+  
+  table.attributes
+    border-collapse: collapse
+    width: 100%
+    margin: 0
+    tr
+      border-top: 1px solid #ddd
+      padding: 2px
+    th.label
+      padding: 6px 6px 6px 0
+      text-align: left
+      vertical-align: top
+      width: 20%
+    td
+      padding: 6px
+      ul
+        list-style: none
+        padding: 0
+        li.extension
+          border: none
+          margin: 0
+          padding: 0
+  
+  #extensions
+    .extension
+      border-top: 1px solid #ddd
+  .extension
+    padding: 10px 0
+    .name
+      margin: 0 0 7px
+    .description
+      width: 49%
+      float: left
+      p
+        margin-top: 0
+        margin-bottom: 21px
+    .authored, .repository, .updated, .homepage
+      width: 49%
+      float: right
+    .updated
+      font-style: italic
+      color: gray
+  
+  #actions
+    float: right
+    padding-top: 20px
+    a.add_link
+      padding-left: 20px
+      line-height: 20px
+      background: url(/images/plus.png) left center no-repeat
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+  
+  .clearfix
+    clear: both
