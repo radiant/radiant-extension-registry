@@ -133,7 +133,7 @@ describe ExtensionsController do
   
   describe "edit action" do
     before :each do
-      login_as :quentin
+      login_as :sean
     end
     
     it "should require login" do
@@ -162,7 +162,7 @@ describe ExtensionsController do
   
   describe "update action" do
     before :each do
-      login_as :quentin
+      login_as :sean
       @extension = extensions(:page_attachments)
       controller.stub!(:current_object).and_return(@extension)
     end
@@ -220,7 +220,7 @@ describe ExtensionsController do
   
   describe "destroy action" do
     before :each do
-      login_as :quentin
+      login_as :sean
       @extension = extensions(:page_attachments)
       controller.stub!(:current_object).and_return(@extension)
     end

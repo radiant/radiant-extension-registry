@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/dataset"]
 	path = vendor/plugins/dataset
 	url = git://github.com/aiwilliams/dataset.git
+[submodule "vendor/plugins/lindo"]
+	path = vendor/plugins/lindo
+	url = git://github.com/adeptware/lindo.git

@@ -3,24 +3,37 @@ class ExtensionsDataset < Dataset::Base
   
   def load
     create_extension("page_attachments",
-      :repository_url => "git://github.com/seancribbs/radiant-page-attachments.git",
+      :author_id => author_id(:sean),
+      :description => "Supports uploaded files as “attachments” to pages.",
+      :download_type => "Tarball",
       :download_url => "http://seancribbs.com/download/page_attachments.tar.gz",
-      :download_type => "Tarball"
+      :repository_url => "git://github.com/seancribbs/radiant-page-attachments.git"
     )
     create_extension("reorder", 
-      :repository_url => "git://github.com/seancribbs/radiant-reorder.git",
+      :download_type => "Tarball",
       :download_url => "http://seancribbs.com/download/reorder.tar.gz",
-      :download_type => "Tarball"
+      :repository_url => "git://github.com/seancribbs/radiant-reorder.git"
     )
-    create_extension("gitonly", 
+    create_extension("gitonly",
       :repository_url => "git://github.com/seancribbs/radiant-gitonly.git"
     )
     create_extension("taronly", 
-      :repository_url => "",
+      :author_id => author_id(:aaron),
+      :download_type => "Tarball",
       :download_url => "http://seancribbs.com/download/taronly.tar.gz",
       :repository_type => nil,
-      :download_type => "Tarball",
-      :author_id => author_id(:aaron)
+      :repository_url => ""
+    )
+    create_extension("bespin_editor",
+      :author_id => author_id(:john),
+      :description => "Bespin is an embeddable source code editor from Mozilla that provides robust syntax highlighting, indentation support, and other features.\n\nThe Bespin Editor Extension replaces all textareas in Radiant with the Bespin editor. Note that Bespin only works in Web browsers that support the HTML canvas tag (Safari, Firefox, and Opera).",
+      :repository_url => "git://github.com/jlong/radiant-bespin-editor-extension.git"
+    )
+    create_extension("help",
+      :author_id => author_id(:jim),
+      :homepage => "http://github.com/saturnflyer/radiant-help-extension/",
+      :repository_url => "git://github.com/saturnflyer/radiant-help-extension.git",
+      :description => "Provides Help documentation in a tab in the Radiant interface and provides a way for developers to easily include their own help information."
     )
   end
   

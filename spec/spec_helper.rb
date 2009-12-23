@@ -4,8 +4,9 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
-
 require 'dataset'
+require 'lindo'
+
 class Test::Unit::TestCase
   include Dataset
   datasets_directory "#{RAILS_ROOT}/spec/datasets"
