@@ -164,56 +164,54 @@ describe ExtensionsController do
     before :each do
       login_as :sean
       @extension = extensions(:page_attachments)
-      controller.stub!(:current_object).and_return(@extension)
     end
     
     it "should require login" do
       logout
-      put :update, :id => extension_id(:page_attachments)
+      put :update, :id => @extension.id, :extension => { :name => "changed" }
+      extensions(:page_attachments).name.should == "page_attachments"
       response.should be_redirect
     end
     
     it "should require the author to be the owner of the extension" do
       login_as :aaron
-      put :update, :id => extension_id(:page_attachments)
+      put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }
+      extensions(:page_attachments).name.should == "page_attachments"
       response.should be_redirect
       flash[:warning].should_not be_nil
     end
 
     describe "when save succeeds" do
-      before :each do
-        @extension.should_receive(:update_attributes).and_return(true)
-      end
-            
       it "should redirect" do
-        put :update, :id => extension_id(:page_attachments)
+        put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }
+        extensions(:page_attachments).name.should == "changed"
         response.should be_redirect
       end
       
       it "should build the extension object" do
-        put :update, :id => extension_id(:page_attachments)
+        put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }
+        extensions(:page_attachments).name.should  == "changed"
         assigns[:extension].should == @extension
       end
       
       it "should update the object when XML" do
-        put :update, :id => extension_id(:page_attachments), :format => 'xml'
+        put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }, :format => 'xml'
+        extensions(:page_attachments).name.should == "changed"
         (200..299).should include(response.response_code)
       end
     end
     
     describe "when save fails" do
-      before :each do
-        @extension.should_receive(:update_attributes).and_return(false)
-      end
-      
       it "should render the edit template" do
-        put :update, :id => extension_id(:page_attachments)
+        put :update, :id => extension_id(:page_attachments), :extension => { :name => "" }
         response.should render_template('edit')
+        extensions(:page_attachments).name.should == "page_attachments"
       end
       
       it "should render errors when XML" do
-        put :update, :id => extension_id(:page_attachments), :format => 'xml'
+        put :update, :id => extension_id(:page_attachments), :extension => { :name => "" }, :format => 'xml'
         response.should_not be_success
+        extensions(:page_attachments).name.should == "page_attachments"
       end
     end
   end
@@ -222,31 +220,32 @@ describe ExtensionsController do
     before :each do
       login_as :sean
       @extension = extensions(:page_attachments)
-      controller.stub!(:current_object).and_return(@extension)
     end
     
     it "should require login" do
       logout
-      delete :destroy, :id => extension_id(:page_attachments)
+      delete :destroy, :id => @extension.id
+      Extension.find_by_id(@extension.id).should_not be_nil
       response.should be_redirect
     end
     
     it "should require the author to be the owner of the extension" do
       login_as :aaron
-      delete :destroy, :id => extension_id(:page_attachments)
+      delete :destroy, :id => @extension.id
+      Extension.find_by_id(@extension.id).should_not be_nil
       response.should be_redirect
       flash[:warning].should_not be_nil
     end
     
     it "should destroy and redirect" do
-      @extension.should_receive(:destroy).and_return(true)
-      delete :destroy, :id => extension_id(:page_attachments)
+      delete :destroy, :id => @extension.id
+      Extension.find_by_id(@extension.id).should be_nil
       response.should be_redirect
     end
     
     it "should destroy when XML" do
-      @extension.should_receive(:destroy).and_return(true)
-      delete :destroy, :id => extension_id(:page_attachments), :format => 'xml'
+      delete :destroy, :id => @extension.id, :format => 'xml'
+      Extension.find_by_id(@extension.id).should be_nil
       (200..299).should include(response.response_code)
     end
   end

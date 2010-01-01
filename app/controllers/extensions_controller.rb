@@ -1,89 +1,105 @@
 class ExtensionsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   before_filter :can_only_edit_own_extensions, :only => [:edit, :update, :destroy]
-
-  make_resourceful do
-    actions :all
-    publish :xml, :attributes => [:name, :repository_url, :download_url, :repository_type, :download_type, :install_type, :description,
-      {:author => [:first_name, :last_name, :email]}]
-
-    response_for(:index) do |format|
+  
+  # GET /extensions
+  # GET /extensions.atom
+  def index
+    @extensions = Extension.find(:all, :order => "name")
+    respond_to do |format|
       format.html
+      format.xml { render :xml => @extensions }
       format.atom
     end
-
-    before :create do
-      current_object.author = current_author
+  end
+  
+  # GET /extensions/1
+  # GET /extensions/1.xml
+  def show
+    @extension = Extension.find(params[:id])  
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @extension }
     end
-
-    response_for(:create) do |format|
-      format.html do
-        set_default_flash(:notice, "Create successful!")
-        set_default_redirect object_path
-      end
-      format.js
-      format.xml { head :created, :location => object_url(current_object)}
-    end
-
-    response_for(:create_fails) do |format|
-      format.html do
-        set_default_flash :error, "There was a problem!"
-        render :action => :new, :status => 422
-      end
-      format.js
-      format.xml { render :xml => current_object.errors.to_xml, :status => :unprocessible_entity }
-    end
-
-    response_for(:update) do |format|
-      format.html do
-        set_default_flash :notice, "Save successful!"
-        set_default_redirect object_path
-      end
-      format.js
-      format.xml { head :accepted }
-    end
-
-    response_for(:update_fails) do |format|
-      format.html do
-        set_default_flash :error, "There was a problem saving!"
-        render :action => :edit, :status => 422
-      end
-      format.js
-      format.xml { render :xml => current_object.errors.to_xml, :status => :unprocessible_entity }
-    end
-
-    response_for(:destroy) do |format|
-      format.html do
-        set_default_flash :notice, "Record deleted!"
-        set_default_redirect objects_path
-      end
-      format.js
-      format.xml { head :ok }
-    end
-
-    response_for(:destroy_fails) do |format|
-      format.html do
-        set_default_flash :error, "There was a problem deleting!"
-        set_default_redirect :back, :status => :failure
-      end
-      format.js
-      format.xml { head :failure }
-    end
-
+  end
+  
+  # GET /extensions/new
+  def new
+    @extension = Extension.new
   end
 
-  protected
+  # GET /extensions/1/edit
+  def edit
+    @extension = Extension.find(params[:id])
+  end
+  
+  # POST /extensions
+  # POST /extensions.xml
+  def create
+    @extension = Extension.new(params[:extension])
+    @extension.author = current_author
+    respond_to do |format|
+      if @extension.save
+        format.html { flash[:notice] = 'Created successfully!'; redirect_to extension_url(@extension) }
+        format.js
+        format.xml  { head :created, :location => extension_url(@extension) }
+      else
+        format.html { flash[:error] = 'There was a problem!'; render :action => "new", :status => 422 }
+        format.js
+        format.xml  { render :xml => @extension.errors.to_xml, :status => :unprocessible_entity }
+      end
+    end
+  end
+  
+  # PUT /extensions/1
+  # PUT /extensions/1.xml
+  def update
+    @extension = Extension.find(params[:id])
+    respond_to do |format|
+      if @extension.update_attributes(params[:extension])
+        format.html { flash[:notice] = 'Updated successfully!'; redirect_to extension_url(@extension) }
+        format.js
+        format.xml  { head :ok }
+      else
+        format.html { flash[:error] = 'There was a problem saving!'; render :action => "edit", :status => 422 }
+        format.js
+        format.xml  { render :xml => @extension.errors.to_xml, :status => :unprocessible_entity }
+      end
+    end
+  end
 
-  def can_only_edit_own_extensions
-    unless current_author.extension_ids.map(&:to_i).include?(params[:id].to_i)
+  # DELETE /extensions/1
+  # DELETE /extensions/1.xml
+  def destroy
+    @extension = Extension.find(params[:id])
+    if @extension.destroy
       respond_to do |format|
-        format.html do
-          flash[:warning] = "You can only edit your own extensions."
-          redirect_to objects_url
-        end
-        format.xml { head :forbidden }
+        format.html { flash[:notice] = "Record deleted!"; redirect_to extensions_url }
+        format.js
+        format.xml  { head :ok }
       end
-      return false
+    else
+      respond_to do |format|
+        format.html { flash[:error] = "There was a problem deleting!"; redirect_to :back, :status => :failure }
+        format.js
+        format.xml  { head :failure }
+      end
     end
   end
+  
+  protected
+  
+    def can_only_edit_own_extensions
+      unless current_author.extension_ids.map(&:to_i).include?(params[:id].to_i)
+        respond_to do |format|
+          format.html do
+            flash[:warning] = "You can only edit your own extensions."
+            redirect_to extensions_url
+          end
+          format.xml { head :forbidden }
+        end
+        return false
+      end
+    end
+  
 end

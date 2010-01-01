@@ -14,11 +14,34 @@ class Extension < ActiveRecord::Base
   validates_presence_of :current_version
   validates_presence_of :supports_radiant_version
   
-  def to_param
-    [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
-  end
   
   def install_type
     repository_type || download_type
   end
+  
+  def to_xml(options = {})
+    options[:indent] ||= 2
+    xml = options[:builder] ||= Builder::XmlMarkup.new(:indent => options[:indent])
+    xml.instruct! unless options[:skip_instruct]
+    
+    xml.extension do
+      xml.tag!("name", name)
+      xml.tag!("description", description)
+      xml.tag!("repository-type", repository_type)
+      xml.tag!("repository-url", repository_url)
+      xml.tag!("download-type", download_type)
+      xml.tag!("download-url", download_url)
+      xml.tag!("install-type", install_type)
+      xml.tag!("author") do
+        xml.tag!("first-name", author.first_name)
+        xml.tag!("last-name", author.last_name)
+        xml.tag!("email", author.email)
+      end
+    end
+  end
+  
+  def to_param
+    [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
+  end
+  
 end
