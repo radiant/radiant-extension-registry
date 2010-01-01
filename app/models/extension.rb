@@ -19,6 +19,10 @@ class Extension < ActiveRecord::Base
     repository_type || download_type
   end
   
+  def to_param
+    [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
+  end
+  
   def to_xml(options = {})
     options[:indent] ||= 2
     xml = options[:builder] ||= Builder::XmlMarkup.new(:indent => options[:indent])
@@ -38,10 +42,6 @@ class Extension < ActiveRecord::Base
         xml.tag!("email", author.email)
       end
     end
-  end
-  
-  def to_param
-    [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
   end
   
 end
