@@ -190,7 +190,7 @@ describe ExtensionsController do
       
       it "should build the extension object" do
         put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }
-        extensions(:page_attachments).name.should  == "changed"
+        extensions(:page_attachments).name.should == "changed"
         assigns[:extension].should == @extension
       end
       
