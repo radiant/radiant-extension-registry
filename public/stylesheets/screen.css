@@ -269,26 +269,6 @@ body {
           border: none;
           margin: 0;
           padding: 0; }
-  #content #extensions {
-    border-bottom: 1px solid #ddd; }
-    #content #extensions .extension {
-      border-top: 1px solid #ddd; }
-  #content .extension {
-    padding: 10px 0; }
-    #content .extension .name {
-      margin: 0 0 7px; }
-    #content .extension .description {
-      width: 49%;
-      float: left; }
-      #content .extension .description p {
-        margin-top: 0;
-        margin-bottom: 21px; }
-    #content .extension .authored, #content .extension .repository, #content .extension .updated, #content .extension .homepage {
-      width: 49%;
-      float: right; }
-    #content .extension .updated {
-      font-style: italic;
-      color: gray; }
   #content #actions {
     float: right;
     padding-top: 20px; }
@@ -327,6 +307,26 @@ body {
     margin-right: 0.5em; }
   #content .pagination .next_page {
     margin-left: 0.5em; }
+
+#content #extensions {
+  border-bottom: 1px solid #e5e5e5; }
+  #content #extensions .extension {
+    border-top: 1px solid #e5e5e5; }
+#content .extension {
+  padding: 10px 0; }
+  #content .extension .name {
+    margin: 0 0 0.25em;
+    font-size: 140%; }
+  #content .extension .description {
+    width: 65%;
+    font-size: 110%;
+    color: #888; }
+    #content .extension .description p {
+      margin: 0 0 0.25em; }
+  #content .extension .authored {
+    color: #888; }
+    #content .extension .authored a {
+      color: #666; }
 
 #footer {
   padding: 10px 0;
