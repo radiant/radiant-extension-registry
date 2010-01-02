@@ -11,16 +11,19 @@ class AuthorsDataset < Dataset::Base
 
   helpers do
     def create_author(first_name, attributes = {})
-      symbol = first_name.downcase.intern
-      create_model(Author, symbol,
-        {
-          :first_name => first_name,
-          :login => symbol.to_s,
-          :email => "#{symbol.to_s}@example.com",
-          :password => "test",
-          :password_confirmation => "test"
-        }.merge(attributes)
-      )
+      symbol = first_name.downcase.gsub(" ", "_").intern
+      create_model(Author, symbol, author_params(first_name, attributes))
+    end
+    
+    def author_params(first_name, attributes = {})
+      login = attributes[:login] || first_name.downcase.gsub(" ", "_")
+      {
+        :first_name => first_name,
+        :login => login,
+        :email => "#{login}@example.com",
+        :password => "test",
+        :password_confirmation => "test"
+      }.merge(attributes.symbolize_keys)
     end
     
     def login_as(author = nil)

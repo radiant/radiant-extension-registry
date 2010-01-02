@@ -14,6 +14,9 @@ class Extension < ActiveRecord::Base
   validates_presence_of :current_version
   validates_presence_of :supports_radiant_version
   
+  after_create  :update_cached_fields
+  after_destroy :update_cached_fields
+  
   def self.per_page
     15
   end
@@ -46,5 +49,11 @@ class Extension < ActiveRecord::Base
       end
     end
   end
+  
+  protected
+    
+    def update_cached_fields
+      Author.update_all(['extensions_count = ?', Extension.count(:id, :conditions => { :author_id => author_id })], ["id = ?", author_id])
+    end
   
 end

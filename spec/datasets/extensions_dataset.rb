@@ -43,9 +43,11 @@ class ExtensionsDataset < Dataset::Base
     end
     
     def extension_params(attributes = {})
+      name = attributes[:name] || "test"
+      slug = name.downcase.gsub(" ", "-")
       {
-        :name => "test_extension",
-        :repository_url => "git://github.com/seancribbs/radiant-test-extension.git",
+        :name => name,
+        :repository_url => "git://github.com/seancribbs/radiant-#{slug}-extension.git",
         :description => "(none)",
         :download_url => nil,
         :author_id => author_id(:quentin),

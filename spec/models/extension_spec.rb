@@ -55,7 +55,7 @@ describe Extension do
   
   it "should have a friendly URL parameter" do
     @extension.save
-    @extension.to_param.should match(/^\d+-test-extension$/)
+    @extension.to_param.should match(/^\d+-test$/)
   end
   
   it "should require an author" do
@@ -89,5 +89,21 @@ describe Extension do
     
     @extension = extensions(:gitonly)
     @extension.install_type.should == @extension.repository_type
+  end
+  
+  it "should update the extension count on author when a new one is created" do
+    @author = authors(:sean)
+    count = @author.extensions_count
+    3.times { |i| Extension.create!(extension_params(:name => i.to_s, :author_id => author_id(:sean))) }
+    @author.reload
+    @author.extensions_count.should == count + 3
+  end
+  
+  it "should decrement the extension count on author when an extension is deleted" do
+    @author = authors(:sean)
+    count = @author.extensions_count
+    @author.extensions.last.destroy
+    @author.reload
+    @author.extensions_count.should == (count - 1)
   end
 end
