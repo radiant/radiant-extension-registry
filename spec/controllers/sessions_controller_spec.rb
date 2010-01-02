@@ -6,7 +6,7 @@ include AuthenticatedTestHelper
 
 describe SessionsController do
   dataset :authors
-
+  
   it 'logins and redirects' do
     post :create, :login => 'quentin', :password => 'test'
     session[:author_id].should_not be_nil
@@ -19,7 +19,7 @@ describe SessionsController do
     response.should be_redirect
     response.should redirect_to(new_session_path)
   end
-
+  
   describe "OpenID login" do
     before :each do
       @result = mock('OpenID Result')
@@ -47,23 +47,23 @@ describe SessionsController do
     session[:author_id].should be_nil
     response.should be_redirect
   end
-
+  
   it 'remembers me' do
     post :create, :login => 'quentin', :password => 'test', :remember_me => "1"
-    response.cookies["auth_token"].should_not be_nil
+    cookies["auth_token"].should_not be_nil
   end
   
   it 'does not remember me' do
     post :create, :login => 'quentin', :password => 'test', :remember_me => "0"
-    response.cookies["auth_token"].should be_nil
+    cookies["auth_token"].should be_nil
   end
-
+  
   it 'deletes token on logout' do
     login_as :quentin
     get :destroy
-    response.cookies["auth_token"].should == []
+    cookies["auth_token"].should be_nil
   end
-
+  
   it 'logs in with cookie' do
     authors(:quentin).remember_me
     request.cookies["auth_token"] = cookie_for(:quentin)
@@ -85,11 +85,11 @@ describe SessionsController do
     get :new
     controller.send(:logged_in?).should_not be_true
   end
-
+  
   def auth_token(token)
     CGI::Cookie.new('name' => 'auth_token', 'value' => token)
   end
-    
+  
   def cookie_for(author)
     auth_token authors(author).remember_token
   end

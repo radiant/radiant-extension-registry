@@ -87,7 +87,7 @@ describe AuthorsController do
     
     it "should publish XML" do
       get :index, :format => 'xml'
-      response.headers['type'].should match(/xml/)
+      response.headers['Content-Type'].should match(/xml/)
     end
     
     it "should load a list of authors" do

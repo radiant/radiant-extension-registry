@@ -22,7 +22,7 @@ describe ExtensionsController do
     
     it "should provide XML" do
       get :index, :format => 'xml'
-      response.headers['type'].should match(/xml/)
+      response.headers['Content-Type'].should match(/xml/)
     end
   end
   
@@ -45,7 +45,7 @@ describe ExtensionsController do
     
     it "should should provide XML" do
       get :show, :id => extension_id(:page_attachments), :format => 'xml'
-      response.headers['type'].should match(/xml/)
+      response.headers['Content-Type'].should match(/xml/)
     end
   end
   
@@ -148,7 +148,7 @@ describe ExtensionsController do
       response.should be_redirect
       flash[:warning].should_not be_nil
     end
-
+    
     it "should load the given extension" do
       get :edit, :id => extension_id(:page_attachments)
       assigns[:extension].should == extensions(:page_attachments)
