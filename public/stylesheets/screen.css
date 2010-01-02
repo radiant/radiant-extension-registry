@@ -263,11 +263,16 @@ body {
   #content .clearfix {
     clear: both; }
 
+#content .records_count {
+  float: left;
+  font-size: 110%;
+  padding: 0.7em 0; }
 #content .pagination {
+  font-size: 110%;
   text-align: right;
   padding: 0.7em 0.3em; }
   #content .pagination a, #content .pagination span {
-    padding: .3em .5em 0.25em; }
+    padding: .3em .6em 0.25em; }
   #content .pagination span.disabled {
     color: #aaa; }
   #content .pagination span.current {
@@ -290,10 +295,10 @@ body {
     margin-left: 0.5em; }
 
 #content #extensions {
-  border-bottom: 1px solid #e5e5e5; }
-  #content #extensions .extension {
-    border-top: 1px solid #e5e5e5; }
+  border-bottom: 1px solid #e5e5e5;
+  clear: both; }
 #content .extension {
+  border-top: 1px solid #e5e5e5;
   padding: 10px 0; }
   #content .extension .name {
     margin: 0 0 0.25em;
@@ -311,6 +316,7 @@ body {
 
 table.index#authors {
   border-bottom: 1px solid #e5e5e5;
+  clear: both;
   width: 100%; }
   table.index#authors td {
     border-top: 1px solid #e5e5e5;

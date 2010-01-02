@@ -24,6 +24,10 @@ class Author < ActiveRecord::Base
     15
   end
 
+  def self.extension_authors_count
+    count(:conditions => ["extensions_count > 0"])
+  end
+  
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt
