@@ -23,6 +23,15 @@
           Email
         = f.text_field :email, :class => "textbox", :size => 25
       %p
+        %label{"for"=>"author_location"}
+          Location
+        = f.text_field :location, :class => "textbox", :size => 25
+    .set
+      %p
+        %label{"for"=>"author_company"}
+          Company
+        = f.text_field :company, :class => "textbox", :size => 25
+      %p
         %label{"for"=>"author_website"}
           Website or Blog
           %span.hint

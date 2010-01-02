@@ -15,8 +15,9 @@ class Author < ActiveRecord::Base
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :first_name,
-                  :last_name, :website, :notes, :identity_url, :available_for_hire
+  attr_accessible :login, :email, :password, :password_confirmation, :identity_url,
+                  :first_name, :last_name, :website, :company, :location, :notes,
+                  :available_for_hire
 
   has_many :extensions, :dependent => :destroy
 

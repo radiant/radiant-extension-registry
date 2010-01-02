@@ -16,12 +16,19 @@
   %tr
     %th.label Website or Blog
     %td.value= link_to h(@author.website), h(@author.website) if @author.website
-  / %tr
-  /   %th.label Company
-  /   %td.value
-  / %tr
-  /   %th.label Location
-  /   %td.value
+  - unless @author.company.empty?
+    %tr
+      %th.label Company
+      %td.value= @author.company
+  - unless @author.location.empty?
+    %tr
+      %th.label Location
+      %td.value= @author.location
+  %tr
+    %th.label Member Since
+    %td.value
+      = @author.created_at.to_date.to_s(:long)
+      = "(#{time_ago_in_words(@author.created_at)})"
 
 - if @author.available_for_hire?
   %p{:style=>"margin: 1.5em 0"}

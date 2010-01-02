@@ -364,6 +364,8 @@ body {
     text-align: center; }
     #content .full_size_avatar .caption a {
       color: #666; }
+#content .bio {
+  font-size: 130%; }
 
 #footer {
   padding: 10px 0;
