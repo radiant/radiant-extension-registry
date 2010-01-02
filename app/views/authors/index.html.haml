@@ -1,11 +1,12 @@
 - @title = "Extension Authors"
 
-#authors
-  -unless @authors.blank?
+%table.index#authors
+  %tbody
     - @authors.each do |author|
-      %div[author]
-        .name
+      %tr[author]
+        %td.avatar
           = image_tag gravatar_url(author.email)
-          = link_to author.name.gsub(/<\/?[^>]*>/, ""), author_path(author)
-        .extensions_count
-          = "#{author.extensions_count} extensions"
+        %td.info
+          .name= link_to h(author.name), author_path(author)
+          .extensions_count
+            = "#{author.extensions_count} extensions"
