@@ -19,11 +19,11 @@
   - unless @author.company.empty?
     %tr
       %th.label Company
-      %td.value= @author.company
+      %td.value= h @author.company
   - unless @author.location.empty?
     %tr
       %th.label Location
-      %td.value= @author.location
+      %td.value= h @author.location
   %tr
     %th.label Member Since
     %td.value
