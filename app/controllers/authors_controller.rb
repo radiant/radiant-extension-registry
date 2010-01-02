@@ -3,10 +3,13 @@ class AuthorsController < ApplicationController
   before_filter :can_only_edit_self, :only => [:edit, :update]
 
   def index
-    @authors = Author.find :all, :joins => 'inner join extensions on extensions.author_id = authors.id', :group => 'authors.id', :order => 'last_name, first_name, login'
+    finder_hash = { :joins => 'inner join extensions on extensions.author_id = authors.id', :group => 'authors.id', :order => 'last_name, first_name, login' }
     respond_to do |format|
-      format.html
-      format.xml { render :xml => @authors.to_xml }
+      format.html { @authors = Author.paginate finder_hash.merge(:page => params[:page]) }
+      format.xml {
+        @authors = Author.find :all, finder_hash
+        render :xml => @authors.to_xml
+      }
     end
   end
   

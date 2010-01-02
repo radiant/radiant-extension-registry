@@ -20,6 +20,10 @@ class Author < ActiveRecord::Base
 
   has_many :extensions, :dependent => :destroy
 
+  def self.per_page
+    15
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt
