@@ -26,8 +26,8 @@
           - if content_for? :actions
             #actions
               = yield :actions
-          - if @title
-            %h1= @title
+          - if @h1 || @title
+            %h1= @h1 || @title
           - flash.keys.each do |key|
             %p{:id=>key}= flash[key]
           = yield

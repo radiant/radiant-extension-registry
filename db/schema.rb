@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100102054905) do
+ActiveRecord::Schema.define(:version => 20100102074500) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100102054905) do
     t.string   "identity_url"
     t.text     "notes"
     t.integer  "extensions_count",                        :default => 0
+    t.boolean  "available_for_hire",                      :default => false
   end
 
   create_table "dependencies", :force => true do |t|

@@ -143,11 +143,14 @@ body {
     #content a:hover {
       color: #06c;
       text-decoration: none; }
-  #content a.alt, #content a.cancel, #content a.more {
+  #content a.alt, #content a.cancel, #content a.more, #content a.action {
     color: red;
     text-decoration: underline; }
-    #content a.alt:hover, #content a.cancel:hover, #content a.more:hover {
+    #content a.alt:hover, #content a.cancel:hover, #content a.more:hover, #content a.action:hover {
       text-decoration: none; }
+  #content a.action {
+    font-size: 14px;
+    text-transform: lowercase; }
   #content strong {
     color: #333; }
   #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
@@ -203,10 +206,6 @@ body {
         background-color: white;
         padding: 5px;
         font-weight: bold; }
-    #content form fieldset.half {
-      float: left;
-      width: 385px;
-      margin: 1em 30px 1em 0; }
   #content form p label {
     color: #333;
     display: block; }
@@ -214,6 +213,17 @@ body {
       font-size: 80%;
       color: #666;
       padding: 5px; }
+    #content form p label.checkbox {
+      display: inline; }
+  #content form .set {
+    margin-bottom: 1em;
+    overflow: hidden;
+    display: inline-block; }
+    #content form .set {
+      display: block; }
+    #content form .set p {
+      float: left;
+      margin-right: 1em; }
   #content form input.textbox {
     font-size: 130%; }
   #content form textarea {
@@ -260,6 +270,14 @@ body {
       text-decoration: none; }
       #content #actions a.add_link:hover {
         text-decoration: underline; }
+  #content .badge {
+    font-weight: bold;
+    color: white;
+    background: #999;
+    padding: .75em 1em 0.65em;
+    border-radius: !amount;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px; }
   #content .clearfix {
     clear: both; }
 
@@ -297,43 +315,55 @@ body {
 #content #extensions {
   border-bottom: 1px solid #e5e5e5;
   clear: both; }
-#content .extension {
+#content div.extension {
   border-top: 1px solid #e5e5e5;
   padding: 10px 0; }
-  #content .extension .name {
+  #content div.extension .name {
     margin: 0 0 0.25em;
     font-size: 140%; }
-  #content .extension .description {
+  #content div.extension .description {
     width: 65%;
     font-size: 110%;
     color: #888; }
-    #content .extension .description p {
+    #content div.extension .description p {
       margin: 0 0 0.25em; }
-  #content .extension .authored {
+  #content div.extension .authored {
     color: #888; }
-    #content .extension .authored a {
+    #content div.extension .authored a {
       color: #666; }
 
-table.index#authors {
+#content table.index#authors {
   border-bottom: 1px solid #e5e5e5;
   clear: both;
   width: 100%; }
-  table.index#authors td {
+  #content table.index#authors td {
     border-top: 1px solid #e5e5e5;
     padding: 15px; }
-    table.index#authors td.avatar {
+    #content table.index#authors td.avatar {
       padding-left: 0;
       width: 88px; }
-      table.index#authors td.avatar img {
+      #content table.index#authors td.avatar img {
         border: 4px solid #f0f0f0;
         vertical-align: -8%; }
-    table.index#authors td.info {
+    #content table.index#authors td.info {
       padding-left: 5px; }
-      table.index#authors td.info .name {
+      #content table.index#authors td.info .name {
         font-size: 130%; }
-      table.index#authors td.info .extensions_count {
+      #content table.index#authors td.info .extensions_count {
         font-size: 110%;
         color: #999; }
+    #content table.index#authors td.available_for_hire {
+      width: 15em; }
+#content .full_size_avatar {
+  float: right; }
+  #content .full_size_avatar img {
+    border: 5px solid #f0f0f0; }
+  #content .full_size_avatar .caption {
+    color: #999;
+    font-size: 80%;
+    text-align: center; }
+    #content .full_size_avatar .caption a {
+      color: #666; }
 
 #footer {
   padding: 10px 0;

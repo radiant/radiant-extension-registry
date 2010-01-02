@@ -27,9 +27,8 @@
       %th.label#description
         Description
       %td
-        = textilize(@extension.description.gsub(/<\/?[^>]*>/, ""))
+        = sanitize(textilize(@extension.description))
   - if current_author == @extension.author
     %p
       = link_to "Edit", edit_extension_path(@extension)
       = link_to "Delete", extension_path(@extension), :method => :delete
-      

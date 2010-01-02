@@ -1,32 +1,43 @@
 - @title = "Edit Your Profile"
 
 - form_for @author, :html => {:method => :put} do |f|
-  %fieldset.half
+  .full_size_avatar
+    = image_tag gravatar_url(@author.email, :size => 182), :width=>182, :height=>182, :alt=>""
+    %p.caption
+      Avatar provided by <a href="http://gravatar.com">Gravatar.com</a>
+  %fieldset{:style=>"width: 70%"}
     %legend 
       %span Personal info
-    %p
-      %label{"for"=>"author_first_name"}
-        First name
-      = f.text_field :first_name, :class => "textbox"
-    %p
-      %label{"for"=>"author_last_name"}
-        Last name
-      = f.text_field :last_name, :class => "textbox"
-    %p
-      %label{"for"=>"author_website"}
-        Website URL
-      = f.text_field :website, :class => "textbox"
-    %p
-      %label{"for"=>"author_email"}
-        Email
-      = f.text_field :email, :class => "textbox"
+    .set
+      %p
+        %label{"for"=>"author_first_name"}
+          First Name
+        = f.text_field :first_name, :class => "textbox", :size => 25
+      %p
+        %label{"for"=>"author_last_name"}
+          Last Name
+        = f.text_field :last_name, :class => "textbox", :size => 25
+    .set
+      %p
+        %label{"for"=>"author_email"}
+          Email
+        = f.text_field :email, :class => "textbox", :size => 25
+      %p
+        %label{"for"=>"author_website"}
+          Website or Blog
+          %span.hint
+            (include &#8220;http://&#8221;)
+        = f.text_field :website, :class => "textbox", :size => 25
     %p
       %label{"for"=>"author_notes"}
-        Personal notes
+        Bio
         %span.hint
-          textile allowed
+          (textile allowed)
       ~ f.text_area :notes, :size => "38x4"
-  %fieldset.half
+    %p
+      = f.check_box :available_for_hire, :class => "checkbox"
+      %label.checkbox{:for => :author_available_for_hire} I am available for hire on Radiant CMS projects
+  %fieldset{:style=>"width: 70%"}
     %legend
       %span Account info
     %p
@@ -35,11 +46,13 @@
       = f.text_field :login, :class => "textbox"
     %p
       %label{"for"=>"author_password"}
-        Password
+        New Password
       = f.password_field :password, :class => "textbox"
     %p
       %label{"for"=>"author_password_confirmation"}
-        Confirm Password
+        Confirm New Password
       = f.password_field :password_confirmation, :class => "textbox"
   .buttons
     = submit_tag "Save Profile", :class => "button"
+    or
+    = link_to "Cancel", :back, :class => "cancel"

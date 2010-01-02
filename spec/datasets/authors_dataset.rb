@@ -5,8 +5,8 @@ class AuthorsDataset < Dataset::Base
     create_author "Aaron", :notes => "Just another extension author"
     create_author "Jim", :last_name => "Gay", :email => "jim@saturnflyer.com", :notes => "Core team member."
     create_author "John", :last_name => "Long", :login => "jlong", :email => "me@johnwlong.com", :notes => "Creator of Radiant CMS and lead designer. Principle of Wiseheart Design."
-    create_author "Sean", :last_name => "Cribbs", :email => "sean.cribbs@gmail.com", :notes => "Lead developer of Radiant CMS."
-    create_author "Adam", :notes => "I haven't created any extensions."
+    create_author "Sean", :last_name => "Cribbs", :email => "sean.cribbs@gmail.com", :notes => "Lead developer of Radiant CMS.", :available_for_hire => true
+    create_author "Adam", :notes => "I haven't created any extensions.", :available_for_hire => false
   end
 
   helpers do
@@ -22,7 +22,8 @@ class AuthorsDataset < Dataset::Base
         :login => login,
         :email => "#{login}@example.com",
         :password => "test",
-        :password_confirmation => "test"
+        :password_confirmation => "test",
+        :available_for_hire => [true, false].rand
       }.merge(attributes.symbolize_keys)
     end
     
