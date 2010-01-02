@@ -269,8 +269,10 @@ body {
           border: none;
           margin: 0;
           padding: 0; }
-  #content #extensions .extension {
-    border-top: 1px solid #ddd; }
+  #content #extensions {
+    border-bottom: 1px solid #ddd; }
+    #content #extensions .extension {
+      border-top: 1px solid #ddd; }
   #content .extension {
     padding: 10px 0; }
     #content .extension .name {
@@ -299,6 +301,32 @@ body {
         text-decoration: underline; }
   #content .clearfix {
     clear: both; }
+
+#content .pagination {
+  text-align: right;
+  padding: 0.7em 0.3em; }
+  #content .pagination a, #content .pagination span {
+    padding: .3em .5em 0.25em; }
+  #content .pagination span.disabled {
+    color: #aaa; }
+  #content .pagination span.current {
+    font-weight: bold;
+    color: white;
+    background: #0066cc;
+    border-radius: !amount;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px; }
+  #content .pagination a {
+    text-decoration: none; }
+    #content .pagination a:hover {
+      text-decoration: underline; }
+  #content .pagination .page_info {
+    color: #aaa;
+    padding-top: .8em; }
+  #content .pagination .prev_page {
+    margin-right: 0.5em; }
+  #content .pagination .next_page {
+    margin-left: 0.5em; }
 
 #footer {
   padding: 10px 0;

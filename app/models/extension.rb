@@ -14,6 +14,9 @@ class Extension < ActiveRecord::Base
   validates_presence_of :current_version
   validates_presence_of :supports_radiant_version
   
+  def self.per_page
+    15
+  end
   
   def install_type
     repository_type || download_type

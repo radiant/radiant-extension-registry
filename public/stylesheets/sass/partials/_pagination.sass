@@ -1,0 +1,24 @@
+#content
+  .pagination
+    text-align: right
+    padding: 0.7em 0.3em
+    a, span
+      padding: .3em .5em 0.25em
+    span.disabled
+      color: #aaa
+    span.current
+      font-weight: bold
+      color: white
+      background: #0066cc
+      +round-corners
+    a
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+    .page_info
+      color: #aaa
+      padding-top: .8em
+    .prev_page
+      margin-right: 0.5em
+    .next_page
+      margin-left: 0.5em

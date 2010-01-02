@@ -5,11 +5,10 @@ class ExtensionsController < ApplicationController
   # GET /extensions
   # GET /extensions.atom
   def index
-    @extensions = Extension.find(:all, :order => "name")
     respond_to do |format|
-      format.html
-      format.xml { render :xml => @extensions }
-      format.atom
+      format.html { @extensions = Extension.paginate :page => params[:page], :order => 'name' }
+      format.xml  { @extensions = Extension.find(:all, :order=>"updated_at DESC"); render :xml => @extensions }
+      format.atom { @extensions = Extension.find(:all, :order=>"updated_at DESC") }
     end
   end
   
