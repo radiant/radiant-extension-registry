@@ -252,6 +252,7 @@ body {
       font-size: 120%; }
   #content table.attributes {
     border-collapse: collapse;
+    border-bottom: 1px solid #ddd;
     width: 100%;
     margin: 0; }
     #content table.attributes tr {
@@ -375,7 +376,7 @@ body {
     text-align: center; }
     #content .full_size_avatar .caption a {
       color: #666; }
-#content .bio {
+#content .big {
   font-size: 130%; }
 
 #footer {
