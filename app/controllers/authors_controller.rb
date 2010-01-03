@@ -80,7 +80,7 @@ class AuthorsController < ApplicationController
     end
     
     def can_edit?(author)
-      current_author.id == author.id
+      !!(current_author && (current_author.id == author.id))
     end
     helper_method :can_edit?
   

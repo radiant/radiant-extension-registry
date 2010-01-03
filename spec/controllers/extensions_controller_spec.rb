@@ -3,6 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe ExtensionsController do
   dataset :extensions
   
+  integrate_views
+  
   describe "index action" do
     it "should not require login" do
       controller.should_not_receive(:access_denied)
