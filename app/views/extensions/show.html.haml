@@ -3,36 +3,34 @@
 
 
 %div[@extension]
-  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
   
-  %table.attributes
+.big
+  = sanitize(textilize(@extension.description.to_s))
+  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
+%table.attributes
+  %tr
+    %th.label#author
+      Author
+    %td
+      = @extension.author.name.gsub(/<\/?[^>]*>/, "")
+      = mail_to @extension.author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :hex
+  - unless @extension.homepage.blank?
     %tr
-      %th.label#author
-        Author
+      %th.label Homepage
       %td
-        = @extension.author.name.gsub(/<\/?[^>]*>/, "")
-        = mail_to @extension.author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :hex
-    - unless @extension.homepage.blank?
-      %tr
-        %th.label Homepage
-        %td
-          = link_to @extension.homepage.gsub(/<\/?[^>]*>/, ""), @extension.homepage
-    - unless @extension.repository_url.blank?
-      %tr
-        %th.label Repository
-        %td
-          = link_to @extension.repository_url.gsub(/<\/?[^>]*>/, ""), @extension.repository_url
-    - unless @extension.download_url.blank?
-      %tr
-        %th.label Download
-        %td
-          = link_to @extension.download_url.gsub(/<\/?[^>]*>/, ""), @extension.download_url
+        = link_to @extension.homepage.gsub(/<\/?[^>]*>/, ""), @extension.homepage
+  - unless @extension.repository_url.blank?
     %tr
-      %th.label#description
-        Description
+      %th.label Repository
       %td
-        = sanitize(textilize(@extension.description))
-  - if current_author == @extension.author
-    %p
-      = link_to "Edit", edit_extension_path(@extension)
-      = link_to "Delete", extension_path(@extension), :method => :delete
+        = link_to @extension.repository_url.gsub(/<\/?[^>]*>/, ""), @extension.repository_url
+  - unless @extension.download_url.blank?
+    %tr
+      %th.label Download
+      %td
+        = link_to @extension.download_url.gsub(/<\/?[^>]*>/, ""), @extension.download_url
+
+- if can_edit?(@extension)
+  %p
+    = link_to "Edit", edit_extension_path(@extension)
+    = link_to "Delete", extension_path(@extension), :method => :delete

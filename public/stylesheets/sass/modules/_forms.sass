@@ -1,7 +1,7 @@
 =basic-form
   fieldset
     border: 1px solid #ddd
-    padding: 5px 20px
+    padding: 5px 20px 20px
     margin: 1em 0
     +round-corners(5px)
     +clearfix
@@ -16,6 +16,7 @@
         font-weight: bold
   
   p
+    margin: 1em 0 0
     label
       color: #333
       display: block
@@ -27,11 +28,11 @@
         display: inline
   
   .set
-    margin-bottom: 1em
+    border-bottom: 1px solid white
     +clearfix
     p
       float: left
-      margin-right: 1em
+      margin: 0.75em 1em 0 0
   
   input
     &.textbox
@@ -39,8 +40,8 @@
   
   textarea
     width: 98%
-    font-size: 120%
-    font-family= !fixed_font_family
+    font-size: 130%
+    font-family= !base_font_family
   
   .buttons
     clear: both

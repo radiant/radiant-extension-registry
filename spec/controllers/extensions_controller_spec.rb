@@ -3,6 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe ExtensionsController do
   dataset :extensions
   
+  integrate_views
+  
   describe "index action" do
     it "should not require login" do
       controller.should_not_receive(:access_denied)
@@ -146,7 +148,7 @@ describe ExtensionsController do
       login_as :aaron
       get :edit, :id => extension_id(:page_attachments)
       response.should be_redirect
-      flash[:warning].should_not be_nil
+      flash[:error].should_not be_nil
     end
     
     it "should load the given extension" do
@@ -178,7 +180,7 @@ describe ExtensionsController do
       put :update, :id => extension_id(:page_attachments), :extension => { :name => "changed" }
       extensions(:page_attachments).name.should == "page_attachments"
       response.should be_redirect
-      flash[:warning].should_not be_nil
+      flash[:error].should_not be_nil
     end
 
     describe "when save succeeds" do
@@ -234,7 +236,7 @@ describe ExtensionsController do
       delete :destroy, :id => @extension.id
       Extension.find_by_id(@extension.id).should_not be_nil
       response.should be_redirect
-      flash[:warning].should_not be_nil
+      flash[:error].should_not be_nil
     end
     
     it "should destroy and redirect" do

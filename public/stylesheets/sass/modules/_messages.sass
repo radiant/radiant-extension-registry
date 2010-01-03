@@ -1,8 +1,15 @@
 =flash-messages
+  p#notice, p#error
+    padding: 1em
+    +round-corners
   p#notice
-    color: green
+    background-color: #e2f9e2
+    border: 4px solid #a2d5a2
+    color: #333
   p#error
-    color: red
+    background-color: #f9e2e2
+    border: 4px solid #f3a2a2
+    color: #333
 
 =error-messages
   .error_with_field

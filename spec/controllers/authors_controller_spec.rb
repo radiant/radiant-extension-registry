@@ -7,6 +7,8 @@ include AuthenticatedTestHelper
 describe AuthorsController do
   dataset :authors, :extensions
   
+  integrate_views
+  
   it 'allows signup' do
     lambda do
       create_author_via_post

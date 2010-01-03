@@ -70,7 +70,7 @@ class AuthorsController < ApplicationController
   
     def can_only_edit_self
       unless logged_in? && current_author.id.to_i == params[:id].to_i
-        flash[:warning] = "You cannot edit another author's profile."
+        flash[:error] = "You cannot edit another author's profile."
         respond_to do |format|
           format.html { redirect_to authors_url }
           format.xml { head :forbidden }
@@ -80,7 +80,7 @@ class AuthorsController < ApplicationController
     end
     
     def can_edit?(author)
-      current_author.object_id == author.object_id
+      !!(current_author && (current_author.id == author.id))
     end
     helper_method :can_edit?
   

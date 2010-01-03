@@ -10,7 +10,9 @@
 #extensions
   - @extensions.each do |extension|
     %div[extension]
-      %h3.name= link_to extension.name.gsub(/<\/?[^>]*>/, ""), extension
+      %h3.name
+        = link_to extension.name.gsub(/<\/?[^>]*>/, ""), extension
+        = link_to "Edit", edit_extension_path(extension), :class=>"action" if can_edit?(extension)
       .description= short_description(extension.description)
       .authored
         by
