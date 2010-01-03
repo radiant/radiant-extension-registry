@@ -1,8 +1,12 @@
 - @title = "Extension: #{h(@extension.name.gsub(/<\/?[^>]*>/, ""))}"
+	
 
+
+%div[@extension]
+  
 .big
   = sanitize(textilize(@extension.description.to_s))
-
+  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
 %table.attributes
   %tr
     %th.label#author

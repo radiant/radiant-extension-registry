@@ -1,6 +1,8 @@
 class Extension < ActiveRecord::Base
   belongs_to :author
   
+  has_attached_file :screenshot, :styles => { :medium => "640x480>", :thumb => "180x133>" }
+  
   validates_presence_of :name
   validates_uniqueness_of :name, :allow_nil => true
   validates_presence_of :repository_url, :if => proc {|e| e.download_url.blank? }, :message => "required unless download URL given"
