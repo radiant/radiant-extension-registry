@@ -48,3 +48,9 @@
     %span.hint
       what does it do? (textile allowed)
   ~ f.text_area :description, :size => "50x5"
+%p
+  %label
+    Screenshot
+    %span.hint
+      an image that best shows the extension's function
+  = f.file_field :screenshot 

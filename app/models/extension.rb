@@ -17,6 +17,8 @@ class Extension < ActiveRecord::Base
   after_create  :update_cached_fields
   after_destroy :update_cached_fields
   
+  has_attached_file :screenshot, :styles => { :medium => "640x480>", :thumb => "180x133>" }
+  
   def self.per_page
     15
   end

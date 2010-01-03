@@ -16,11 +16,11 @@
   %tr
     %th.label Website or Blog
     %td.value= link_to h(@author.website), h(@author.website) if @author.website
-  - unless @author.company.empty?
+  - unless @author.company && @author.company.empty?
     %tr
       %th.label Company
       %td.value= h @author.company
-  - unless @author.location.empty?
+  - unless @author.location && @author.location.empty?
     %tr
       %th.label Location
       %td.value= h @author.location

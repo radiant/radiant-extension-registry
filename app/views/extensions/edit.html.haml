@@ -1,6 +1,6 @@
 - @title = "Edit Extension"
 
-- form_for @extension do |f|
+- form_for @extension, :html => {:multipart => true} do |f|
   = render :partial => "form", :locals => {:f => f}
   .buttons
     = submit_tag "Update Extension", :class => "button"
