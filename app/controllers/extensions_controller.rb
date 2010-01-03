@@ -26,7 +26,7 @@ class ExtensionsController < ApplicationController
   def new
     @extension = Extension.new
   end
-
+  
   # GET /extensions/1/edit
   def edit
     @extension = Extension.find(params[:id])
@@ -92,7 +92,7 @@ class ExtensionsController < ApplicationController
       unless current_author.extension_ids.map(&:to_i).include?(params[:id].to_i)
         respond_to do |format|
           format.html do
-            flash[:warning] = "You can only edit your own extensions."
+            flash[:error] = "You can only edit your own extensions."
             redirect_to extensions_url
           end
           format.xml { head :forbidden }

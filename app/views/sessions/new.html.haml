@@ -1,11 +1,17 @@
 - @title = "Login"
 
 - form_tag session_path do
-  %p
-    %label{:for=>"login"} Username
-    = text_field_tag 'login', nil, :class => 'textbox', :size => 20
-  %p
-    %label{:for=>"password"} Password
-    = password_field_tag 'password', nil, :class => 'textbox', :size => 20
+  %fieldset{:style=>"width: 45%"}
+    %p
+      %label{:for=>"login"} Username
+      = text_field_tag 'login', nil, :class => 'textbox', :size => 30
+    %p
+      %label{:for=>"password"} Password
+      = password_field_tag 'password', nil, :class => 'textbox', :size => 30
+    %p
+      = check_box_tag 'remember_me', nil, false, :class => 'checkbox'
+      %label.checkbox{:for=>'remember_me'} Remember me
   .buttons
-    = submit_tag 'Login'
+    = submit_tag 'Login', :class => "button"
+    or
+    = link_to "Cancel", :back, :class => "cancel"

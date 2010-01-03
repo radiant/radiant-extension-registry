@@ -51,16 +51,17 @@
       %span Account info
     %p
       %label{"for"=>"author_login"}
-        Login
+        Username
       = f.text_field :login, :class => "textbox"
-    %p
-      %label{"for"=>"author_password"}
-        New Password
-      = f.password_field :password, :class => "textbox"
-    %p
-      %label{"for"=>"author_password_confirmation"}
-        Confirm New Password
-      = f.password_field :password_confirmation, :class => "textbox"
+    .set
+      %p
+        %label{"for"=>"author_password"}
+          New Password
+        = f.password_field :password, :class => "textbox", :size => 25
+      %p
+        %label{"for"=>"author_password_confirmation"}
+          Confirm New Password
+        = f.password_field :password_confirmation, :class => "textbox", :size => 25
   .buttons
     = submit_tag "Save Profile", :class => "button"
     or
