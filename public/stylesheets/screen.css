@@ -69,9 +69,10 @@ body {
   line-height: 1.4; }
 
 html, body {
-  background-color: #e5e5e5; }
+  background-color: #fff; }
 
 body {
+  background: transparent url(/images/bg_header.png) top left repeat-x;
   text-align: center; }
 
 #page, #footer {
@@ -86,32 +87,54 @@ body {
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   -moz-border-bottom-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  box-shadow: 2px 2px 5px #bbbbbb;
-  -webkit-box-shadow: 2px 2px 5px #bbbbbb;
-  -moz-box-shadow: 2px 2px 5px #bbbbbb; }
+  -webkit-border-bottom-right-radius: 5px; }
 
 #main {
   background: white; }
 
 #header {
-  background: url(/images/radiant.png) 17px -34px no-repeat #eee;
-  position: relative; }
+  position: relative;
+  padding-top: 26px; }
   #header #logo {
+    background: transparent url(/images/radiant_logo.png) left center no-repeat;
+    height: 45px;
+    padding: 10px 0 10px 90px;
+    margin: 0px 26px 26px 0px;
     font-size: 32px;
     font-weight: bold;
-    text-align: right;
-    padding: 48px 20px 15px 0;
-    color: black; }
+    color: white; }
+    #header #logo h1 {
+      display: inline; }
+    #header #logo h2 {
+      display: inline;
+      font-size: .6em;
+      font-style: italic;
+      font-weight: normal; }
+    #header #logo h2:before {
+      content: "//"; }
+    #header #logo h3 {
+      background-color: #6b737b;
+      display: inline;
+      font-size: .4em;
+      padding: 6px 16px 9px;
+      position: absolute;
+      right: 0px;
+      margin-top: 8px;
+      border-radius: !amount;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px; }
+      #header #logo h3 a {
+        color: white; }
+    #header #logo h3:after {
+      content: "→"; }
   #header ul#account {
     position: absolute;
-    top: 0;
-    right: 20px;
-    font-size: 12px;
-    list-style: none;
-    margin: 5px 0; }
+    top: 132px;
+    right: 0px;
+    font-size: 1.1em;
+    list-style: none; }
     #header ul#account a, #header ul#account a:visited {
-      color: #666;
+      color: #0066cc;
       text-decoration: none; }
     #header ul#account a:hover {
       text-decoration: underline; }
@@ -119,19 +142,19 @@ body {
       display: inline;
       padding-left: 8px; }
   #header ul#navigation {
-    text-align: right;
-    padding: 6px 20px 6px 0;
+    font-size: 1.1em;
+    height: 20px;
     list-style: none;
-    background-color: #ccc;
-    margin: 0; }
-    #header ul#navigation li {
-      display: inline;
-      padding-left: 7px; }
+    margin: 0;
+    padding: 15px 20px 15px 0; }
     #header ul#navigation a, #header ul#navigation a:visited {
       color: #333;
       text-decoration: none; }
     #header ul#navigation a:hover {
       text-decoration: underline; }
+    #header ul#navigation li {
+      display: inline;
+      padding-left: 20px; }
 
 #content {
   padding: 5px 20px 20px;

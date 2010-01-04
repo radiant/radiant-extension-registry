@@ -1,23 +1,46 @@
 #header
-  background: url(/images/radiant.png) 17px -34px no-repeat #eee
   position: relative
-  
+  padding-top: 26px  
+
   #logo
+    background: transparent url(/images/radiant_logo.png) left center no-repeat
+    height: 45px
+    padding: 10px 0 10px 90px
+    margin: 0px 26px 26px 0px
     font-size: 32px
     font-weight: bold
-    text-align: right
-    padding: 48px 20px 15px 0
-    color: black
-  
+    color: white
+    h1
+      display: inline
+    h2
+      display: inline
+      font-size: .6em
+      font-style: italic
+      font-weight: normal
+    h2:before
+      content: "//"
+    h3
+      background-color: #6b737b
+      display: inline
+      font-size: .4em
+      padding: 6px 16px 9px
+      position: absolute
+      right: 0px
+      margin-top: 8px
+      +round-corners(8px)
+      a
+        color: white
+    h3:after
+      content: "→"
+
   ul#account
     position: absolute
-    top: 0
-    right: 20px
-    font-size: 12px
+    top: 132px
+    right: 0px
+    font-size: 1.1em
     list-style: none
-    margin: 5px 0
     a, a:visited
-      color: #666
+      color: #0066cc
       text-decoration: none
     a:hover
       text-decoration: underline
@@ -26,16 +49,16 @@
       padding-left: 8px
   
   ul#navigation
-    text-align: right
-    padding: 6px 20px 6px 0
-    list-style: none
-    background-color: #ccc
-    margin: 0
-    li
-      display: inline
-      padding-left: 7px
     a, a:visited
       color: #333
       text-decoration: none
     a:hover
       text-decoration: underline
+    font-size: 1.1em
+    height: 20px
+    li
+      display: inline
+      padding-left: 20px
+    list-style: none
+    margin: 0
+    padding: 15px 20px 15px 0
