@@ -9,7 +9,7 @@
 %table.attributes
   %tr
     %th Author
-    %td= link_to @extension.author.name, extension_url(@extension)
+    %td= link_to @extension.author.name, @extension.author
   - unless @extension.homepage.blank?
     %tr
       %th Website
