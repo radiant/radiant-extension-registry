@@ -32,7 +32,7 @@ class Extension < ActiveRecord::Base
   end
   
   def to_param
-    [id, name].join('-').gsub(/[^a-z0-9]+/i, '-').sub(/-$/, '')
+    [id, name].join('-').strip.gsub(/[^a-z0-9]+/i, '-').downcase
   end
   
   def to_xml(options = {})

@@ -107,10 +107,12 @@ describe Author do
     authors(:quentin).to_xml.should_not match(/remember-token/)
   end
   
-protected
-  def create_author_via_model(options = {})
-    record = Author.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
-    record.save
-    record
-  end
+  protected
+  
+    def create_author_via_model(options = {})
+      record = Author.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+      record.save
+      record
+    end
+  
 end
