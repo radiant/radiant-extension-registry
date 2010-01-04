@@ -1,6 +1,8 @@
 class Extension < ActiveRecord::Base
   belongs_to :author
   
+  has_attached_file :screenshot, :styles => { :medium => "640x480>", :thumb => "180x133>" }
+  
   validates_presence_of :name
   validates_uniqueness_of :name, :allow_nil => true
   validates_presence_of :repository_url, :if => proc {|e| e.download_url.blank? }, :message => "required unless download URL given"
@@ -17,7 +19,9 @@ class Extension < ActiveRecord::Base
   after_create  :update_cached_fields
   after_destroy :update_cached_fields
   
-  has_attached_file :screenshot, :styles => { :medium => "640x480>", :thumb => "180x133>" }
+  def self.search(query, page)
+    paginate :conditions => ['name like ?', "%#{query}%"], :page => page, :order => 'name'
+  end
   
   def self.per_page
     15

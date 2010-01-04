@@ -10,6 +10,8 @@ require 'lindo'
 class Test::Unit::TestCase
   include Dataset
   datasets_directory "#{RAILS_ROOT}/spec/datasets"
+  
+  include AuthenticatedTestHelper
 end
 
 Spec::Runner.configure do |config|

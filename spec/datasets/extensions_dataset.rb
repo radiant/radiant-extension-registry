@@ -52,7 +52,7 @@ class ExtensionsDataset < Dataset::Base
         :download_url => nil,
         :author_id => author_id(:quentin),
         :repository_type => "Git",
-        :homepage => "http://github.com/seancribbs/radiant-test-extension",
+        :homepage => "http://github.com/seancribbs/radiant-#{slug}-extension",
         :current_version => "1.0.0",
         :supports_radiant_version => "0.7.1"
       }.merge(attributes.symbolize_keys)

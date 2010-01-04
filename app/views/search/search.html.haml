@@ -1,0 +1,12 @@
+- @title = "Search"
+
+- form_tag '/search', :method => :get, :id => "search" do
+  %p
+    = text_field_tag "q", @query, :size => 30, :class => 'textbox'
+    %input.button{:type=>"submit", :value => "Go"}/
+
+- if results?
+  %h3= "#{pluralize(@extensions.size, "result")} for &#8220;#{@query}&#8221;"
+  %ul
+    - for extension in @extensions
+      %li= link_to extension.name, @extension
