@@ -5,14 +5,24 @@
     list-style: none
     margin: 0
     padding: 15px 20px
+    a
+      &:link, &:visited
+        padding: 3px 15px
+        color: #333
+        text-decoration: none
+      &:hover
+        text-decoration: underline
     li
       display: inline
-      padding-right: 20px
-    a, a:visited
-      color: #333
-      text-decoration: none
-    a:hover
-      text-decoration: underline
+      &.here
+        a
+          &:link, &:visited
+            background: #454f59
+            color: #f0f0f0
+            +round-corners(20px)
+            +v-gradient(#555d65, #757d85)
+          &:hover
+            color: white
   ul.account_links
     float: right
     font-size: 1em

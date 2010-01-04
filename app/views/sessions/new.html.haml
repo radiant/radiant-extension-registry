@@ -1,16 +1,16 @@
 - @title = "Login"
+- @selected = :login
 
 - form_tag session_path do
-  %fieldset{:style=>"width: 45%"}
-    %p
-      %label{:for=>"login"} Username
-      = text_field_tag 'login', nil, :class => 'textbox', :size => 30
-    %p
-      %label{:for=>"password"} Password
-      = password_field_tag 'password', nil, :class => 'textbox', :size => 30
-    %p
-      = check_box_tag 'remember_me', nil, false, :class => 'checkbox'
-      %label.checkbox{:for=>'remember_me'} Remember me
+  %p
+    %label{:for=>"login"} Username
+    = text_field_tag 'login', nil, :class => 'textbox', :size => 30
+  %p
+    %label{:for=>"password"} Password
+    = password_field_tag 'password', nil, :class => 'textbox', :size => 30
+  %p
+    = check_box_tag 'remember_me', nil, false, :class => 'checkbox'
+    %label.checkbox{:for=>'remember_me'} Remember me
   .buttons
     = submit_tag 'Login', :class => "button"
     or

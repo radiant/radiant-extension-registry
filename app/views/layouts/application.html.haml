@@ -18,15 +18,21 @@
       #navigation
         %ul.account_links{:class => logged_in? ? "in" : "out"}
           - if logged_in?
-            %li#account_link= link_to "My Profile", current_author
-            %li#logout_link.last= link_to "Logout", logout_url
+            %li#account_link{:class => (@selected == :profile ? "here" : nil)}
+              = link_to "My Profile", current_author
+            %li#logout_link= link_to "Logout", logout_url
           - else
-            %li#signup_link= link_to "Signup", signup_url
-            %li#login_link.last= link_to "Login", login_url
+            %li#signup_link{:class => (@selected == :signup ? "here" : nil)}
+              = link_to "Signup", signup_url
+            %li#login_link.last{:class => (@selected == :login ? "here" : nil)}
+              = link_to "Login", login_url
         %ul.primary_links
-          %li#index_link= link_to "Extensions", extensions_path
-          %li#authors_link= link_to "Authors", authors_path
-          %li#search_link= link_to "Search", search_path
+          %li#index_link{:class => (@selected == :extensions ? "here" : nil)}
+            = link_to "Extensions", extensions_path
+          %li#authors_link{:class => (@selected == :authors ? "here" : nil)}
+            = link_to "Authors", authors_path
+          %li#search_link{:class => (@selected == :search ? "here" : nil)}
+            = link_to "Search", search_path
     - if content_for? :head
       #head_wrapper
         #head

@@ -2,6 +2,7 @@
 - h1 = h(@author.full_name)
 - h1 << " #{link_to "Edit", edit_author_path(@author), :class => 'action'}" if can_edit?(@author)
 - @h1 = h1
+- @selected = :authors
 
 .full_size_avatar
   = image_tag gravatar_url(@author.email, :size => 182), :width=>182, :height=>182, :alt=>""
