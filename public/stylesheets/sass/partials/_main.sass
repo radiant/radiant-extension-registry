@@ -1,6 +1,4 @@
-#content
-  padding: 20px
-  
+#main
   +basic-links
   +basic-typography
   +flash-messages
@@ -14,11 +12,11 @@
   
   table.attributes
     border-collapse: collapse
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #e5e5e5
     width: 100%
     margin: 2em 0
     tr
-      border-top: 1px solid #ddd
+      border-top: 1px solid #e5e5e5
       padding: 2px
     th
       color: #aaa
@@ -36,9 +34,27 @@
           margin: 0
           padding: 0
   
+  p.more
+    margin-top: 1.5em
+    
+    span
+      background-color: #4c94db
+      color: white
+      font-weight: normal
+      padding: 6px 12px 7px
+      +round-corners(6px)
+      &:after
+        content: " →"
+        display: inline
+      a
+        color: white
+  
   #actions
     float: right
     padding-top: 20px
+  
+  .big
+    font-size: 130%
   
   .badge
     color: white
@@ -46,6 +62,3 @@
     padding: 6px 12px 7px
     +round-corners(8px)
     +v-gradient(#555d65, #757d85)
-  
-  .clearfix
-    clear: both

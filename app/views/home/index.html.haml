@@ -1,0 +1,32 @@
+- @title = "Radiant CMS Extensions"
+- @h1 = ''
+- @selected = :home
+
+- content_for :head do
+  %h1 Find, Browse, and Share&#8230;
+  %p
+    Radiant CMS extensions for almost every need. Radiant is the no-fluff content management system
+    built on Ruby on Rails.
+  - form_tag "/search", :method => "get", :id => "search" do
+    %p
+      %label{:for=>"q"} Search
+      %input.search{:name=>"q", :id=>"q", :type=>"text"}/
+
+%h2= %{New Extensions <a href="/extensions.atom">#{ image_tag('feed_icon.png', :class=> 'icon') }</a>}
+
+%table.index#extensions.mini
+  %tbody
+    = render :partial => "extensions/extension", :collection => @extensions, :locals => { :hide_screenshot => true, :hide_author => true }
+
+%p.more
+  %span= link_to "More Extensions", extensions_path
+
+- content_for :sidebar do
+  %h2 Extension Authors
+  
+  %table.index#authors.mini{:border=>0, :cellpadding=>0, :cellspacing=>0}
+    %tbody
+      = render :partial => 'authors/author', :collection => @authors, :locals => { :hide_available_for_hire => true }
+  
+  %p.more
+    %span= link_to "More Authors", extensions_path
