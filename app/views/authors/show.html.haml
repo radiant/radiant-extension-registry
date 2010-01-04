@@ -13,9 +13,10 @@
   %tr
     %th.label Email
     %td.value= mail_to(@author.email, nil, :encode => :javascript)
-  %tr
-    %th.label Website or Blog
-    %td.value= link_to h(@author.website), h(@author.website) if @author.website
+  - unless @author.website.blank?
+    %tr
+      %th.label Website/Blog
+      %td.value= link_to h(@author.website), h(@author.website) if @author.website
   - unless @author.company.blank?
     %tr
       %th.label Company
