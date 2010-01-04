@@ -157,6 +157,7 @@ body {
     #navigation ul.primary_links li.here a:hover {
       color: white; }
 #navigation .account_links {
+  color: #666;
   float: right;
   font-size: 1em;
   padding: 15px 20px; }
