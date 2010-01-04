@@ -11,11 +11,11 @@
   - @extensions.each do |extension|
     %div[extension]
       %h3.name
-        = link_to extension.name.gsub(/<\/?[^>]*>/, ""), extension
+        = link_to extension.name, extension
         = link_to "Edit", edit_extension_path(extension), :class=>"action" if can_edit?(extension)
       .description= short_description(extension.description)
       .authored
         by
-        = link_to extension.author.name.gsub(/<\/?[^>]*>/, ""), author_path(extension.author)
+        = link_to extension.author.name, author_path(extension.author)
 
 = will_paginate @extensions

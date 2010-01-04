@@ -366,6 +366,11 @@ body {
     color: #888; }
     #content div.extension .authored a {
       color: #666; }
+#content div.screenshot {
+  float: right;
+  margin: 0 0 1em 1em; }
+  #content div.screenshot img {
+    border: 5px solid #f0f0f0; }
 
 #content table.index#authors {
   border-bottom: 1px solid #e5e5e5;

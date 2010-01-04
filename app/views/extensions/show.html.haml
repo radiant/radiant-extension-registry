@@ -1,34 +1,33 @@
-- @title = "Extension: #{h(@extension.name.gsub(/<\/?[^>]*>/, ""))}"
-	
+- @title = h(@extension.name)
 
+.screenshot
+  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
 
-%div[@extension]
-  
 .big
   = sanitize(textilize(@extension.description.to_s))
-  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
+
 %table.attributes
   %tr
     %th.label#author
       Author
     %td
-      = @extension.author.name.gsub(/<\/?[^>]*>/, "")
-      = mail_to @extension.author.email.gsub(/<\/?[^>]*>/, ""), nil, :encode => :hex
+      = h @extension.author.name
+      = mail_to @extension.author.email, nil, :encode => :hex
   - unless @extension.homepage.blank?
     %tr
       %th.label Homepage
       %td
-        = link_to @extension.homepage.gsub(/<\/?[^>]*>/, ""), @extension.homepage
+        = link_to @extension.homepage, @extension.homepage
   - unless @extension.repository_url.blank?
     %tr
       %th.label Repository
       %td
-        = link_to @extension.repository_url.gsub(/<\/?[^>]*>/, ""), @extension.repository_url
+        = link_to @extension.repository_url, @extension.repository_url
   - unless @extension.download_url.blank?
     %tr
       %th.label Download
       %td
-        = link_to @extension.download_url.gsub(/<\/?[^>]*>/, ""), @extension.download_url
+        = link_to @extension.download_url, @extension.download_url
 
 - if can_edit?(@extension)
   %p
