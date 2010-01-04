@@ -10,4 +10,4 @@
   %h3= "#{pluralize(@extensions.size, "result")} for &#8220;#{@query}&#8221;"
   %ul
     - for extension in @extensions
-      %li= link_to extension.name, @extension
+      %li= link_to extension.name, extension

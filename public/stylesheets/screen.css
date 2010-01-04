@@ -171,7 +171,7 @@ body {
     padding-left: 8px; }
 
 #content {
-  padding: 20px 35px;
+  padding: 20px;
   font-family: 'Trebuchet MS', 'Bitstream Vera Sans', Verdana, sans-serif;
   color: #666; }
   #content a {
@@ -186,6 +186,7 @@ body {
     #content a.alt:hover, #content a.cancel:hover, #content a.more:hover, #content a.action:hover {
       text-decoration: none; }
   #content a.action {
+    font-weight: normal;
     font-size: 14px;
     text-transform: lowercase; }
   #content strong {

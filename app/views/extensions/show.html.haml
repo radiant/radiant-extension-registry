@@ -1,13 +1,16 @@
 - @title = h(@extension.name)
+- h1 = h(@extension.name)
+- h1 << " #{link_to "Edit", edit_extension_path(@extension), :class => 'action'}" if can_edit?(@extension)
+- @h1 = h1
 - @selected = :extensions
 
 .screenshot
   = link_to image_tag(@extension.screenshot.url(:medium)), @extension.screenshot.url(:large)
 
-.big
+.big{:style=>"width: 75%"}
   = sanitize(textilize(@extension.description.to_s))
 
-%table.attributes
+%table.attributes{:style=>"width: 75%"}
   %tr
     %th Author
     %td= link_to @extension.author.name, @extension.author
@@ -26,5 +29,4 @@
 
 - if can_edit?(@extension)
   %p
-    = link_to "Edit", edit_extension_path(@extension)
     = link_to "Delete", extension_path(@extension), :method => :delete
