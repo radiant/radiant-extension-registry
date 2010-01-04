@@ -24,7 +24,7 @@ class Extension < ActiveRecord::Base
   end
   
   def self.per_page
-    15
+    25
   end
   
   def install_type

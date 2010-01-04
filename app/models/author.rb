@@ -22,7 +22,7 @@ class Author < ActiveRecord::Base
   has_many :extensions, :dependent => :destroy
   
   def self.per_page
-    15
+    25
   end
   
   def self.extension_authors_count
