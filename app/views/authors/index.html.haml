@@ -3,7 +3,7 @@
 
 .records_count= "#{@authors.size} of #{Author.extension_authors_count} authors"
 
-= will_paginate @authors
+= pagination_for @authors
 
 %table.index#authors{:border=>0, :cellpadding=>0, :cellspacing=>0}
   %tbody
@@ -21,4 +21,4 @@
           - if author.available_for_hire?
             %span.badge Available for Hire
 
-= will_paginate @authors
+= pagination_for @authors

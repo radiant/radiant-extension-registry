@@ -1,3 +1,3 @@
 class DefaultDataset < Dataset::Base
-  uses :extensions
+  uses :paginated
 end

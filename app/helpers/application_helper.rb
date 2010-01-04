@@ -32,4 +32,8 @@ module ApplicationHelper
     instance_variable_get("@content_for_#{symbol}")
   end
   
+  def pagination_for(model)
+    will_paginate model, :previous_label => "&laquo; Prev", :next_label => "Next &raquo;"
+  end
+  
 end

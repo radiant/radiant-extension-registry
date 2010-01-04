@@ -2,12 +2,17 @@
 - @selected = :search
 
 - form_tag '/search', :method => :get, :id => "search" do
-  %p
-    = text_field_tag "q", @query, :size => 30, :class => 'textbox'
+  %p{:style=>"margin-bottom: 2em"}
+    = text_field_tag "q", @query, :size => 20, :class => 'textbox'
     %input.button{:type=>"submit", :value => "Go"}/
 
 - if results?
-  %h3= "#{pluralize(@extensions.size, "result")} for &#8220;#{@query}&#8221;"
-  %ul
-    - for extension in @extensions
-      %li= link_to extension.name, extension
+  .records_count= "#{@extensions.size} of #{pluralize(@extensions.total_entries, "result")} for &#8220;#{@query}&#8221;"
+  
+  = pagination_for @extensions
+  
+  %table.index#extensions
+    %tbody
+      = render :partial => "extensions/extension", :collection => @extensions
+  
+  = pagination_for @extensions

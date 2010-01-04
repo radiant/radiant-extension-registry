@@ -1,0 +1,13 @@
+%tr[extension]
+  %td.screenshot
+    = image_tag extension.screenshot.url(:thumb)
+  %td.info
+    .name
+      = link_to extension.name, extension
+      - unless defined? hide_author && hide_author
+        = link_to "Edit", edit_extension_path(extension), :class=>"action" if can_edit?(extension)
+    .description= short_description(extension.description)
+    - unless defined? hide_author && hide_author
+      .authored
+        by
+        = link_to extension.author.full_name, extension.author

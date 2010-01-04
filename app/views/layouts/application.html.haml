@@ -40,13 +40,13 @@
     #main_wrapper
       #main
         #content
+          - flash.keys.each do |key|
+            %p{:id=>key}= flash[key]
           - if content_for? :actions
             #actions
               = yield :actions
           - if @h1 || @title
             %h1= @h1 || @title
-          - flash.keys.each do |key|
-            %p{:id=>key}= flash[key]
           = yield
     #footer_wrapper
       #footer

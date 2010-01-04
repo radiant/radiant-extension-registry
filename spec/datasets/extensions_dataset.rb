@@ -46,11 +46,11 @@ class ExtensionsDataset < Dataset::Base
       slug = name.downcase.gsub(" ", "-")
       {
         :name => name,
-        :repository_url => "git://github.com/seancribbs/radiant-#{slug}-extension.git",
         :description => "(none)",
         :download_url => nil,
         :author_id => author_id(:quentin),
         :repository_type => "Git",
+        :repository_url => "git://github.com/seancribbs/radiant-#{slug}-extension.git",
         :homepage => "http://github.com/seancribbs/radiant-#{slug}-extension",
         :current_version => "1.0.0",
         :supports_radiant_version => "0.7.1"

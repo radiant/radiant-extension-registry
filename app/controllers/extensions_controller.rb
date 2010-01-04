@@ -100,10 +100,5 @@ class ExtensionsController < ApplicationController
         return false
       end
     end
-    
-    def can_edit?(extension)
-      !!(current_author && (current_author.id == extension.author_id))
-    end
-    helper_method :can_edit?
   
 end

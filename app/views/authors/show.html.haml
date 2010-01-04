@@ -39,7 +39,7 @@
     %span.badge Available for Hire
 
 - if @author.extensions_count > 0
-  %h4= "Extensions <small>(#{ @author.extensions_count })</small>"
-  %ul
-    - for extension in @author.extensions
-      %li[extension]= link_to h(extension.name), extension
+  %h3= "Extensions <small>(#{ @author.extensions_count })</small>"
+  %table.index#extensions{:style=>"width: 75%"}
+    %tbody
+      = render :partial => "extensions/extension", :collection => @author.extensions, :locals => {:hide_author => true, :hide_edit => true}

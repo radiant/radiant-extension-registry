@@ -6,21 +6,10 @@
 
 .records_count= "#{@extensions.size} of #{Extension.count} extensions"
 
-= will_paginate @extensions, :previous_label => "&laquo; Prev", :next_label => "Next &raquo;"
+= pagination_for @extensions
 
 %table.index#extensions
   %tbody
-    - @extensions.each do |extension|
-      %tr[extension]
-        %td.screenshot
-          = image_tag extension.screenshot.url(:thumb)
-        %td.info
-          .name
-            = link_to extension.name, extension
-            = link_to "Edit", edit_extension_path(extension), :class=>"action" if can_edit?(extension)
-          .description= short_description(extension.description)
-          .authored
-            by
-            = link_to extension.author.name, author_path(extension.author)
+    = render :partial => "extension", :collection => @extensions
 
-= will_paginate @extensions
+= pagination_for @extensions

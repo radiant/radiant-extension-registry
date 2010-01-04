@@ -10,4 +10,17 @@ class ApplicationController < ActionController::Base
   
   include AuthenticatedSystem
   include OpenIdAuthentication
+  
+  def can_edit?(model)
+    case model
+    when Extension
+      !!(current_author && (current_author.id == model.author_id))
+    when Author
+      !!(current_author && (current_author.id == model.id))
+    else
+      raise "unknown model #{model}:#{model.class}"
+    end
+  end
+  helper_method :can_edit?
+  
 end
