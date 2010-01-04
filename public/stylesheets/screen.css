@@ -72,26 +72,34 @@ html, body {
   background-color: #fff; }
 
 body {
-  background: transparent url(/images/bg_header.png) top left repeat-x;
+  background-color: white;
   text-align: center; }
 
-#page {
+#header, #navigation, #main, #footer_wrapper {
   width: 960px;
   text-align: left;
   margin: 0 auto;
   overflow: hidden; }
 
-#main {
-  background: white; }
+#header_wrapper {
+  background: #454f59;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2e3842), to(#5c6670));
+  background: -moz-linear-gradient(left top, left bottom, from(#2e3842), to(#5c6670)); }
+
+#navigation_wrapper {
+  background: #e5e5e5;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#cdcdcd));
+  background: -moz-linear-gradient(left top, left bottom, from(white), to(#cdcdcd)); }
 
 #header {
   position: relative;
-  padding: 26px 20px 0; }
+  padding: 26px 0 0; }
   #header #logo {
     background: transparent url(/images/radiant_logo.png) left center no-repeat;
     height: 45px;
     padding: 10px 0 10px 90px;
-    margin: 0px 26px 26px 0px;
+    margin: 0px 26px 26px 20px;
     font-size: 35px;
     color: white; }
     #header #logo .title {
@@ -123,34 +131,34 @@ body {
         color: white; }
         #header #logo .parent_site a:hover {
           text-decoration: none; }
-  #header ul#account {
-    position: absolute;
-    top: 132px;
-    right: 20px;
-    font-size: 1em;
-    list-style: none; }
-    #header ul#account a, #header ul#account a:visited {
-      color: #0066cc;
-      text-decoration: none; }
-    #header ul#account a:hover {
-      text-decoration: underline; }
-    #header ul#account li {
-      display: inline;
-      padding-left: 8px; }
-  #header ul#navigation {
-    font-size: 105%;
-    height: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 15px 0; }
-    #header ul#navigation li {
-      display: inline;
-      padding-right: 20px; }
-    #header ul#navigation a, #header ul#navigation a:visited {
-      color: #333;
-      text-decoration: none; }
-    #header ul#navigation a:hover {
-      text-decoration: underline; }
+
+#navigation ul.primary_links {
+  font-size: 105%;
+  height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 15px 20px; }
+  #navigation ul.primary_links li {
+    display: inline;
+    padding-right: 20px; }
+  #navigation ul.primary_links a, #navigation ul.primary_links a:visited {
+    color: #333;
+    text-decoration: none; }
+  #navigation ul.primary_links a:hover {
+    text-decoration: underline; }
+#navigation ul.account_links {
+  float: right;
+  font-size: 1em;
+  list-style: none;
+  padding: 15px 20px; }
+  #navigation ul.account_links a, #navigation ul.account_links a:visited {
+    color: #0066cc;
+    text-decoration: none; }
+  #navigation ul.account_links a:hover {
+    text-decoration: underline; }
+  #navigation ul.account_links li {
+    display: inline;
+    padding-left: 8px; }
 
 #content {
   padding: 20px;
@@ -304,7 +312,6 @@ body {
       #content #actions a.add_link:hover {
         text-decoration: underline; }
   #content .badge {
-    font-weight: bold;
     color: white;
     background: #999;
     padding: 6px 12px 7px;

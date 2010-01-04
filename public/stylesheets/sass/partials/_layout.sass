@@ -2,15 +2,21 @@ html, body
   background-color: #fff
 
 body
-  background: transparent url(/images/bg_header.png) top left repeat-x
+  background-color: white
   text-align: center
 
-#page
+#header, #navigation, #main, #footer_wrapper
   width: 960px
   text-align: left
   margin: 0 auto
   overflow: hidden
 
-#main
-  background: white
-  
+#header_wrapper
+  background: #454f59
+  color: white
+  +v-gradient(#2e3842, #5c6670)
+
+#navigation_wrapper
+  background: #e5e5e5
+  +v-gradient(#fff, #cdcdcd)
+

@@ -8,23 +8,30 @@
     = javascript_include_tag :defaults
     %link{:href => "/extensions.atom", :rel => "alternate", :type => "application/atom+xml", :title => "Radiant Extension Registry"}
   %body{:id => "#{@controller.controller_name}_#{@controller.action_name}"}
-    #page
+    #header_wrapper
       #header
         #logo 
           .title Radiant CMS
           .subtitle Extension Registry
           .parent_site= link_to "RadiantCMS.org", "http://radiantcms.org"
-        %ul#account{:class => logged_in? ? "in" : "out"}
+    #navigation_wrapper
+      #navigation
+        %ul.account_links{:class => logged_in? ? "in" : "out"}
           - if logged_in?
             %li#account_link= link_to "My Profile", current_author
             %li#logout_link.last= link_to "Logout", logout_url
           - else
             %li#signup_link= link_to "Signup", signup_url
             %li#login_link.last= link_to "Login", login_url
-        %ul#navigation
+        %ul.primary_links
           %li#index_link= link_to "Extensions", extensions_path
           %li#authors_link= link_to "Authors", authors_path
           %li#search_link= link_to "Search", search_path
+    - if content_for? :head
+      #head_wrapper
+        #head
+          = yield
+    #main_wrapper
       #main
         #content
           - if content_for? :actions
@@ -35,6 +42,7 @@
           - flash.keys.each do |key|
             %p{:id=>key}= flash[key]
           = yield
+    #footer_wrapper
       #footer
         %p
           Copyright &copy;

@@ -5,6 +5,8 @@
 
 .full_size_avatar
   = image_tag gravatar_url(@author.email, :size => 182), :width=>182, :height=>182, :alt=>""
+  %p.caption
+    Avatar provided by <a href="http://gravatar.com">Gravatar.com</a>
 
 .big
   = sanitize(textilize(@author.notes.to_s))
