@@ -75,19 +75,11 @@ body {
   background: transparent url(/images/bg_header.png) top left repeat-x;
   text-align: center; }
 
-#page, #footer {
+#page {
   width: 960px;
   text-align: left;
-  margin: 0 auto; }
-
-#page {
-  overflow: hidden;
-  border-bottom-left-radius: 5px;
-  -moz-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  -moz-border-bottom-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 #main {
   background: white; }
@@ -157,7 +149,7 @@ body {
       padding-left: 20px; }
 
 #content {
-  padding: 5px 20px 20px;
+  padding: 20px;
   font-family: 'Trebuchet MS', 'Bitstream Vera Sans', Verdana, sans-serif;
   color: #666; }
   #content a {
@@ -180,7 +172,8 @@ body {
     color: #333; }
   #content h1 {
     margin-top: 10px;
-    font-size: 180%;
+    font-size: 210%;
+    font-weight: bold;
     margin-bottom: 0.75em; }
   #content h2 {
     font-size: 150%;
@@ -417,13 +410,13 @@ body {
   font-size: 130%; }
 
 #footer {
-  padding: 10px 0;
-  color: #999;
-  font-size: 90%; }
-  #footer p {
-    padding: 0 20px; }
+  border-top: 1px solid #e5e5e5;
+  padding: 20px 0;
+  color: #bbb;
+  font-size: 95%;
+  margin: 15px 20px 0; }
   #footer a {
-    color: #888; }
+    color: #999; }
     #footer a:hover {
       text-decoration: none;
       color: #666; }

@@ -3,7 +3,7 @@
   %head
     %title 
       Radiant CMS - Extension Registry
-      = !@extension.blank? && !@extension.new_record? ? "&mdash; #{h(@extension.name)}" : ""
+      = !@extension.blank? && !@extension.new_record? ? "- #{h(@extension.name)}" : ""
     = stylesheet_link_tag "screen"
     = javascript_include_tag :defaults
     %link{:href => "/extensions.atom", :rel => "alternate", :type => "application/atom+xml", :title => "Radiant Extension Registry"}
@@ -37,12 +37,12 @@
           - flash.keys.each do |key|
             %p{:id=>key}= flash[key]
           = yield
-    #footer
-      %p
-        Copyright &copy;
-        = "2008&#8211;#{Date.today.year}"
-        the Radiant CMS development team.<br />
-        = link_to "Radiant CMS", "http://radiantcms.org"
-        is copyright &copy;
-        = "2006&#8211;#{Date.today.year}"
-        John W. Long and Sean Cribbs.
+      #footer
+        %p
+          Copyright &copy;
+          = "2008&#8211;#{Date.today.year}"
+          the Radiant CMS development team.<br />
+          = link_to "Radiant CMS", "http://radiantcms.org"
+          is copyright &copy;
+          = "2006&#8211;#{Date.today.year}"
+          John W. Long and Sean Cribbs.
