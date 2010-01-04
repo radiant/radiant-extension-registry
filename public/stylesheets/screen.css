@@ -347,12 +347,13 @@ body {
   #content .pagination span.disabled {
     color: #aaa; }
   #content .pagination span.current {
-    font-weight: bold;
     color: white;
-    background: #0066cc;
+    background-color: #454f59;
     border-radius: !amount;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px; }
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#555d65), to(#757d85));
+    background: -moz-linear-gradient(left top, left bottom, from(#555d65), to(#757d85)); }
   #content .pagination a {
     text-decoration: none; }
     #content .pagination a:hover {
@@ -376,6 +377,7 @@ body {
     border-top: 1px solid #e5e5e5;
     padding: 15px; }
     #content table.index#extensions td.screenshot {
+      width: 120px;
       padding-left: 0; }
       #content table.index#extensions td.screenshot img {
         border: 4px solid #f0f0f0; }
