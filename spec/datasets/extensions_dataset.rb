@@ -26,8 +26,7 @@ class ExtensionsDataset < Dataset::Base
     )
     create_extension("bespin_editor",
       :author_id => author_id(:john),
-      :description => "Bespin is an embeddable source code editor from Mozilla that provides robust syntax highlighting, indentation support, and other features.\n\nThe Bespin Editor Extension replaces all textareas in Radiant with the Bespin editor. Note that Bespin only works in Web browsers that support the HTML canvas tag (Safari, Firefox, and Opera).",
-      :repository_url => "git://github.com/jlong/radiant-bespin-editor-extension.git"
+      :description => "Bespin is an embeddable source code editor from Mozilla that provides robust syntax highlighting, indentation support, and other features.\n\nThe Bespin Editor Extension replaces all textareas in Radiant with the Bespin editor. Note that Bespin only works in Web browsers that support the HTML canvas tag (Safari, Firefox, and Opera)."
     )
     create_extension("help",
       :author_id => author_id(:jim),

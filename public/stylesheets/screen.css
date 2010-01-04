@@ -147,7 +147,7 @@ body {
   #navigation ul.primary_links li {
     display: inline; }
     #navigation ul.primary_links li.here a:link, #navigation ul.primary_links li.here a:visited {
-      background: #454f59;
+      background-color: #454f59;
       color: #f0f0f0;
       border-radius: !amount;
       -moz-border-radius: 20px;
@@ -324,11 +324,13 @@ body {
         text-decoration: underline; }
   #content .badge {
     color: white;
-    background: #999;
+    background-color: #454f59;
     padding: 6px 12px 7px;
     border-radius: !amount;
     -moz-border-radius: 8px;
-    -webkit-border-radius: 8px; }
+    -webkit-border-radius: 8px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#555d65), to(#757d85));
+    background: -moz-linear-gradient(left top, left bottom, from(#555d65), to(#757d85)); }
   #content .clearfix {
     clear: both; }
 
@@ -419,6 +421,13 @@ body {
         color: #999; }
     #content table.index#authors td.available_for_hire {
       width: 15em; }
+      #content table.index#authors td.available_for_hire .badge {
+        opacity: 0.7;
+        -moz-opacity: 0.7;
+        -khtml-opacity: 0.7;
+        -webkit-opacity: 0.7;
+        filter: alpha(opacity=70);
+        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); }
 #content .full_size_avatar {
   float: right; }
   #content .full_size_avatar img {

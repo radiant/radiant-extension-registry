@@ -11,7 +11,7 @@
   %p
     = check_box_tag 'remember_me', nil, false, :class => 'checkbox'
     %label.checkbox{:for=>'remember_me'} Remember me
-  .buttons
+  %p.buttons
     = submit_tag 'Login', :class => "button"
     or
-    = link_to "Cancel", :back, :class => "cancel"
+    = link_to "Cancel", root_path, :class => "cancel"
