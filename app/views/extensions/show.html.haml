@@ -1,7 +1,7 @@
 - @title = h(@extension.name)
 
 .screenshot
-  = link_to image_tag(@extension.screenshot.url(:thumb)), @extension.screenshot.url(:medium)
+  = link_to image_tag(@extension.screenshot.url(:medium)), @extension.screenshot.url(:large)
 
 .big
   = sanitize(textilize(@extension.description.to_s))

@@ -1,7 +1,7 @@
 class Extension < ActiveRecord::Base
   belongs_to :author
   
-  has_attached_file :screenshot, :styles => { :medium => "640x480>", :thumb => "180x133>" }
+  has_attached_file :screenshot, :styles => { :thumb => "120x88>", :medium => "180x133>", :large => "640x480>" }
   
   validates_presence_of :name
   validates_uniqueness_of :name, :allow_nil => true
