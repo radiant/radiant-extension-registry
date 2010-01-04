@@ -64,6 +64,6 @@
           Confirm New Password
         = f.password_field :password_confirmation, :class => "textbox", :size => 25
   .buttons
-    = submit_tag "Save Profile", :class => "button"
+    %button{:type=>"submit"} Save Profile
     or
     = link_to "Cancel", :back, :class => "cancel"

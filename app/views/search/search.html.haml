@@ -4,7 +4,7 @@
 - form_tag '/search', :method => :get, :id => "search" do
   %p{:style=>"margin-bottom: 2em"}
     = text_field_tag "q", @query, :size => 20, :class => 'textbox'
-    %input.button{:type=>"submit", :value => "Go"}/
+    %button{:type=>"submit"} Go
 
 - if results?
   - if @extensions.total_entries > 0

@@ -2,7 +2,7 @@
 - @selected = :extensions
 
 - content_for :actions do
-  = link_to "Add Extension", new_extension_path, :class => "add_link"
+  = link_to( image_tag("/images/plus.png", :class=>"icon") +" Add Extension", new_extension_path, :class => "add_link button")
 
 .records_count= "#{@extensions.size} of #{Extension.count} extensions"
 

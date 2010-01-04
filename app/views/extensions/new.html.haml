@@ -3,7 +3,7 @@
 
 - form_for @extension, :html => {:multipart => true} do |f|
   = render :partial => "form", :locals => {:f => f}
-  .buttons
-    = submit_tag "Add Extension", :class => "button"
+  %p.buttons
+    %button{:type=>"submit"} Add Extension
     or
-    = link_to "Cancel", :back, :class => "cancel"
+    = link_to "Cancel", extensions_path, :class => "cancel"
