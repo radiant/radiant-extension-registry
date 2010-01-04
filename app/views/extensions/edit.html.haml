@@ -2,6 +2,8 @@
 - @selected = :extensions
 
 - form_for @extension, :html => {:multipart => true} do |f|
-  = render :partial => "form", :locals => {:f => f}
-  .buttons
-    = submit_tag "Update Extension", :class => "button"
+  = render :partial => "fields", :locals => {:f => f}
+  %p.buttons
+    %button{:type=>"submit"} Save Changes
+    or
+    = link_to "Cancel", :back, :class => "cancel"

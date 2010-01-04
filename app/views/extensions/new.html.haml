@@ -2,7 +2,7 @@
 - @selected = :extensions
 
 - form_for @extension, :html => {:multipart => true} do |f|
-  = render :partial => "form", :locals => {:f => f}
+  = render :partial => "fields", :locals => {:f => f}
   %p.buttons
     %button{:type=>"submit"} Add Extension
     or
