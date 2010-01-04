@@ -156,19 +156,15 @@ body {
       background: -moz-linear-gradient(left top, left bottom, from(#555d65), to(#757d85)); }
     #navigation ul.primary_links li.here a:hover {
       color: white; }
-#navigation ul.account_links {
+#navigation .account_links {
   float: right;
   font-size: 1em;
-  list-style: none;
   padding: 15px 20px; }
-  #navigation ul.account_links a, #navigation ul.account_links a:visited {
+  #navigation .account_links a, #navigation .account_links a:visited {
     color: #0066cc;
-    text-decoration: none; }
-  #navigation ul.account_links a:hover {
     text-decoration: underline; }
-  #navigation ul.account_links li {
-    display: inline;
-    padding-left: 8px; }
+  #navigation .account_links a:hover {
+    text-decoration: none; }
 
 #content {
   padding: 20px;
