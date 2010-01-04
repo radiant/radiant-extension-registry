@@ -3,13 +3,13 @@ Feature: Search
   As an information seeker
   I want to be able to search for extensions
  
-  Scenario: Find what I'm looking for
+  Scenario: When I search I should find extensions based on name
     Given an extension "bespin_editor" owned by "John"
     Given I am on the search page
     When I search for "bespin"
     Then I should see "bespin_editor"
   
-  Scenario: Find what I'm looking for
+  Scenario: When I search I should find extensions based on description
     Given an extension "bespin_editor" owned by "John" with a description of "crazy text editor"
     Given I am on the search page
     When I search for "crazy"
