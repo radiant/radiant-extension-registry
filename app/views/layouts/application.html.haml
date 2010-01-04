@@ -13,8 +13,7 @@
         #logo 
           .title Radiant CMS
           .subtitle Extension Registry
-          .parent_site
-            = link_to "RadiantCMS.org", "http://radiantcms.org"
+          .parent_site= link_to "RadiantCMS.org", "http://radiantcms.org"
         %ul#account{:class => logged_in? ? "in" : "out"}
           - if logged_in?
             %li#account_link= link_to "My Profile", current_author

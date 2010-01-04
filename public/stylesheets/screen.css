@@ -86,13 +86,13 @@ body {
 
 #header {
   position: relative;
-  padding-top: 26px; }
+  padding: 26px 20px 0; }
   #header #logo {
     background: transparent url(/images/radiant_logo.png) left center no-repeat;
     height: 45px;
     padding: 10px 0 10px 90px;
     margin: 0px 26px 26px 0px;
-    font-size: 32px;
+    font-size: 35px;
     font-weight: bold;
     color: white; }
     #header #logo .title {
@@ -109,11 +109,12 @@ body {
     #header #logo .parent_site {
       background-color: #6b737b;
       display: inline;
-      font-size: .4em;
+      font-size: .5em;
+      font-weight: normal;
       padding: 7px 16px 8px;
       position: absolute;
-      right: 0px;
-      margin-top: 8px;
+      right: 20px;
+      margin-top: 4px;
       border-radius: !amount;
       -moz-border-radius: 8px;
       -webkit-border-radius: 8px;
@@ -127,7 +128,7 @@ body {
   #header ul#account {
     position: absolute;
     top: 132px;
-    right: 0px;
+    right: 20px;
     font-size: 1em;
     list-style: none; }
     #header ul#account a, #header ul#account a:visited {
@@ -143,15 +144,15 @@ body {
     height: 20px;
     list-style: none;
     margin: 0;
-    padding: 15px 20px 15px 0; }
+    padding: 15px 0; }
+    #header ul#navigation li {
+      display: inline;
+      padding-right: 20px; }
     #header ul#navigation a, #header ul#navigation a:visited {
       color: #333;
       text-decoration: none; }
     #header ul#navigation a:hover {
       text-decoration: underline; }
-    #header ul#navigation li {
-      display: inline;
-      padding-left: 20px; }
 
 #content {
   padding: 20px;
@@ -275,7 +276,7 @@ body {
     border-collapse: collapse;
     border-bottom: 1px solid #ddd;
     width: 100%;
-    margin: 0; }
+    margin: 2em 0; }
     #content table.attributes tr {
       border-top: 1px solid #ddd;
       padding: 2px; }
@@ -308,7 +309,7 @@ body {
     font-weight: bold;
     color: white;
     background: #999;
-    padding: .75em 1em 0.65em;
+    padding: 6px 12px 7px;
     border-radius: !amount;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px; }
