@@ -7,12 +7,12 @@
     %input.button{:type=>"submit", :value => "Go"}/
 
 - if results?
-  .records_count= "#{@extensions.size} of #{pluralize(@extensions.total_entries, "result")} for &#8220;#{@query}&#8221;"
-  
-  = pagination_for @extensions
-  
-  %table.index#extensions
-    %tbody
-      = render :partial => "extensions/extension", :collection => @extensions
-  
-  = pagination_for @extensions
+  - if @extensions.total_entries > 0
+    .records_count= "#{@extensions.size} of #{pluralize(@extensions.total_entries, "result")} for &#8220;#{@query}&#8221;"
+    = pagination_for @extensions
+    %table.index#extensions{:style => "clear: both"}
+      %tbody
+        = render :partial => "extensions/extension", :collection => @extensions
+    = pagination_for @extensions
+  - else
+    .records_count= "0 results for &#8220;#{@query}&#8221;"

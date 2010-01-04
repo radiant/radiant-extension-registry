@@ -8,7 +8,7 @@
 
 = pagination_for @extensions
 
-%table.index#extensions
+%table.index#extensions{:style => "clear: both"}
   %tbody
     = render :partial => "extension", :collection => @extensions
 
