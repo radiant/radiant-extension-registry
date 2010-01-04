@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100103011128) do
+ActiveRecord::Schema.define(:version => 20100104160109) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20100103011128) do
     t.integer  "screenshot_file_size"
     t.datetime "screenshot_updated_at"
   end
+
+  add_index "extensions", ["name", "description"], :name => "extensions_search", :unique => true
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
