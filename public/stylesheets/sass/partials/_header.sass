@@ -1,7 +1,7 @@
 #header
   position: relative
   padding-top: 26px  
-
+  
   #logo
     background: transparent url(/images/radiant_logo.png) left center no-repeat
     height: 45px
@@ -10,34 +10,39 @@
     font-size: 32px
     font-weight: bold
     color: white
-    h1
+    .title
       display: inline
-    h2
+      text-shadow: 2px 2px 2px rgba(0,0,0,.5)
+    .subtitle
       display: inline
       font-size: .6em
       font-style: italic
       font-weight: normal
-    h2:before
-      content: "//"
-    h3
+      text-shadow: 2px 2px 2px rgba(0,0,0,.5)
+      &:before
+        content: "// "
+    .parent_site
       background-color: #6b737b
       display: inline
       font-size: .4em
-      padding: 6px 16px 9px
+      padding: 7px 16px 8px
       position: absolute
       right: 0px
       margin-top: 8px
       +round-corners(8px)
+      text-shadow: 2px 2px 2px rgba(107,115,123,.5)
+      &:after
+        content: "→"
       a
         color: white
-    h3:after
-      content: "→"
-
+        &:hover
+          text-decoration: none
+  
   ul#account
     position: absolute
     top: 132px
     right: 0px
-    font-size: 1.1em
+    font-size: 1em
     list-style: none
     a, a:visited
       color: #0066cc
@@ -54,7 +59,7 @@
       text-decoration: none
     a:hover
       text-decoration: underline
-    font-size: 1.1em
+    font-size: 105%
     height: 20px
     li
       display: inline

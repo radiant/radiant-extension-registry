@@ -8,26 +8,20 @@
 
 %table.attributes
   %tr
-    %th.label#author
-      Author
-    %td
-      = h @extension.author.name
-      = mail_to @extension.author.email, nil, :encode => :hex
+    %th Author
+    %td= link_to @extension.author.name, extension_url(@extension)
   - unless @extension.homepage.blank?
     %tr
-      %th.label Homepage
-      %td
-        = link_to @extension.homepage, @extension.homepage
+      %th Website
+      %td= link_to @extension.homepage, @extension.homepage
   - unless @extension.repository_url.blank?
     %tr
-      %th.label Repository
-      %td
-        = link_to @extension.repository_url, @extension.repository_url
+      %th Repository
+      %td= link_to @extension.repository_url, @extension.repository_url
   - unless @extension.download_url.blank?
     %tr
-      %th.label Download
-      %td
-        = link_to @extension.download_url, @extension.download_url
+      %th Download
+      %td= link_to @extension.download_url, @extension.download_url
 
 - if can_edit?(@extension)
   %p
