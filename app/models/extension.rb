@@ -20,7 +20,7 @@ class Extension < ActiveRecord::Base
   after_destroy :update_cached_fields
   
   def self.search(query, page)
-    paginate :conditions => ['name like ?', "%#{query}%"], :page => page, :order => 'name'
+    paginate :conditions => ['name like ? or description like ?', "%#{query}%", "%#{query}%"], :page => page, :order => 'name'
   end
   
   def self.per_page
