@@ -527,6 +527,34 @@ body {
   margin: 0 0 1em 1em; }
   #main div.screenshot img {
     border: 5px solid #f0f0f0; }
+#main div.screenshot-zoom {
+  border: solid 1px;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .85); }
+  #main div.screenshot-zoom img {
+    border: solid 8px #fff;
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    margin-left: -328px; }
+  #main div.screenshot-zoom a {
+    background: transparent url(/images/close.png) top left no-repeat;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    margin-left: 312px;
+    top: 44px; }
 
 #main table.index#authors {
   border-bottom: 1px solid #e5e5e5;
