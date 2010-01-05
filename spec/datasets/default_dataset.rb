@@ -1,3 +1,3 @@
 class DefaultDataset < Dataset::Base
-  uses :paginated
+  uses :demo
 end
