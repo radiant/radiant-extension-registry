@@ -25,6 +25,10 @@ class Author < ActiveRecord::Base
     25
   end
   
+  def self.extension_authors
+    find(:all, :conditions => ["extensions_count > 0"])
+  end
+  
   def self.extension_authors_count
     count(:conditions => ["extensions_count > 0"])
   end

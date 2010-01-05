@@ -5,7 +5,7 @@ body
   background-color: white
   text-align: center
 
-#header, #navigation, #main, #footer_wrapper
+#header, #navigation, #head, #main, #footer_wrapper
   width: 960px
   text-align: left
   margin: 0 auto
@@ -20,3 +20,23 @@ body
   background: #e5e5e5
   +v-gradient(#fff, #cdcdcd)
 
+#head_wrapper
+  background-color: #e9f2ff
+
+#content
+  padding: 20px
+
+#main.content_with_sidebar
+  background: transparent url(/images/vertical_line.png) 555px top repeat-y
+  margin-bottom: 10px
+  +clearfix
+  
+  #content
+    width: 505px
+    padding: 20px 20px 10px
+    float: left
+  
+  #sidebar
+    float: right
+    width: 355px
+    padding: 20px 20px 10px 0

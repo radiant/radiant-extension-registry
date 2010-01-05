@@ -1,6 +1,6 @@
 Feature: Search
   In order to discover new extensions
-  As an information seeker
+  As an Radiant user
   I want to be able to search for extensions
  
   Scenario: When I search I should find extensions based on name

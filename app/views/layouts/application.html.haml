@@ -22,31 +22,36 @@
             &nbsp;
             = link_to "Logout", logout_url
           - else
-            = link_to "Signup", signup_url, :class => (@selected == :signup ? "here" : nil)
+            = link_to "Signup", signup_url, :class => ("here" if @selected == :signup)
             or
-            = link_to "Login", login_url, :class => (@selected == :login ? "here" : nil)
+            = link_to "Login", login_url, :class => ("here" if @selected == :login)
         %ul.primary_links
-          %li#index_link{:class => (@selected == :extensions ? "here" : nil)}
+          %li#index_link{:class => ("here" if @selected == :home)}
+            = link_to "Home", root_path
+          %li#index_link{:class => ("here" if @selected == :extensions)}
             = link_to "Extensions", extensions_path
-          %li#authors_link{:class => (@selected == :authors ? "here" : nil)}
+          %li#authors_link{:class => ("here" if @selected == :authors)}
             = link_to "Authors", authors_path
-          %li#search_link{:class => (@selected == :search ? "here" : nil)}
+          %li#search_link{:class => ("here" if @selected == :search)}
             = link_to "Search", search_path
     - if content_for? :head
       #head_wrapper
         #head
-          = yield
+          = yield :head
     #main_wrapper
-      #main
+      #main{:class => ("content_with_sidebar" if content_for? :sidebar)}
         #content
           - flash.keys.each do |key|
             %p{:id=>key}= flash[key]
           - if content_for? :actions
             #actions
               = yield :actions
-          - if @h1 || @title
+          - unless (@h1 || @title).blank?
             %h1= @h1 || @title
           = yield
+        - if content_for? :sidebar
+          #sidebar
+            = yield :sidebar
     #footer_wrapper
       #footer
         %p
@@ -56,4 +61,4 @@
           = link_to "Radiant CMS", "http://radiantcms.org"
           is copyright &copy;
           = "2006&#8211;#{Date.today.year}"
-          John W. Long and Sean Cribbs.
+          = "#{ link_to 'John W. Long', 'http://wiseheartdesign.com' } and #{ link_to 'Sean Cribbs', 'http://seancribbs.com' }."
