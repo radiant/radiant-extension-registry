@@ -43,7 +43,7 @@ class DemoDataset < Dataset::Base
       :description => "Provides an area to view recent activity in Radiant. The interface is extendable so that other exensions may add their own recent activity list."
     )
     
-    create_author("Andrea", :last_name => "Franz", :website => "http://gravityblast.com")
+    create_author("Andrea", :last_name => "Franz", :email => "andrea@gravityblast.com", :website => "http://gravityblast.com")
     create_extension("gallery",
       :author_id => author_id(:andrea),
       :description => "The Gallery extension allows Radiant to manage galleries of images."
@@ -55,11 +55,11 @@ class DemoDataset < Dataset::Base
     
     create_author("Michael", :last_name => "Klett", :website => "http://webadvocate.com")
     create_extension("nested_layouts",
-      :author_id => author_id(:aaron),
+      :author_id => author_id(:michael),
       :description => "Nested Layouts enables reuse of a top-level “master” layout (one that contains your tags and the overall structure/wrapper of your site) for several different “nested” layouts (i.e. a one-column layout and a two-column layout). Keep your layouts DRY!"
     )
     
-    create_author("Andrew", :last_name => "vonderLuft", :login => "avonderluft", :website => "http://avlux.net", :notes => "Radiant Web Host, Admin & Developer")
+    create_author("Andrew", :last_name => "vonderLuft", :login => "avonderluft", :email =>"avonderluft@avlux.net", :website => "http://avlux.net", :notes => "Radiant Web Host, Admin & Developer")
     create_extension("concurrent_draft",
       :author_id => author_id(:andrew),
       :description => "Enables default draft versions of pages, snippets and layouts, which can be scheduled for promotion to Production. Radiant 0.7 compliant."
@@ -69,13 +69,13 @@ class DemoDataset < Dataset::Base
       :description => "Enables viewing site pages in a list views sortable by attibute, either full list or a paginated list. trunk is compatible with 0.7.0 or higher; tag 1.1 is compatible with 0.6.9\n\nRequires will_paginate plugin: After install, from extension directory run:\n$ git submodule init && git submodule update"
     )
     
-    create_author("Keith", :last_name => "Bingman", :login => "kbingman")
+    create_author("Keith", :last_name => "Bingman", :login => "kbingman", :email => "keith@keithbingman.com")
     create_extension("paperclipped",
       :author_id => author_id(:keith),
       :description => 'Assets manager for Radiant based on "Paperclip":http://thoughtbot.com/projects/paperclip with support for multiple file types and drag and drop insertion into Radiant pages.'
     )
     
-    create_author("Todd", :last_name => "Willey", :login => "xtoddx")
+    create_author("Todd", :last_name => "Willey", :login => "xtoddx", :email => "todd@rubidine.com")
     create_extension("beastly",
       :author_id => author_id(:todd),
       :description => "Allows RadiantCMS to share users and layouts with Altered Beast forum software. See project’s README file for more information and instructions on required plugins for your beast installation."
@@ -87,7 +87,7 @@ class DemoDataset < Dataset::Base
       :description => "This extension adds the r:escape_xml tag to escape predefined XML characters."
     )
     
-    create_author("Jason", :last_name => "Garber", :website => "http://radiantcmshosting.com", :notes => 'I use Radiant *a lot*, both in my work at "EMU":http://www.emu.edu/ and in hosting websites for a number of private clients.', :available_for_hire => true)
+    create_author("Jason", :last_name => "Garber", :website => "http://radiantcmshosting.com", :email => "jg@jasongarber.com", :notes => 'I use Radiant *a lot*, both in my work at "EMU":http://www.emu.edu/ and in hosting websites for a number of private clients.', :available_for_hire => true)
     create_extension("redcloth4",
       :author_id => author_id(:jason),
       :description => "Enable RedCloth 4.0.3 or greater from RubyGems. RedCloth 3.0.4 comes packaged with Radiant <= 0.6.9, so we have to pull some tricks to get RedCloth loaded from gems. Not needed with Radiant 0.7 and above."
@@ -111,6 +111,16 @@ class DemoDataset < Dataset::Base
     create_extension("no_dev_cache",
       :author_id => author_id(:jason),
       :description => "When caching was switched to Rack::Cache in Radiant 0.8, the bit where it wouldn’t cache in dev mode was left out. This puts it back in. Not needed in Radiant 0.9."
+    )
+    
+    create_author("Arik", :last_name => "Jones", :email => "makingme@gmail.com", :website => "http://blog.atinypixel.com")
+    create_extension("summarize",
+      :author_id => author_id(:arik),
+      :description => "Add a somewhere in your page part content and the rest will be truncated."
+    )
+    create_extension("page_origin",
+      :author_id => author_id(:arik),
+      :description => "When you go to create or edit a page, you will now see the parent page title right under the page title text field. Great for the forgetful."
     )
   end
 end

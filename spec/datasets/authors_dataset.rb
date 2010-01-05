@@ -1,11 +1,11 @@
 class AuthorsDataset < Dataset::Base
 
   def load
-    create_author "Quentin"
-    create_author "Aaron", :notes => "Just another extension author"
+    create_author "Quentin", :last_name => "Randolf"
+    create_author "Aaron", :last_name => "Warhaul", :notes => "Just another extension author"
     create_author "Jim", :last_name => "Gay", :login => "saturnflyer", :email => "jim@saturnflyer.com", :notes => "Core team member."
     create_author "John", :last_name => "Long", :login => "jlong", :email => "me@johnwlong.com", :notes => "Creator of Radiant CMS and lead designer. Principle of Wiseheart Design.", :available_for_hire => true
-    create_author "Sean", :last_name => "Cribbs", :login => "seancribbs", :email => "sean.cribbs@gmail.com", :notes => "Lead developer of Radiant CMS.", :available_for_hire => true
+    create_author "Sean", :last_name => "Cribbs", :login => "seancribbs", :email => "seancribbs@gmail.com", :notes => "Lead developer of Radiant CMS.", :available_for_hire => true
     create_author "Adam", :notes => "I haven't created any extensions.", :available_for_hire => false
   end
 
