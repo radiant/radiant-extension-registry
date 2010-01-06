@@ -25,6 +25,9 @@ Feature: Homepage
   
   Scenario: When I am on the home page I should see a list of authors
     Given authors "John", "Sean", and "Jim"
+    And an extension "bespin_editor" owned by "John"
+    And an extension "page_attachments" owned by "Sean"
+    And an extension "help" owned by "Jim"
     And I am on the homepage
     Then I should see "John"
     And I should see "Sean"
@@ -34,4 +37,3 @@ Feature: Homepage
     Given I am on the homepage
     When I follow "More Authors"
     Then I should be on the authors page
-    
