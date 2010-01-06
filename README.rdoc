@@ -4,8 +4,8 @@ This is the source code of the Radiant Extension Registry. The registry is
 used by Radiant to power the `script/extension install` command.
 
 Extension authors can upload information about their extensions and then use 
-`script/extension install` to install the the extension in a fresh Radiant 
-project.
+the `script/extension install` command to install the the extension in a 
+fresh Radiant project.
 
 The extension registry is located here:
 

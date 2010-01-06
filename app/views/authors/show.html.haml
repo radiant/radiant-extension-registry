@@ -42,4 +42,4 @@
   %h3= "Extensions <small>(#{ @author.extensions_count })</small>"
   %table.index#extensions{:style=>"width: 75%"}
     %tbody
-      = render :partial => "extensions/extension", :collection => @author.extensions, :locals => {:hide_author => true, :hide_edit => true}
+      = render :partial => "extensions/extension", :collection => @author.extensions, :locals => {:hide_author => true}

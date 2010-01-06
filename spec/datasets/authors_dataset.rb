@@ -20,6 +20,7 @@ class AuthorsDataset < Dataset::Base
       {
         :first_name => first_name,
         :login => login,
+        :location => ["Chapel Hill, NC", "Cary, NC", "Apex, NC", "Raliegh, NC", "Atlanta, GA", "New York, NY", "San Francisco, CA", "Dallas, TX", "Richmond, VA", "Cleveland, OH", "Chicago, IL", "Naperville, IL", "Auburn, AL", "Franktown, VA", "Moscow, Russia", "Sidney, Australia", "Tokyo, Japan"].rand,
         :email => "#{login}@example.com",
         :password => "test",
         :password_confirmation => "test",

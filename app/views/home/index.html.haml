@@ -26,7 +26,17 @@
   
   %table.index#authors.mini{:border=>0, :cellpadding=>0, :cellspacing=>0}
     %tbody
-      = render :partial => 'authors/author', :collection => @authors, :locals => { :hide_available_for_hire => true }
+      - for author in @authors
+        %tr[author]
+          %td.avatar
+            = image_tag gravatar_url(author.email), :width=>64, :height=>64, :alt=>""
+          %td.info
+            .name
+              = link_to h(author.name), author
+              - unless defined? hide_edit && hide_edit
+                = link_to "Edit", edit_author_path(author), :class=>"action" if can_edit?(author)
+            .extensions_count
+              = pluralize(author.extensions_count, "extension")
   
   %p.more
     %span= link_to "More Authors", authors_path

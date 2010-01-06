@@ -573,9 +573,13 @@ body {
       padding-left: 5px; }
       #main table.index#authors td.info .name {
         font-size: 130%; }
-      #main table.index#authors td.info .extensions_count {
+      #main table.index#authors td.info .location {
         font-size: 110%;
         color: #999; }
+    #main table.index#authors td.extensions_count {
+      font-size: 110%;
+      color: #999;
+      width: 30%; }
     #main table.index#authors td.available_for_hire {
       width: 15em; }
       #main table.index#authors td.available_for_hire .badge {
@@ -592,10 +596,13 @@ body {
       border: none;
       padding-top: 8px;
       padding-bottom: 8px; }
+      #main table.index#authors.mini td.avatar {
+        width: 72px; }
       #main table.index#authors.mini td.info .name {
         font-size: 120%; }
       #main table.index#authors.mini td.info .extensions_count {
-        font-size: 105%; }
+        font-size: 105%;
+        color: #999; }
 #main .full_size_avatar {
   float: right; }
   #main .full_size_avatar img {

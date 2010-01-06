@@ -1,14 +1,16 @@
 %tr[author]
-  - unless defined? hide_avatar && hide_avatar
-    %td.avatar
-      = image_tag gravatar_url(author.email), :width=>80, :height=>80, :alt=>""
+  %td.avatar
+    = image_tag gravatar_url(author.email), :width=>80, :height=>80, :alt=>""
   %td.info
     .name
       = link_to h(author.name), author
       - unless defined? hide_edit && hide_edit
         = link_to "Edit", edit_author_path(author), :class=>"action" if can_edit?(author)
-    .extensions_count
-      = "#{author.extensions_count} extensions"
+    .location
+      = h(author.location)
+  - unless defined? hide_extension_count && hide_extension_count
+    %td.extensions_count
+      = pluralize(author.extensions_count, "extension")
   - unless defined? hide_available_for_hire && hide_available_for_hire
     %td.available_for_hire
       - if author.available_for_hire?
