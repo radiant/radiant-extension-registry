@@ -39,7 +39,7 @@
     %span.badge Available for Hire
 
 - if @author.extensions_count > 0
-  %h3= "Extensions <small>(#{ @author.extensions_count })</small>"
+  %h3{:style=>"margin: 2em 0 0.75em"}= "Extensions <small>(#{ @author.extensions_count })</small>"
   %table.index#extensions{:style=>"width: 75%"}
     %tbody
       = render :partial => "extensions/extension", :collection => @author.extensions, :locals => {:hide_author => true}
