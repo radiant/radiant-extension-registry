@@ -43,3 +43,7 @@
   %table.index#extensions{:style=>"width: 75%"}
     %tbody
       = render :partial => "extensions/extension", :collection => @author.extensions, :locals => {:hide_author => true}
+
+- if can_edit?(@author)
+  %p{:style=>"margin-top: 2.5em"}
+    = link_to( image_tag("/images/plus.png", :class=>"icon") +" Add Extension", new_extension_path, :class => "button")
