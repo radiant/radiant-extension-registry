@@ -16,7 +16,7 @@
 
 %table.index#extensions.mini
   %tbody
-    = render :partial => "extensions/extension", :collection => @extensions, :locals => { :hide_screenshot => true, :hide_author => true }
+    = render :partial => "extensions/extension", :collection => @extensions, :locals => { :hide_author => true }
 
 %p.more
   %span= link_to "More Extensions", extensions_path
