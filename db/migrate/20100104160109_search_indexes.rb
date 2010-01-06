@@ -1,6 +1,6 @@
 class SearchIndexes < ActiveRecord::Migration
   def self.up
-    add_index "extensions", ["name", "description"], :name => "extensions_search", :unique => true
+    add_index "extensions", ["name", "description"], :name => "extensions_search"
   end
 
   def self.down
