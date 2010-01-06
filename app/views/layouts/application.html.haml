@@ -1,8 +1,7 @@
 !!! Strict
 %html
   %head
-    %title
-      = !@extension.blank? && !@extension.new_record? ? "- #{h(@extension.name)}" : ""
+    %title= @title
     = stylesheet_link_tag "screen"
     = javascript_include_tag :defaults
     %link{:href => "/extensions.atom", :rel => "alternate", :type => "application/atom+xml", :title => "Radiant Extension Registry"}

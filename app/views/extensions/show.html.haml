@@ -1,5 +1,5 @@
 - @title = h(@extension.name)
-- @title << " Extension" unless @title.match(/extension/)
+- @title << " extension" unless @title.match(/extension/)
 - @title << " - Radiant CMS"
 - h1 = h(@extension.name)
 - h1 << " #{link_to "Edit", edit_extension_path(@extension), :class => 'action'}" if can_edit?(@extension)

@@ -25,7 +25,7 @@ describe SessionsController do
       @result.should_receive(:successful?).and_return(true)
       post :create, :identity_url => "http://radiant.openid.com"
       response.should be_redirect
-      response.should redirect_to('/')
+      response.should redirect_to(author_url(author_id(:quentin)))
     end
     
     it "fails login and redirects" do
