@@ -601,7 +601,7 @@ body {
       #main table.index#authors.mini td.info .name {
         font-size: 120%; }
       #main table.index#authors.mini td.info .extensions_count {
-        font-size: 105%;
+        font-size: 95%;
         color: #999; }
 #main .full_size_avatar {
   float: right; }
@@ -617,13 +617,13 @@ body {
 #footer {
   border-top: 2px solid #f0f0f0;
   padding: 20px 0;
-  color: #bbb;
+  color: #aaa;
   font-size: 95%;
   margin: 15px 20px 0; }
   #footer p {
     margin-bottom: 0.5em; }
   #footer a {
-    color: #999; }
+    color: #888; }
     #footer a:hover {
       text-decoration: none;
       color: #666; }
