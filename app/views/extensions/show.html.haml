@@ -26,6 +26,17 @@
     %tr
       %th Download
       %td= link_to @extension.download_url, @extension.download_url
+  %tr
+    %th Record Created
+    %td
+      = @extension.created_at.to_date.to_s(:long)
+      = "(#{time_ago_in_words(@extension.created_at)} ago)"
+  - if @extension.updated_at > @extension.created_at + 1.day
+    %tr
+      %th Last Updated
+      %td
+        = @extension.updated_at.to_date.to_s(:long)
+        = "(#{time_ago_in_words(@extension.updated_at)} ago)"
 
 - if can_edit?(@extension)
   %p
