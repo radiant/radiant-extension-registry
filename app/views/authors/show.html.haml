@@ -1,4 +1,4 @@
-- @title= h(@author.full_name)
+- @title= "Author Profile: " + h(@author.full_name)
 - h1 = h(@author.full_name)
 - h1 << " #{link_to "Edit", edit_author_path(@author), :class => 'action'}" if can_edit?(@author)
 - @h1 = h1

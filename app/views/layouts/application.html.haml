@@ -1,8 +1,7 @@
 !!! Strict
 %html
   %head
-    %title 
-      Radiant CMS - Extension Registry
+    %title
       = !@extension.blank? && !@extension.new_record? ? "- #{h(@extension.name)}" : ""
     = stylesheet_link_tag "screen"
     = javascript_include_tag :defaults
@@ -57,7 +56,8 @@
         %p
           The <a href="http://github.com/radiant/radiant-extension-registry">source code</a> for this website is available on GitHub.
           Contact us on the <a href="http://radiantcms.org/mailing-list">Radiant CMS mailing list</a> if you are interested in contributing, or just send us a pull request.
-          Please direct bug reports, feature requests, and comments to the <a href="http://github.com/radiant/radiant-extension-registry/issues">registry issue tracker</a>.
-          Hosting is graciously provided by the kindfolks at <a href="http://avlux.net">AVLUX</a>.
+          Please direct bug reports, feature requests, and comments to the GitHub <a href="http://github.com/radiant/radiant-extension-registry/issues">issue tracker</a>.
+        %p
+          Hosting is graciously provided by the kind folks at <a href="http://avlux.net">AVLUX</a>.
         %p
           = "Copyright &copy; 2008&#8211;#{Date.today.year} #{ link_to 'John W. Long', 'http://wiseheartdesign.com' } and #{ link_to 'Sean Cribbs', 'http://seancribbs.com' }."
