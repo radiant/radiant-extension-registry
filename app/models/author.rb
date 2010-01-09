@@ -83,6 +83,10 @@ class Author < ActiveRecord::Base
     @activated
   end
   
+  def to_param
+    [id, full_name].join('-').strip.gsub(/[^a-z0-9]+/i, '-').downcase
+  end
+  
   def to_xml(options={}, &block)
     super(options.reverse_merge(:except => [:crypted_password, :salt, :identity_url, :remember_token, :remember_token_expires_at]), &block)
   end

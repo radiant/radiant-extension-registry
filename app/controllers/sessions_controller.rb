@@ -53,12 +53,12 @@ class SessionsController < ApplicationController
         current_author.remember_me unless current_author.remember_token?
         cookies[:auth_token] = { :value => self.current_author.remember_token , :expires => self.current_author.remember_token_expires_at }
       end
-      redirect_back_or_default author_url(current_author)
+      redirect_back_or_default profile_url
       flash[:notice] = 'You are now logged in.'
     end
     
     def failed_login(message)
-      redirect_to new_session_path
+      redirect_to login_url
       flash[:error] = message
     end
   

@@ -3,7 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy', :requirements => {:method => :delete}
   
-  map.search '/search', :controller => "search", :action => "search"
+  map.search '/search', :controller => "search", :action => "search", :requirements => {:method => :get}
+  
+  map.profile '/profile', :controller => "authors", :action => "profile"
   
   map.resources :authors
   map.resource  :session

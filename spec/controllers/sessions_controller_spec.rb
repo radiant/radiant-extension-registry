@@ -13,7 +13,7 @@ describe SessionsController do
     post :create, :login => 'quentin', :password => 'bad password'
     session[:author_id].should be_nil
     response.should be_redirect
-    response.should redirect_to(new_session_path)
+    response.should redirect_to(login_url)
   end
   
   describe "OpenID login" do
@@ -21,11 +21,12 @@ describe SessionsController do
       @result = mock('OpenID Result')
       controller.should_receive(:authenticate_with_open_id).and_yield(@result, 'http://radiant.openid.com')
     end
+    
     it "logs in and redirects" do
       @result.should_receive(:successful?).and_return(true)
       post :create, :identity_url => "http://radiant.openid.com"
       response.should be_redirect
-      response.should redirect_to(author_url(author_id(:quentin)))
+      response.should redirect_to(profile_url)
     end
     
     it "fails login and redirects" do
@@ -33,7 +34,7 @@ describe SessionsController do
       @result.should_receive(:message).and_return("Login failed")
       post :create, :identity_url => "http://radiant.openid.com"
       response.should be_redirect
-      response.should redirect_to(new_session_path)
+      response.should redirect_to(login_url)
     end
   end
   

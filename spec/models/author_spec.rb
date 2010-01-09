@@ -107,6 +107,10 @@ describe Author do
     authors(:quentin).to_xml.should_not match(/remember-token/)
   end
   
+  it "should have a friendly URL parameter" do
+    authors(:quentin).to_param.should match(/^\d+-quentin-randolf$/)
+  end
+  
   protected
   
     def create_author_via_model(options = {})

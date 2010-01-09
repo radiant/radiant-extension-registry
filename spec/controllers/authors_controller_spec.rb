@@ -81,6 +81,20 @@ describe AuthorsController do
       assigns[:authors].should_not be_blank
     end
   end
+  
+  describe "profile action" do
+    it "should render the :show template with the current author" do
+      login_as :quentin
+      get :profile
+      assigns[:author].should == authors(:quentin)
+      response.should render_template(:show)
+    end
+    
+    it "should redirect to root when not logged in" do
+      get :profile
+      response.should redirect_to(root_url)
+    end
+  end
 
   def create_author_via_post(options = {})
     post :create, :author => { :login => 'quire', :email => 'quire@example.com',
