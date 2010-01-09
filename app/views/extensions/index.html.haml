@@ -1,5 +1,5 @@
 - @title = "Radiant CMS Extensions"
-- @h1 = (@action == :index) ? "Extensions" : "All Extensions"
+- @h1 = (@controller.action_name == 'index') ? "Extensions" : "All Extensions"
 - @selected = :extensions
 
 - content_for :actions do
