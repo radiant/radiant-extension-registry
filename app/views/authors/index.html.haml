@@ -2,7 +2,7 @@
 - @h1 = "Extension Authors"
 - @selected = :authors
 
-.records_count= "#{@authors.size} of #{Author.extension_authors_count} authors"
+.records_count= record_count_for @authors, Author
 
 = pagination_for @authors
 

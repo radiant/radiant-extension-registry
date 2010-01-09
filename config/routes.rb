@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :authors
   map.resource  :session
-  map.resources :extensions
+  map.resources :extensions, :collection => { :all => :get }
   
   map.root :controller => "home", :action => "index"
 end

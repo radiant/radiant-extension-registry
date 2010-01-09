@@ -1,5 +1,5 @@
 class ExtensionsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :all, :show]
   before_filter :can_only_edit_own_extensions, :only => [:edit, :update, :destroy]
   
   # GET /extensions
@@ -10,6 +10,11 @@ class ExtensionsController < ApplicationController
       format.xml  { @extensions = Extension.find(:all, :order=>"updated_at DESC"); render :xml => @extensions }
       format.atom { @extensions = Extension.find(:all, :order=>"updated_at DESC") }
     end
+  end
+  
+  def all
+    @extensions = Extension.paginate :page => params[:page], :order => 'name', :per_page => Extension.count
+    render :action => :index
   end
   
   # GET /extensions/1

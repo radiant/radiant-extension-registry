@@ -12,7 +12,7 @@ describe ExtensionsController do
       response.should_not be_redirect
     end
     
-    it "should load a list of all extensions" do
+    it "should load a list of paginated extensions" do
       get :index
       assigns[:extensions].should_not be_blank
     end
@@ -25,6 +25,27 @@ describe ExtensionsController do
     it "should provide XML" do
       get :index, :format => 'xml'
       response.headers['Content-Type'].should match(/xml/)
+    end
+  end
+  
+  describe "all action" do
+    
+    it "should not require login" do
+      controller.should_not_receive(:access_denied)
+      get :all
+      response.should_not be_redirect
+    end
+    
+    describe "unpaginated" do
+      dataset :paginated
+      
+      it "should load a list of all extensions" do
+        get :all
+        assigns[:extensions].should_not be_blank
+        assigns[:extensions].size.should == Extension.count
+        response.should render_template(:index)
+      end
+      
     end
   end
   
