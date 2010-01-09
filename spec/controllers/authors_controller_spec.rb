@@ -51,13 +51,6 @@ describe AuthorsController do
     response.should render_template('show')
   end
   
-  it "should render an author as XML" do
-    get :show, :id => author_id(:quentin), :format => 'xml'
-    assigns[:author].should == authors(:quentin)
-    response.should be_success
-    response.body.should == authors(:quentin).to_xml
-  end
-  
   it "should allow editing of logged-in author's profile" do
     login_as(:quentin)
     get :edit, :id => author_id(:quentin)
@@ -81,11 +74,6 @@ describe AuthorsController do
     it "should render the index template" do
       get :index
       response.should render_template('index')
-    end
-    
-    it "should publish XML" do
-      get :index, :format => 'xml'
-      response.headers['Content-Type'].should match(/xml/)
     end
     
     it "should load a list of authors" do

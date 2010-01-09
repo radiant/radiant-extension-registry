@@ -3,22 +3,11 @@ class AuthorsController < ApplicationController
   before_filter :can_only_edit_self, :only => [:edit, :update]
 
   def index
-    finder_hash = { :conditions => ["extensions_count > 0"], :order => 'last_name, first_name, login' }
-    respond_to do |format|
-      format.html { @authors = Author.paginate finder_hash.merge(:page => params[:page]) }
-      format.xml {
-        @authors = Author.find :all, finder_hash
-        render :xml => @authors.to_xml
-      }
-    end
+    @authors = Author.paginate :page => params[:page], :conditions => ["extensions_count > 0"], :order => 'last_name, first_name, login'
   end
   
   def show
     @author = Author.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @author.to_xml }
-    end
   end
   
   def new
@@ -48,21 +37,11 @@ class AuthorsController < ApplicationController
   def update
     @author = Author.find(params[:id])
     if @author.update_attributes(params[:author])
-      respond_to do |format|
-        format.html do
-          flash[:notice] = "Profile updated."
-          redirect_to author_path(@author)
-        end
-        format.xml { head :accepted }
-      end
+      flash[:notice] = "Profile updated."
+      redirect_to author_path(@author)
     else
-      respond_to do |format|
-        format.html do
-          flash[:notice] = "There were errors saving the form."
-          render :action => "edit", :status => :unprocessible_entity
-        end
-        format.xml { render :xml => @author.errors.to_xml, :status => :unprocessible_entity }
-      end
+      flash[:notice] = "There were errors saving the form."
+      render :action => "edit", :status => :unprocessible_entity
     end
   end
   
@@ -71,10 +50,7 @@ class AuthorsController < ApplicationController
     def can_only_edit_self
       unless logged_in? && current_author.id.to_i == params[:id].to_i
         flash[:error] = "You cannot edit another author's profile."
-        respond_to do |format|
-          format.html { redirect_to authors_url }
-          format.xml { head :forbidden }
-        end
+        redirect_to authors_url
         false
       end
     end
