@@ -12,8 +12,19 @@ window.onload = function(){
 	
 	// show the lightbox
 	Event.observe($$('.screenshot a')[0], 'click', function(event) {
+		
+		// calculate the margin of the image to center it accurately
+		img = $$('.screenshot-zoom img')[0];
+		w = img.width;
+		img.style.marginLeft = "-"+w/2+"px";
+
+		// calculate the offset of the close button to position over top right of image
+		corner_close = $$('.screenshot-zoom > a')[0];
+		corner_close.style.marginLeft = w/2+"px";
+		
 		$$('.screenshot-zoom')[0].style.display = "block";
 		Event.stop(event);
+		
 	});
 
 	// hide the lightbox
