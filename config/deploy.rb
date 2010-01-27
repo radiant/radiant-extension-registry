@@ -12,9 +12,9 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-end
 
-task :after_update_code do
-  run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
-  run "ln -nfs #{deploy_to}/#{shared_dir}/public/system #{release_path}/public/system"
+  after "deploy:update_code", "deploy:link_database_config"
+  task :link_database_config, :except => {:no_release => true} do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
 end
