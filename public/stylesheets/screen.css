@@ -277,7 +277,7 @@ body {
     margin-bottom: 1em; }
   #main ul {
     padding-left: 2.25em; }
-  #main tt {
+  #main tt, #main pre, #main code {
     font-size: 90%;
     font-family: Monaco, 'Andale Mono', 'Lucida Console', monospace;
     background: #f0f0f0;
