@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20100128131541) do
     t.datetime "screenshot_updated_at"
   end
 
-  add_index "extensions", ["name", "description"], :name => "extensions_search", :unique => true
+  add_index "extensions", ["name", "description"], :name => "extensions_search"
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
