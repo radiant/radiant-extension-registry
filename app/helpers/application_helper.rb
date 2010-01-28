@@ -36,9 +36,9 @@ module ApplicationHelper
     will_paginate model, :previous_label => "&laquo; Prev", :next_label => "Next &raquo;"
   end
   
-  def record_count_for(array, klass)
+  def record_count_for(array, klass, count_method_symbol = :count)
     size = array.size
-    count = klass.count
+    count = klass.send count_method_symbol
     if count > size
       "#{size} of #{pluralize(count, klass.name.downcase)}"
     else
