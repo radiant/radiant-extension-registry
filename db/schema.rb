@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104160109) do
+ActiveRecord::Schema.define(:version => 20100128131541) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(:version => 20100104160109) do
     t.datetime "remember_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "website"
     t.string   "identity_url"
     t.text     "notes"
@@ -29,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20100104160109) do
     t.boolean  "available_for_hire",                      :default => false
     t.string   "company",                   :limit => 40
     t.string   "location",                  :limit => 40
+    t.string   "name"
   end
 
   create_table "dependencies", :force => true do |t|
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20100104160109) do
     t.datetime "screenshot_updated_at"
   end
 
-  add_index "extensions", ["name", "description"], :name => "extensions_search"
+  add_index "extensions", ["name", "description"], :name => "extensions_search", :unique => true
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"

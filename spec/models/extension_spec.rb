@@ -92,15 +92,15 @@ describe Extension do
   end
   
   it "should update the extension count on author when a new one is created" do
-    @author = authors(:sean)
+    @author = authors(:seancribbs)
     count = @author.extensions_count
-    3.times { |i| Extension.create!(extension_params(:name => i.to_s, :author_id => author_id(:sean))) }
+    3.times { |i| Extension.create!(extension_params(:name => i.to_s, :author_id => author_id(:seancribbs))) }
     @author.reload
     @author.extensions_count.should == count + 3
   end
   
   it "should decrement the extension count on author when an extension is deleted" do
-    @author = authors(:sean)
+    @author = authors(:seancribbs)
     count = @author.extensions_count
     @author.extensions.last.destroy
     @author.reload

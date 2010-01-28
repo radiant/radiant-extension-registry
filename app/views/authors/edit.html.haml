@@ -12,13 +12,9 @@
       %span Personal info
     .set
       %p
-        %label{"for"=>"author_first_name"}
-          First Name
-        = f.text_field :first_name, :class => "textbox", :size => 25
-      %p
-        %label{"for"=>"author_last_name"}
-          Last Name
-        = f.text_field :last_name, :class => "textbox", :size => 25
+        %label{"for"=>"author_name"}
+          Name
+        = f.text_field :name, :class => "textbox big", :size => 40
     .set
       %p
         %label{"for"=>"author_email"}

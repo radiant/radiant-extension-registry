@@ -16,7 +16,7 @@
       #navigation
         .account_links
           - if logged_in?
-            = "Welcome back #{ link_to current_author.full_name, profile_path, :class => (@selected == :profile ? "here" : nil) }!"
+            = "Welcome back #{ link_to h(current_author), profile_path, :class => (@selected == :profile ? "here" : nil) }!"
             &nbsp;
             = link_to "Logout", logout_url
           - else

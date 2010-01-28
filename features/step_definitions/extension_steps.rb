@@ -1,6 +1,6 @@
 Given /^an extension "([^\"]*)" owned by "([^\"]*)"(?: with a description of "([^\"]*)"|)$/ do |name, author, description|
   slug = name.downcase.gsub(" ", "-")
-  author = Author.find_by_first_name(author) || create_author(author)
+  author = Author.find_by_name(author) || create_author(author)
   attributes = {
     :name => name,
     :repository_url => "git://github.com/seancribbs/radiant-#{slug}-extension.git",

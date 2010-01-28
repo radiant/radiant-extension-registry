@@ -3,7 +3,7 @@ class ExtensionsDataset < Dataset::Base
   
   def load
     create_extension("page_attachments",
-      :author_id => author_id(:sean),
+      :author_id => author_id(:seancribbs),
       :description => "Supports uploaded files as “attachments” to pages.",
       :download_type => "Tarball",
       :download_url => "http://seancribbs.com/download/page_attachments.tar.gz",
@@ -28,11 +28,11 @@ class ExtensionsDataset < Dataset::Base
       :repository_url => nil
     )
     create_extension("bespin_editor",
-      :author_id => author_id(:john),
+      :author_id => author_id(:jlong),
       :description => "Bespin is an embeddable source code editor from Mozilla that provides robust syntax highlighting, indentation support, and other features.\n\nThe Bespin Editor Extension replaces all textareas in Radiant with the Bespin editor. Note that Bespin only works in Web browsers that support the HTML canvas tag (Safari, Firefox, and Opera)."
     )
     create_extension("help",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Provides Help documentation in a tab in the Radiant interface and provides a way for developers to easily include their own help information."
     )
   end

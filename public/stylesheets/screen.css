@@ -144,7 +144,7 @@ body {
       position: absolute;
       right: 20px;
       margin-top: 6px;
-      border-radius: !amount;
+      border-radius: 8px;
       -moz-border-radius: 8px;
       -webkit-border-radius: 8px;
       text-shadow: 2px 2px 2px rgba(107,115,123,.5); }
@@ -172,7 +172,7 @@ body {
     #navigation ul.primary_links li.here a:link, #navigation ul.primary_links li.here a:visited {
       background-color: #454f59;
       color: #f0f0f0;
-      border-radius: !amount;
+      border-radius: 20px;
       -moz-border-radius: 20px;
       -webkit-border-radius: 20px;
       background: -webkit-gradient(linear, left top, left bottom, from(#555d65), to(#757d85));
@@ -282,12 +282,12 @@ body {
     font-family: Monaco, 'Andale Mono', 'Lucida Console', monospace;
     background: #f0f0f0;
     padding: 2px 4px;
-    border-radius: !amount;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px; }
   #main p#notice, #main p#error {
     padding: 1em;
-    border-radius: !amount;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px; }
   #main p#notice {
@@ -307,7 +307,7 @@ body {
     border: 1px solid #ddd;
     padding: 5px 20px 20px;
     margin: 1em 0;
-    border-radius: !amount;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     overflow: hidden;
@@ -352,6 +352,8 @@ body {
       margin: 0.75em 1em 0 0; }
   #main form input.textbox {
     font-size: 130%; }
+    #main form input.textbox.big {
+      font-size: 180%; }
   #main form input.upload {
     font-size: 130%; }
   #main form select {
@@ -379,7 +381,7 @@ body {
     padding: 7px 25px 7px;
     font-size: 15px;
     position: relative;
-    border-radius: !amount;
+    border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     text-decoration: none;
@@ -429,7 +431,7 @@ body {
       color: white;
       font-weight: normal;
       padding: 6px 12px 7px;
-      border-radius: !amount;
+      border-radius: 6px;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px; }
       #main p.more span:after {
@@ -446,7 +448,7 @@ body {
     color: white;
     background-color: #454f59;
     padding: 6px 12px 7px;
-    border-radius: !amount;
+    border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     background: -webkit-gradient(linear, left top, left bottom, from(#555d65), to(#757d85));
@@ -467,7 +469,7 @@ body {
   #content .pagination span.current {
     color: white;
     background-color: #454f59;
-    border-radius: !amount;
+    border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     background: -webkit-gradient(linear, left top, left bottom, from(#555d65), to(#757d85));

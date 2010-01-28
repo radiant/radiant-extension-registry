@@ -3,43 +3,43 @@ class DemoDataset < Dataset::Base
   
   def load
     create_extension("help_use_cases",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Adds additional information to the Help extension for particular uses of the standard features."
     )
     create_extension("header_authorize",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Header Authorize creates alterations of the Login System to accept Header information for authorization. This allows you to use a central authentication system for multiple applications including Radiant."
     )
     create_extension("admin_breadcrumbs",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Adds breadcrumbs to the page edit interface (extended metadata) to provide links to the ancestor pages."
     )
     create_extension("vapor",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Manages URL redirects without the need to create useless pages. It will catch every request and test against the ‘catch URLs’ that you provide. It even allows you to redirect to another website."
     )
     create_extension("seo_help",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Provides if_meta and unless_meta tags with an inherit attribute to search page ancestors."
     )
     create_extension("blog",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Adds tags such as “r:authors” and “r:pages” (for the current author) and pulls in all features from the siblings_tags extension\n\nDevelopment was supported by Ignite Social Media"
     )
     create_extension("wordpress_link_saver",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Allows you to maintain imported content to the Radiant database from WordPress. Any existing links such as mysite.com/?p=123 will function properly as long as your pages table has recorded the wordpress_id\n\nSponsored by Braintree Payment Solutions"
     )
     create_extension("application_theme",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Provides extensions the ability to alter the Radiant interface without changing the underlying layout. You can use this to append (or completely replace) stylesheets or javascripts used by the interface.\n\nThis means that you can re-style it across the entire application, rather than just in your extension’s controllers or by peppering your view files with include_stylesheet."
     )
     create_extension("help_inline",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Provides additional help within the pages of the interface (rather than in a separate tab). This creates a needs_help preference for each user that, when selected, will show tips on using Radiant within the interface.\n\nIt requires that you install application_theme."
     )
     create_extension("dashboard",
-      :author_id => author_id(:jim),
+      :author_id => author_id(:saturnflyer),
       :description => "Provides an area to view recent activity in Radiant. The interface is extendable so that other exensions may add their own recent activity list."
     )
     

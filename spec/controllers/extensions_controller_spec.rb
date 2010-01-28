@@ -156,7 +156,7 @@ describe ExtensionsController do
   
   describe "edit action" do
     before :each do
-      login_as :sean
+      login_as :seancribbs
     end
     
     it "should require login" do
@@ -185,7 +185,7 @@ describe ExtensionsController do
   
   describe "update action" do
     before :each do
-      login_as :sean
+      login_as :seancribbs
       @extension = extensions(:page_attachments)
     end
     
@@ -241,7 +241,7 @@ describe ExtensionsController do
   
   describe "destroy action" do
     before :each do
-      login_as :sean
+      login_as :seancribbs
       @extension = extensions(:page_attachments)
     end
     

@@ -15,19 +15,19 @@
 %table.attributes{:style=>"width: 75%"}
   %tr
     %th Author
-    %td= link_to @extension.author.name, @extension.author
+    %td= link_to_author @extension.author
   - unless @extension.homepage.blank?
     %tr
       %th Website
-      %td= link_to @extension.homepage, @extension.homepage
+      %td= link_to h(@extension.homepage), @extension.homepage
   - unless @extension.repository_url.blank?
     %tr
       %th Repository
-      %td= link_to @extension.repository_url, @extension.repository_url
+      %td= link_to h(@extension.repository_url), @extension.repository_url
   - unless @extension.download_url.blank?
     %tr
       %th Download
-      %td= link_to @extension.download_url, @extension.download_url
+      %td= link_to h(@extension.download_url), @extension.download_url
   - unless @extension.supports_radiant_version.blank?
     %tr
       %th Supports

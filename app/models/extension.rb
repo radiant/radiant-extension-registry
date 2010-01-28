@@ -49,8 +49,13 @@ class Extension < ActiveRecord::Base
       xml.tag!("download-url", download_url)
       xml.tag!("install-type", install_type)
       xml.tag!("author") do
-        xml.tag!("first-name", author.first_name)
-        xml.tag!("last-name", author.last_name)
+        xml.tag!("name", author.name)
+        
+        # Depricated
+        first_name, last_name = author.name.to_s.split(" ", 2)
+        xml.tag!("first-name", first_name)
+        xml.tag!("last-name", last_name)
+        
         xml.tag!("email", author.email)
       end
     end

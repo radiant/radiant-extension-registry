@@ -1,7 +1,7 @@
 def create_author(name, attributes = {})
-  login = name.downcase.gsub(" ", "_")
+  login = name.split(" ", 2).first.downcase.gsub(" ", "_")
   attributes = {
-    :first_name => name,
+    :name => name,
     :login => login,
     :email => "#{login}@example.com",
     :password => "test",

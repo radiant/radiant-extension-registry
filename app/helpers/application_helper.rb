@@ -46,4 +46,8 @@ module ApplicationHelper
     end
   end
   
+  def link_to_author(author, *args)
+    link_to(h(author), author, *args)
+  end
+  
 end

@@ -16,7 +16,7 @@ class Author < ActiveRecord::Base
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :password, :password_confirmation, :identity_url,
-                  :first_name, :last_name, :website, :company, :location, :notes,
+                  :name, :website, :company, :location, :notes,
                   :available_for_hire
   
   has_many :extensions, :dependent => :destroy
@@ -84,18 +84,18 @@ class Author < ActiveRecord::Base
   end
   
   def to_param
-    [id, full_name].join('-').strip.gsub(/[^a-z0-9]+/i, '-').downcase
+    [id, name_or_login].join('-').strip.gsub(/[^a-z0-9]+/i, '-').downcase
   end
   
   def to_xml(options={}, &block)
     super(options.reverse_merge(:except => [:crypted_password, :salt, :identity_url, :remember_token, :remember_token_expires_at]), &block)
   end
   
-  def full_name
-    fn = [first_name, last_name].compact.join ' '
-    fn.empty? ? login : fn
+  def name_or_login
+    name.blank? ? login : name
   end
-  alias :name :full_name
+  alias to_s name_or_login
+  alias to_str name_or_login
   
   protected
     
