@@ -1,6 +1,7 @@
 class ExtensionsController < ApplicationController
   before_filter :login_required, :except => [:index, :all, :show]
-  before_filter :can_only_edit_own_extensions, :only => [:edit, :update, :destroy]
+  before_filter :assign_extension, :only => [:show, :edit, :update, :destroy]
+  before_filter :require_correct_permissions, :only => [:edit, :update, :destroy]
   
   # GET /extensions
   # GET /extensions.atom
@@ -20,7 +21,6 @@ class ExtensionsController < ApplicationController
   # GET /extensions/1
   # GET /extensions/1.xml
   def show
-    @extension = Extension.find(params[:id])  
     respond_to do |format|
       format.html
       format.xml { render :xml => @extension }
@@ -34,7 +34,6 @@ class ExtensionsController < ApplicationController
   
   # GET /extensions/1/edit
   def edit
-    @extension = Extension.find(params[:id])
   end
   
   # POST /extensions
@@ -58,7 +57,6 @@ class ExtensionsController < ApplicationController
   # PUT /extensions/1
   # PUT /extensions/1.xml
   def update
-    @extension = Extension.find(params[:id])
     respond_to do |format|
       if @extension.update_attributes(params[:extension])
         format.html { flash[:notice] = 'Updated successfully!'; redirect_to extension_url(@extension) }
@@ -75,7 +73,6 @@ class ExtensionsController < ApplicationController
   # DELETE /extensions/1
   # DELETE /extensions/1.xml
   def destroy
-    @extension = Extension.find(params[:id])
     if @extension.destroy
       respond_to do |format|
         format.html { flash[:notice] = "Record deleted!"; redirect_to extensions_url }
@@ -92,9 +89,13 @@ class ExtensionsController < ApplicationController
   end
   
   protected
-  
-    def can_only_edit_own_extensions
-      unless current_author.extension_ids.map(&:to_i).include?(params[:id].to_i)
+    
+    def assign_extension
+      @extension = Extension.find(params[:id])
+    end
+    
+    def require_correct_permissions
+      unless can_edit?(@extension)
         respond_to do |format|
           format.html do
             flash[:error] = "You can only edit your own extensions."

@@ -21,3 +21,16 @@ Given /^authors (".*")$/ do |authors|
     create_author(name)
   end
 end
+
+Given /^I am logged in as "([^\"]*)"$/ do |name|
+  Given "I am on the login page"
+  @current_user = create_author(name)
+  fill_in("login", :with => @current_user.login)
+  fill_in("password", :with => @current_user.password)
+  click_button("Login")
+end
+
+Given /^I am a manager$/ do
+  @current_user.manager = true
+  @current_user.save!
+end

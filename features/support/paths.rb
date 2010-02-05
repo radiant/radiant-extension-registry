@@ -16,6 +16,14 @@ module NavigationHelpers
       '/extensions'
     when /the authors page/
       '/authors'
+    when /the login page/
+      '/login'
+    when /the extension listing/
+      '/extensions'
+    when /the new extension page/
+      '/extensions/new'
+    when /the all extensions page/
+      '/extensions/all'
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

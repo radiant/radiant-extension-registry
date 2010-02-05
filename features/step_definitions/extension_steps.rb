@@ -1,4 +1,8 @@
-Given /^an extension "([^\"]*)" owned by "([^\"]*)"(?: with a description of "([^\"]*)"|)$/ do |name, author, description|
+Given /^I am viewing all extensions$/ do
+  Given "I am on the all extensions page"
+end
+
+Given /^(?:there is |)an extension "([^\"]*)" owned by "([^\"]*)"(?: with a description of "([^\"]*)"|)$/ do |name, author, description|
   slug = name.downcase.gsub(" ", "-")
   author = Author.find_by_name(author) || create_author(author)
   attributes = {

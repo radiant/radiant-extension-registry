@@ -30,7 +30,7 @@
       = f.text_field :repository_url, :size => 50, :class => "textbox"
       %span.hint The URL of the Git or Subversion repository
     %p
-      %label{:for => 'extension_type'} Type
+      %label{:for => 'extension_repository_type'} Type
       = f.select :repository_type, repository_types_for_select, { :include_blank => true }
   .set
     %p
