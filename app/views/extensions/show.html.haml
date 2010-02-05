@@ -44,6 +44,12 @@
         = @extension.updated_at.to_date.to_s(:long)
         = "(#{time_ago_in_words(@extension.updated_at)} ago)"
 
+- unless @extension.installation_steps.blank?        
+  %h2 Installation
+  %p.installation 
+    = @extension.installation_steps  
+   
+
 - if can_edit?(@extension)
   %p
     = link_to(image_tag("trash.png", :class => "icon") + " Delete", extension_path(@extension), :method => :delete, :confirm => "Are you sure you want to delete this extension?", :class => "button")
