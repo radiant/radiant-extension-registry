@@ -4,7 +4,9 @@ atom_feed do |feed|
   for extension in @extensions
     feed.entry(extension) do |entry|
       entry.title(extension.name)
-      entry.summary(extension.description, :type => 'text')
+      entry.summary(:type => :xhtml) do |summary|
+        xml.text!(sanitize(textilize(extension.description)))
+      end
       entry.author do |author|
         author.name(extension.author.name_or_login)
       end
