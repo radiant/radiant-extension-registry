@@ -277,7 +277,7 @@ body {
     margin-bottom: 1em; }
   #main ul {
     padding-left: 2.25em; }
-  #main tt, #main pre, #main code {
+  #main tt, #main code {
     font-size: 90%;
     font-family: Monaco, 'Andale Mono', 'Lucida Console', monospace;
     background: #f0f0f0;
@@ -285,6 +285,19 @@ body {
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px; }
+  #main pre {
+    background: #f0f0f0;
+    font-family: Monaco, 'Andale Mono', 'Lucida Console', monospace;
+    margin: 1em 0;
+    padding: 20px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px; }
+    #main pre code {
+      background: none;
+      font-size: 100%;
+      display: block;
+      padding: 0; }
   #main p#notice, #main p#error {
     padding: 1em;
     border-radius: 5px;
@@ -485,21 +498,6 @@ body {
     margin-right: 0.5em; }
   #content .pagination .next_page {
     margin-left: 0.5em; }
-  #content p.installation{    
-    width: 75%;  
-    color: #333;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    border: 1px solid #d3d3d3;
-    padding: 7px 25px 7px;
-    font-size: 15px;
-    position: relative;
-    border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    text-decoration: none;
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e8e8e8));
-    background: -moz-linear-gradient(left top, left bottom, from(white), to(#e8e8e8)); } 
 
 #main table.index#extensions {
   border-bottom: 1px solid #e5e5e5;
@@ -540,6 +538,8 @@ body {
       font-size: 130%; }
     #main table.index#extensions.mini .description {
       font-size: 105%; }
+#main div.installation {
+  margin-bottom: 3em; }
 #main div.screenshot {
   float: right;
   margin: 0 0 1em 1em; }

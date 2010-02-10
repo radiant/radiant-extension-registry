@@ -9,50 +9,54 @@
 .screenshot
   = link_to image_tag(@extension.screenshot.url(:medium)), @extension.screenshot.url(:large)
 
-.big{:style=>"width: 75%"}
-  = sanitize(textilize(@extension.description.to_s))
+%div{:style=>"width: 75%"}
 
-%table.attributes{:style=>"width: 75%"}
-  %tr
-    %th Author
-    %td= link_to_author @extension.author
-  - unless @extension.homepage.blank?
+  .big
+    = sanitize(textilize(@extension.description.to_s))
+
+  %table.attributes
     %tr
-      %th Website
-      %td= link_to h(@extension.homepage), @extension.homepage
-  - unless @extension.repository_url.blank?
+      %th Author
+      %td= link_to_author @extension.author
+    - unless @extension.homepage.blank?
+      %tr
+        %th Website
+        %td= link_to h(@extension.homepage), @extension.homepage
+    - unless @extension.repository_url.blank?
+      %tr
+        %th Repository
+        %td= link_to h(@extension.repository_url), @extension.repository_url
+    - unless @extension.download_url.blank?
+      %tr
+        %th Download
+        %td= link_to h(@extension.download_url), @extension.download_url
+    - unless @extension.supports_radiant_version.blank?
+      %tr
+        %th Supports
+        %td= "Radiant #{h @extension.supports_radiant_version}"
     %tr
-      %th Repository
-      %td= link_to h(@extension.repository_url), @extension.repository_url
-  - unless @extension.download_url.blank?
-    %tr
-      %th Download
-      %td= link_to h(@extension.download_url), @extension.download_url
-  - unless @extension.supports_radiant_version.blank?
-    %tr
-      %th Supports
-      %td= "Radiant #{h @extension.supports_radiant_version}"
-  %tr
-    %th Record Created
-    %td
-      = @extension.created_at.to_date.to_s(:long)
-      = "(#{time_ago_in_words(@extension.created_at)} ago)"
-  - if @extension.updated_at > @extension.created_at + 1.day
-    %tr
-      %th Last Updated
+      %th Record Created
       %td
-        = @extension.updated_at.to_date.to_s(:long)
-        = "(#{time_ago_in_words(@extension.updated_at)} ago)"
-
-- unless @extension.installation_steps.blank?        
-  %h2 Installation
-  %p.installation 
-    = @extension.installation_steps  
-   
-
-- if can_edit?(@extension)
-  %p
-    = link_to(image_tag("trash.png", :class => "icon") + " Delete", extension_path(@extension), :method => :delete, :confirm => "Are you sure you want to delete this extension?", :class => "button")
+        = @extension.created_at.to_date.to_s(:long)
+        = "(#{time_ago_in_words(@extension.created_at)} ago)"
+    - if @extension.updated_at > @extension.created_at + 1.day
+      %tr
+        %th Last Updated
+        %td
+          = @extension.updated_at.to_date.to_s(:long)
+          = "(#{time_ago_in_words(@extension.updated_at)} ago)"
+  
+  .installation
+    %h3 Installation
+    %p
+      At the command prompt, in the root of your Radiant project, type:
+    = "<pre><code>script/extension install #{h(@extension.name)}</code></pre>"
+    - unless @extension.additional_installation_instructions.blank?
+      = sanitize(textilize(@extension.additional_installation_instructions))
+  
+  - if can_edit?(@extension)
+    %p
+      = link_to(image_tag("trash.png", :class => "icon") + " Delete", extension_path(@extension), :method => :delete, :confirm => "Are you sure you want to delete this extension?", :class => "button")
 
 .screenshot-zoom
   = image_tag(@extension.screenshot.url(:large))

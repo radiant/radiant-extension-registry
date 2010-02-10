@@ -46,9 +46,20 @@
     margin-bottom: 1em
   ul
     padding-left: 2.25em
-  tt, pre, code
+  tt, code
     font-size: 90%
     font-family= !fixed_font_family
     background: #f0f0f0
     padding: 2px 4px
     +round-corners
+  pre
+    background: #f0f0f0
+    font-family= !fixed_font_family
+    margin: 1em 0
+    padding: 20px
+    +round-corners(10px)
+    code
+      background: none
+      font-size: 100%
+      display: block
+      padding: 0

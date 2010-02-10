@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100205021715) do
+ActiveRecord::Schema.define(:version => 20100205072216) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20100205021715) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description",              :limit => 1000
+    t.string   "description",                          :limit => 1000
     t.string   "homepage"
     t.string   "current_version"
     t.string   "supports_radiant_version"
@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(:version => 20100205021715) do
     t.string   "screenshot_content_type"
     t.integer  "screenshot_file_size"
     t.datetime "screenshot_updated_at"
+    t.string   "additional_installation_instructions", :limit => 1000
   end
 
-  add_index "extensions", ["name", "description"], :name => "extensions_search", :unique => true
+  add_index "extensions", ["name", "description"], :name => "altered_extensions_search", :unique => true
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
