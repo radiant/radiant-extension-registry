@@ -60,13 +60,14 @@
           Hosting is graciously provided by the kind folks at <a href="http://avlux.net">AVLUX</a>.
         %p
           = "Copyright &copy; 2008&#8211;#{Date.today.year} #{ link_to 'John W. Long', 'http://wiseheartdesign.com' } and #{ link_to 'Sean Cribbs', 'http://seancribbs.com' }."
-    :plain
+    :javascript
       <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
       </script>
       <script type="text/javascript">
-      try {
-      var pageTracker = _gat._getTracker("UA-301205-6");
-      pageTracker._trackPageview();
-      } catch(err) {}</script>
+        try {
+          var pageTracker = _gat._getTracker("UA-301205-6");
+          pageTracker._trackPageview();
+        } catch(err) {}
+      </script>
