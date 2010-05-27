@@ -48,6 +48,7 @@ class Extension < ActiveRecord::Base
       xml.tag!("download-type", download_type)
       xml.tag!("download-url", download_url)
       xml.tag!("install-type", install_type)
+      xml.tag!("supports-radiant-version", supports_radiant_version)
       xml.tag!("author") do
         xml.tag!("name", author.name)
         
