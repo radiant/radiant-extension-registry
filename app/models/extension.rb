@@ -28,7 +28,11 @@ class Extension < ActiveRecord::Base
   end
   
   def install_type
-    repository_type || download_type
+    unless repository_type.empty?
+      repository_type
+    else
+      download_type
+    end
   end
   
   def to_param
