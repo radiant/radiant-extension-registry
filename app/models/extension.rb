@@ -28,7 +28,7 @@ class Extension < ActiveRecord::Base
   end
   
   def install_type
-    unless repository_type.empty?
+    unless repository_type.blank?
       repository_type
     else
       download_type
