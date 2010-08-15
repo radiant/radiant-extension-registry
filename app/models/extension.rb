@@ -19,10 +19,29 @@ class Extension < ActiveRecord::Base
   after_create  :update_cached_fields
   after_destroy :update_cached_fields
   
-  def self.search(query, page)
-    paginate :conditions => ['name like ? or description like ?', "%#{query}%", "%#{query}%"], :page => page, :order => 'name'
+  define_index do
+    indexes :name
+    indexes :description
+    indexes author.name
+    indexes author.company
+
+    has :supports_radiant_version, :facet =>true
+    has 'CRC32(supports_radiant_version)', :as=>:f_supports_radiant_version, :type=>:integer
+    has :created_at, :updated_at
+    
+    set_property :field_weights => {
+      :name => 3
+    }
   end
   
+  sphinx_scope(:best_first) { 
+    {:order => '@relevance DESC'}
+  }
+
+  sphinx_scope(:by_radiant_version) { |version|
+    {:with => {:f_supports_radiant_version => version.to_crc32}}
+  }
+
   def self.per_page
     25
   end
