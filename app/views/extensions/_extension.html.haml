@@ -1,7 +1,7 @@
 %tr[extension]
   - unless defined? hide_screenshot && hide_screenshot
     %td.screenshot
-      = image_tag extension.screenshot.url(:thumb)
+      = image_tag extension.screenshot.url(:thumb), :width=>120
   %td.info
     .name
       = link_to extension.name, extension

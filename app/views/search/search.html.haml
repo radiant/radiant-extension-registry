@@ -1,19 +1,46 @@
-- @title = "Search Radiant CMS Extensions"
-- @h1 = "Search"
+- @title = 'Search radiant extensions'
+- @h1 = ''
 - @selected = :search
 
-- form_tag '/search', :method => :get, :id => "search" do
-  %p{:style=>"margin-bottom: 2em"}
-    = text_field_tag "q", @query, :size => 20, :class => 'textbox'
-    %button{:type=>"submit"} Go
+- content_for :head do
+  - if results?
+    %h1= "#{@extensions.size} of #{pluralize(@extensions.total_entries, "result")} for &#8220;#{@query}&#8221;"
+  - else
+    %h1= @title
+  - form_tag "/search", :method => "get", :id => "search" do
+    %p
+      %label{:for=>"q"} Search
+      %input.search{:name=>"q", :id=>"q", :type=>"text", :value=>@query}/
 
 - if results?
   - if @extensions.total_entries > 0
-    .records_count= "#{@extensions.size} of #{pluralize(@extensions.total_entries, "result")} for &#8220;#{@query}&#8221;"
-    = pagination_for @extensions
     %table.index#extensions{:style => "clear: both"}
       %tbody
-        = render :partial => "extensions/extension", :collection => @extensions
+        = render :partial => "extension", :collection => @extensions
     = pagination_for @extensions
-  - else
-    .records_count= "0 results for &#8220;#{@query}&#8221;"
+
+  - content_for :sidebar do
+    - for key, title in facet_order 
+      - if @facets.key?(key)
+        - values = @facets[key]
+        %h2= title
+        %table{:style => "width:100%"}
+          %colgroup
+            %col{:width=>40}
+            %col
+          - if request.params[key]
+            %tr
+              %td= link_to "X", request.params.merge({ key=>nil, :page=>1}), :rel=>:nofollow
+              %td= request.params[key]
+          - else
+            - for vkey, count in values.sort{|a, b| h(a[0])<=>h(b[0]) }
+              %tr
+                %td= count
+                - if vkey.blank?
+                  %td
+                    %em undefined
+                - else
+                  %td= link_to h(vkey), request.params.merge({ key=>vkey, :page=>1}), :rel=>:nofollow
+
+- else
+  %p Search radiant extensions by name or description, author name or company.

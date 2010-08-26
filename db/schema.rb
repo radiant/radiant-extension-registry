@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20100205072216) do
     t.string   "additional_installation_instructions", :limit => 1000
   end
 
-  add_index "extensions", ["name", "description"], :name => "altered_extensions_search", :unique => true
+  add_index "extensions", ["name", "description"], :name => "extensions_search"
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"

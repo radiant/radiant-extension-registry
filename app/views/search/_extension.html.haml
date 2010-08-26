@@ -1,0 +1,19 @@
+%tr[extension]
+  - unless defined? hide_screenshot && hide_screenshot
+    %td.screenshot
+      = image_tag extension.screenshot.url(:thumb), :width=>120
+  %td.info
+    .name
+      = link_to extension.excerpts.name, extension
+      - unless defined? hide_edit && hide_edit
+        = link_to "Edit", edit_extension_path(extension), :class=>"action" if can_edit?(extension)
+    .description= extension.excerpts.description
+    .meta
+      - unless extension.supports_radiant_version.blank?
+        %span.supports
+          Supports
+          = h extension.supports_radiant_version
+      - unless defined? hide_author && hide_author
+        %span.authored
+          by
+          = link_to_author extension.author
