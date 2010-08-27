@@ -16,5 +16,6 @@ namespace :deploy do
   after "deploy:update_code", "deploy:link_database_config"
   task :link_database_config, :except => {:no_release => true} do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/production.sphinx.conf #{release_path}/config/production.sphinx.conf"
   end
 end
