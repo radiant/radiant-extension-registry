@@ -16,13 +16,13 @@ class ExtensionsController < ApplicationController
     
     respond_to do |format|
       format.html { @extensions = Extension.paginate :page => params[:page], :order => ORDER_BY[@order], :include => :author }
-      format.xml  { @extensions = Extension.find(:all, :order=>"updated_at DESC"); render :xml => @extensions }
-      format.atom { @extensions = Extension.find(:all, :order=>"updated_at DESC") }
+      format.xml  { @extensions = Extension.find(:all, :order=>"updated_at DESC", :include => :author); render :xml => @extensions }
+      format.atom { @extensions = Extension.find(:all, :order=>"updated_at DESC", :include => :author) }
     end
   end
   
   def all
-    @extensions = Extension.paginate :page => params[:page], :order => 'name', :per_page => Extension.count
+    @extensions = Extension.paginate :page => params[:page], :order => 'name', :per_page => Extension.count, :include => :author
     render :action => :index
   end
   
