@@ -2,12 +2,20 @@ class ExtensionsController < ApplicationController
   before_filter :login_required, :except => [:index, :all, :show]
   before_filter :assign_extension, :only => [:show, :edit, :update, :destroy]
   before_filter :require_correct_permissions, :only => [:edit, :update, :destroy]
+
+  ORDER_BY = {
+    'name' => 'name',
+    'updated' => 'updated_at DESC'
+  }
   
   # GET /extensions
   # GET /extensions.atom
   def index
+    @order = params[:order]
+    @order ||= 'name'
+    
     respond_to do |format|
-      format.html { @extensions = Extension.paginate :page => params[:page], :order => 'name' }
+      format.html { @extensions = Extension.paginate :page => params[:page], :order => ORDER_BY[@order], :include => :author }
       format.xml  { @extensions = Extension.find(:all, :order=>"updated_at DESC"); render :xml => @extensions }
       format.atom { @extensions = Extension.find(:all, :order=>"updated_at DESC") }
     end
