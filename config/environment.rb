@@ -16,7 +16,7 @@ Rails::Initializer.run do |config|
   
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "RedCloth", :version => ">=4.2.2"
-  config.gem "paperclip", :version => ">=2.3.1.1"
+  config.gem "paperclip", :version => "=2.3.1.1"
   config.gem "will_paginate", :version => "~> 2.3.11", :source => "http://gemcutter.org"
   config.gem "thinking-sphinx", :version => "1.3.18", :lib => "thinking_sphinx", :source => "http://gemcutter.org"
   config.gem "i18n", :version => "0.4.2"
